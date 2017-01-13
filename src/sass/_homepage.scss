@@ -1,0 +1,45 @@
+/*
+预处理
+	sass
+	less
+	stylus
+
+	编译Sass文件所需工具:
+		gulp
+		gulp-sass
+*/
+
+@import 'common.scss';
+@import 'reset.scss';
+//变量
+$mainColor: #f60;
+
+.clearfix::after{
+	content:'';
+	display:block;
+	clear:both;
+}
+body{color:#333;}
+
+// 嵌套
+.header{
+	.logo{
+	 	float:left;
+	 	img{width:80px;height:80px;border-radius: 50%;}
+	}
+	nav.main-nav{
+		float:left;margin:20px 0 0 20px;
+		ul{
+			li{
+				float:left;padding:0 10px;line-height:2;
+				&:last-child{
+					a{
+						color:$mainColor;
+						&:hover{color:$mainColor;}
+					}
+				}
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,11 @@
+
+@import 'common.scss';
+@import 'reset.scss';
+
+.logo{
+	width:100%;padding:20px 0;
+	a{background:url('../img/logo.png') no-repeat;width:280px;height:60px}
+}
+.contain{ 
+	width:100%;margin:0 auto;height:660px; backgound:#fff;
+} 

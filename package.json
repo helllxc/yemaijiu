@@ -1,0 +1,29 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "用于学习git, sass和项目构建等操作",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "node-sass": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.coding.net:khunlin/project.git"
+  },
+  "keywords": [
+    "git",
+    "sass",
+    "gulp"
+  ],
+  "author": "lxc",
+  "license": "ISC"
+}
