@@ -1,0 +1,101 @@
+@import 'common.scss';
+@import 'reset.scss';
+
+.logo{
+	border-bottom: 2px solid #bc0e31;
+	.swap{
+		padding: 20px 0;
+		h2{overflow: hidden}
+		img{height:53px;}
+	}
+}
+.content{
+	.swap{padding:20px 0;overflow: hidden}
+	.register{
+		overflow: hidden; padding: 20px 10px;width: 378px; border: 1px solid #d2d2ce; background: #f8f8f5;
+		h2{margin: 0 12px 18px 12px;padding-bottom: 15px;border-bottom: 1px solid #d2d2ce;text-align: left;font-size: 14px}
+		>a{
+			position: relative;top: -38px;left: 157px;color: #06c;  font-size: 12px;
+			&:hover{text-decoration: underline}
+		}
+		form{
+			.input-area{
+				li{
+					padding:7px 0;
+					overflow: hidden;
+					label{float: left;width: 90px;hight: 38px;color: #363636;text-align: right;font-size: 14px;line-height: 38px}
+					input{
+						padding: 0 5px;width: 270px;height: 38px;color: #666;font-size: 12px;line-height: 38px;
+					}
+					.phone{
+						background: #fff url("../img/login/hint_logname2.gif") no-repeat 8px 15px;
+					}
+					#idenity,#message{
+						width:165px;
+					}
+					.idenity{background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px;}
+					.password{
+						background: #fff url("../img/login/hint_password.gif") no-repeat 8px 15px
+					}
+					.confirm{
+						background: #fff url("../img/login/hint_password2.gif") no-repeat 8px 15px
+					}
+					.text{
+						display:inline-block;width:100px;height: 40px;line-height: 40px;text-align: center;cursor: pointer;background:rgb(244, 95, 3);color:#ffffff;font-size:12px;
+						position: relative; left: -7px;
+						&:hover{text-decoration: underline}
+					}
+					.active{background:#ffffe8;border: 1px solid orange}
+					.texting{background:#fff};
+					.error_hint{background: url("../img/login/icon_error.gif") no-repeat;color:red;display:none;font-size:12px;padding-left:16px;margin:10px 0 0 100px;};
+					.vip{position: absolute;top: 0;left: 0;width: 14px;height: 14px;}
+
+					.accept{
+						position: relative;display: block;margin-left: 88px;padding: 8px 0 13px 0;width: 290px;height: 14px;line-height: 14px;
+						span{
+							position: absolute;top: 2px;left: 17px;width: 120px;height: 14px;text-align: left;line-height: 14px;font-size:12px;
+						}
+						a{position: absolute;top: 3px;left: 140px;width: 130px;height: 14px;color: #06c;text-align: left;line-height: 14px;}
+					}
+					#vip{
+						position: relative;display: inline-block;margin: 8px 0 9px 88px;width: auto;height: 14px;line-height: 14px;margin-left: 80px;
+						span{
+							position: absolute;top: 2px;left: 17px;width: 120px;height: 14px;text-align: left;line-height: 14px;font-size:12px;
+						}
+					}
+					.register_btn{
+						display: block;margin-right: 0;margin-left: 10px;width: 355px;height: 45px;line-height: 45px;text-align: center;border: 0;background: #bb0e30;  color: #fff;font-weight: bold;font-size: 16px;cursor: pointer;
+					}
+				}
+			}
+		}
+	};
+	.login-note{background: url("../img/login/register_ads.jpg");width:790px;height:480px}
+}
+.footer{
+	margin-top: 20px;margin-right: auto;margin-left: auto;padding-top: 10px;border-top: solid 1px #ccc;
+	.foot-license{
+		height: 20px;color: #999;text-align: center;line-height: 20px;padding:5px 0;
+		span{
+			height:20px;display: inline-block;
+		}
+		.top100{background:url("../img/login/bg_header2.png") no-repeat -180px -230px;padding-left: 22px;}
+		.year18{background:url("../img/login/bg_header2.png") no-repeat -180px -250px;padding-left: 22px;} ;
+		.shzxw{background: url("../img/login/bg_header2.png") no-repeat -180px -270px;padding-left: 22px;}
+		.shgs{background: url("../img/login/bg_header2.png") no-repeat -180px -290px;padding-left: 22px;}
+	}
+	.copyRight{
+		color: #999;text-align: center;line-height: 30px;
+		>a{
+			color:#999;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+		.cx{
+			overflow: hidden;margin: 0 auto;width: 356px;
+			span{margin-left: 10px;display: inline;}
+		}
+	}
+}
+

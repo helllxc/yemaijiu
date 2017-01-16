@@ -53,56 +53,160 @@ h2 {
   height: 53px;
 }
 
-.content .swap {
-  padding: 20px 0;
+.wrapper .swap {
+  padding: 30px 0;
 }
 
-.content .login {
-  overflow: hidden;
-  padding: 20px 10px;
-  width: 378px;
-  border: 1px solid #d2d2ce;
-  background: #f8f8f5;
-}
-
-.content .login h2 {
-  margin: 0 12px 18px 12px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #d2d2ce;
-  text-align: left;
-  font-size: 14px;
-}
-
-.content .login a {
-  position: relative;
-  top: -38px;
-  left: 127px;
-  color: #06c;
-}
-
-.content .login form .input-area label {
+.wrapper .swap .ads {
   float: left;
-  width: 90px;
-  ight: 38px;
-  color: #363636;
-  text-align: right;
-  font-size: 14px;
-  line-height: 38px;
+  width: 770px;
+  text-align: center;
 }
 
-.content .login form .input-area input {
-  padding: 0 5px;
-  width: 270px;
-  height: 38px;
+.wrapper .swap .login {
+  border: 1px solid #ddd;
+  background: #fff;
+  opacity: 1;
+}
+
+.wrapper .swap .login .login-list {
+  padding: 70px 50px 0px 35px;
+  background: url("../img/login/login_text.gif") no-repeat 30px 25px;
+}
+
+.wrapper .swap .login .login-list dl {
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.wrapper .swap .login .login-list dl dd {
+  margin: 0;
+}
+
+.wrapper .swap .login .login-list dl .logon {
+  line-height: 20px;
+  width: 300px;
+  height: 20px;
+  position: relative;
+  margin-top: 6px;
+}
+
+.wrapper .swap .login .login-list dl .textarea {
   color: #666;
-  font-size: 12px;
-  line-height: 38px;
-  background: #fff url("../img/login/hint_logname2.gif") no-repeat 8px 15px;
-  color: #f45f03;
+  height: 30px;
+  line-height: 32px;
+  padding: 0 5px;
+  width: 288px;
+  font-size: 14px;
 }
 
-.content .login-note {
-  background: url("../img/login/register_ads.jpg");
-  width: 790px;
-  height: 480px;
+.wrapper .swap .login .login-list dl .email {
+  background: url("../img/login/hint_logname.gif") no-repeat 5px 8px;
+}
+
+.wrapper .swap .login .login-list dl .password {
+  background: url("../img/login/hint-password.gif") no-repeat 5px 8px;
+}
+
+.wrapper .swap .login .login-list dl .btn {
+  width: 300px;
+  height: 40px;
+  border: none;
+  display: block;
+  color: #fff;
+  font-family: 'Microsoft Yahei';
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.wrapper .swap .login .login-list .forget {
+  padding: 2px 0;
+}
+
+.wrapper .swap .login .login-list .forget a {
+  color: #3472B2;
+}
+
+.wrapper .swap .login .partner {
+  color: #999;
+  padding: 0 30px 10px 30px;
+  _width: 260px;
+  border-top: dotted 1px #ccc;
+  margin-top: 15px p;
+  margin-top-line-height: 32px;
+  margin-top-margin-bottom: 2px;
+}
+
+.wrapper .swap .login .partner a {
+  width: 96px;
+  height: 30px;
+  text-indent: -10000px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.footer {
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+  border-top: solid 1px #ccc;
+}
+
+.footer .foot-license {
+  height: 20px;
+  color: #999;
+  text-align: center;
+  line-height: 20px;
+  padding: 5px 0;
+}
+
+.footer .foot-license span {
+  height: 20px;
+  display: inline-block;
+}
+
+.footer .foot-license .top100 {
+  background: url("../img/login/bg_header2.png") no-repeat -180px -230px;
+  padding-left: 22px;
+}
+
+.footer .foot-license .year18 {
+  background: url("../img/login/bg_header2.png") no-repeat -180px -250px;
+  padding-left: 22px;
+}
+
+.footer .foot-license .shzxw {
+  background: url("../img/login/bg_header2.png") no-repeat -180px -270px;
+  padding-left: 22px;
+}
+
+.footer .foot-license .shgs {
+  background: url("../img/login/bg_header2.png") no-repeat -180px -290px;
+  padding-left: 22px;
+}
+
+.footer .copyRight {
+  color: #999;
+  text-align: center;
+  line-height: 30px;
+}
+
+.footer .copyRight > a {
+  color: #999;
+}
+
+.footer .copyRight > a:hover {
+  text-decoration: underline;
+}
+
+.footer .copyRight .cx {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 356px;
+}
+
+.footer .copyRight .cx span {
+  margin-left: 10px;
+  display: inline;
 }

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+	<link rel="stylesheet" href="css/register.css">
+	<script src = 'js/jquery-3.1.1.js'></script>
+	<script>
+        $(function(){
+            //最后一个checkbox默认勾上
+            $(':checkbox')[1].checked = true;
+            //遍历获取class属性
+			var arr = []
+            $('input:lt(5)').each(function(idx,item){
+                arr.push($(item).attr("class"))
+			})
+            //当input获得焦点和失去焦点时，class改变;
+			$('input:lt(5)').on('focus',function(){
+				$('input:lt(5)').each(function(idx,item){
+				    if($(item).val()==''){
+                        $(item).attr("class",arr[idx]);
+					}else{
+                        $(item).attr("class",'testing');
+					}
+				})
+				$(this).attr("class","active");
+                if($(this).closest('li').index()==0) {
+                    $(this).next().show();
+                }
+			}).on('blur',function(idx,item){
+			    if($(this).val()=='') {
+                    var $idx = $(this).index();
+                    $(this).attr("class",arr[$idx]);
+                	}else{
+			        	$(this).attr('class','texzting')
+					}
+				})
+
+			//监听输入的值改变提示
+			$('#phone').on('keyup',function () {
+				var $val = $(this).val();
+				var reg = /^1[34578]\d{9}$/;
+				if($val==''){
+                    $('#phone .error_hint span').html('请输入手机号')
+				}else if(!reg.test($val)){
+                    $('#phone .error_hint span').html('请输入正确的手机号码')
+                    $('#phone .error_hint').show()
+				}else{
+                    $('#phone .error_hint').hide();
+				}
+            })
+			$('#password').on('blur',function () {
+				var $val = $(this).val();
+				var reg = /[0-9a-zA-Z]{6,16}/;
+				if(!reg.test($val)){
+                    $(this).next('div').show();
+				}else{
+                    $(this).next('div').hide();
+				}
+            })
+		})
+	</script>
+
+</head>
+<body>
+	<div class="logo">
+		<div class ='swap clearfix'>
+			<h2 class="left">
+				<a href="#" >
+					<img src="http://css.yesmyimg.com/web/20160613/newWeb/css/v3/5135/images/logo.png" alt="">
+				</a>
+			</h2>
+			<div class="right">
+				<img src="http://img10.yesmyimg.com/web/20160613/newWeb/css/member/images/head_right.jpg" alt="">
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class = 'swap'>
+			<div class = 'register left'>
+				<h2>注册也买酒</h2>
+				<a href="#">您可以使用QQ、支付宝、新浪微博登录</a>
+				<form>
+					<ul class="input-area">
+						<li >
+							<label for="phone">手机号码:</label>
+							<input type = 'text' id="phone" name ='phone' class = 'phone' maxlength="11">
+							<div class="error_hint"><span>请输入手机号</span></div>
+						</li>
+						<li>
+							<label for="phone">验证码:</label>
+							<input type = 'text' id="idenity" class="idenity">
+						</li>
+						<li>
+							<label for="phone">短信验证:</label>
+							<input type = 'text' id="message" class = 'idenity'>
+							<span class="text">获取短信验证码</span>
+						</li>
+						<li>
+							<label for="phone">密码:</label>
+							<input type = 'password' id="password" name="password"  class = 'password'>
+							<div class="error_hint">
+								<span>密码请设为6-16位字母或数字</span>
+							</div>
+						</li>
+						<li>
+							<label for="phone">密码确认:</label>
+							<input type = 'password' id="confirm" name="confirm"  class = 'confirm'>
+							<div class="error_hint">
+								<span>密码请设为6-16位字母或数字</span>
+							</div>
+						</li>
+						<li >
+							<label for="" id = 'vip'>
+								<input type = 'checkbox' name="confirm"  class = 'vip'>
+								<span>我有VIP升级码</span>
+							</label>
+						</li>
+						<li >
+							<label for="" class = 'accept'>
+								<input type = 'checkbox' name="confirm"  class = 'vip'>
+								<span>我已满18周岁并接受</span><a href="">《也买酒服务条款》</a>
+							</label>
+
+						</li>
+						<li >
+							<a href="#" class = 'register_btn'>注册完成</a>
+						</li>
+					</ul>
+				</form>
+			</div>
+			<div class="login-note right"></div>
+		</div>
+	</div>
+	<div class = 'footer'>
+		<div class="foot-license">
+			<span class="top100"></span>
+			<span class="sep"></span>
+			<span class="year18">仅限18周岁以上人士购买</span>
+			<span class="sep">|</span>
+			<a target="_blank" href="http://www.zx110.org/" style="color:#999999;" rel="nofollow" group1="ad" group2="1305">
+				<span class="shzxw">网络社会征信网</span>
+			</a> <span class="sep">|</span> <span class="shgs">上海工商</span>
+			<span class="sep">|</span>
+			<span>京公网安备11010502013828</span>
+		</div>
+		<div class = 'copyRight'>
+			Copyright 2006-2014 也买酒 yesmywine.com 版权所有
+			<span class="sep">|</span>
+			<a href="#">沪ICP备09093441号</a>
+			<div class="cx">
+				<span class="left">
+					<a id="___szfw_logo___" href="https://search.szfw.org/cert/l/CX20130327002363002881">
+						<img src="http://img11.yesmyimg.com/newWeb/images/chengxin.png">
+					</a>
+				</span>
+				<span class="left" style="margin-left:10px;display:inline">
+					<img src="http://img11.yesmyimg.com/newWeb/images/lead.jpg" width="112" height="40" style="opacity: 1;">
+				</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
