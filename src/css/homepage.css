@@ -25,7 +25,7 @@ body { color: #333; font-size: 14px; font-family: '微软雅黑'; }
 
 h2 { margin: 0; }
 
-p, h1, h2, h3, h4, dl, dt { padding: 0; margin: 0; }
+p, h1, h2, h3, h4, dl, dt, dd { padding: 0; margin: 0; }
 
 .header .header_top { background: url(../img/hmepage/bg_header4.png) repeat-x; position: relative; }
 
@@ -160,3 +160,29 @@ p, h1, h2, h3, h4, dl, dt { padding: 0; margin: 0; }
 .header .header_buttom .swap .categorys .h100 h5 { width: 68px; }
 
 .header .header_buttom .swap .categorys .h100 p .whole { margin-left: 18px; }
+
+.header .header_buttom .log_nav { position: absolute; top: 46px; width: 108px; height: 475px; background: rgba(0, 0, 0, 0.5); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000); right: 105px; z-index: 0; }
+
+.header .header_buttom .log_nav dl { height: auto; overflow: hidden; padding: 0 5px; }
+
+.header .header_buttom .log_nav dl .member_title { width: 64px; height: 64px; background: url(../img/hmepage/nav_log.png) no-repeat; margin-left: 15px; margin-top: 20px; margin-bottom: 8px; }
+
+.header .header_buttom .log_nav dl dd { text-align: center; color: white; font-family: '微软雅黑'; color: #666; font-size: 14px; }
+
+.header .header_buttom .log_nav dl dd a { color: #ffffff; }
+
+.header .header_buttom .log_nav dl dd a:hover { color: red; text-decoration: underline; }
+
+.header .header_buttom .log_nav dl .sitebar { width: 100px; height: 82px; overflow: hidden; }
+
+.header .header_buttom .log_nav dl .sitebar .userinfo { width: 100%; border-bottom: 1px dashed #747474; }
+
+.header .header_buttom .log_nav dl .sitebar .userinfo li { width: 104px; text-align: center; color: #fff; overflow: hidden; }
+
+.header .header_buttom .log_nav dl .sitebar .userinfo .login_btn a { display: block; text-decoration: none; margin-left: 15px; margin-top: 5px; width: 74px; height: 24px; text-align: center; font-size: 12px; color: #fff; line-height: 24px; font-weight: bold; }
+
+.header .header_buttom .log_nav dl .sitebar .userinfo .login_btn a:hover { background: #D3161B; -o-border-radius: 5px; border-radius: 5px; font-size: 14px; }
+
+.header .header_buttom .log_nav dl .sitebar .userinfo .register_btn a { display: block; ext-decoration: none; margin-left: 15px; margin-top: 5px; width: 74px; height: 24px; text-align: center; font-size: 12px; color: #fff; line-height: 24px; margin-bottom: 10px; }
+
+.header .header_buttom .log_nav dl .sitebar .userinfo .register_btn a:hover { background: #D3161B; -o-border-radius: 5px; border-radius: 5px; font-size: 14px; }
