@@ -118,7 +118,7 @@ h2 {
   width: 165px;
 }
 
-.content .register form .input-area li .idenity {
+.content .register form .input-area li idenity {
   background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px;
 }
 
@@ -138,7 +138,7 @@ h2 {
   text-align: center;
   cursor: pointer;
   background: #f45f03;
-  color: #ffffff;
+  color: #fff;
   font-size: 12px;
   position: relative;
   left: -7px;

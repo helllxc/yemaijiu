@@ -58,31 +58,8 @@ body {
   color: #333;
 }
 
-.header .logo {
-  float: left;
-}
-
-.header .logo img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-
-.header nav.main-nav {
-  float: left;
-  margin: 20px 0 0 20px;
-}
-
-.header nav.main-nav ul li {
-  float: left;
-  padding: 0 10px;
-  line-height: 2;
-}
-
-.header nav.main-nav ul li:last-child a {
-  color: #f60;
-}
-
-.header nav.main-nav ul li:last-child a:hover {
-  color: #f60;
+.header {
+  background-color: #F1EEED;
+  z-index: 1000;
+  position: relative;
 }

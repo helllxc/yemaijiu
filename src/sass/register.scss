@@ -33,7 +33,7 @@
 					#idenity,#message{
 						width:165px;
 					}
-					.idenity{background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px;}
+					idenity{background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px;}
 					.password{
 						background: #fff url("../img/login/hint_password.gif") no-repeat 8px 15px
 					}
@@ -41,7 +41,7 @@
 						background: #fff url("../img/login/hint_password2.gif") no-repeat 8px 15px
 					}
 					.text{
-						display:inline-block;width:100px;height: 40px;line-height: 40px;text-align: center;cursor: pointer;background:rgb(244, 95, 3);color:#ffffff;font-size:12px;
+						display:inline-block;width:100px;height: 40px;line-height: 40px;text-align: center;cursor: pointer;background:rgb(244, 95, 3);color:#fff;font-size:12px;
 						position: relative; left: -7px;
 						&:hover{text-decoration: underline}
 					}
