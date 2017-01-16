@@ -10,7 +10,7 @@ gulp.task('buildSass',function(){
 	gulp.src('src/sass/*.scss')
 
 		// 编译scss文件
-		.pipe(sass({outputStyle:'expanded'}))
+		.pipe(sass({outputStyle:'compact'}).on("error",sass.logError))
 
 		// 输出文件
 		.pipe(gulp.dest('src/css'))

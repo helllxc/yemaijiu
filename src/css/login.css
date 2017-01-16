@@ -1,228 +1,88 @@
-.clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
-}
+@charset "UTF-8";
+.clearfix::after { content: ''; display: block; clear: both; }
 
-.left {
-  float: left;
-}
+.left { float: left; }
 
-.right {
-  float: right;
-}
+.right { float: right; }
 
-.swap {
-  width: 1200px;
-  margin: 0 auto;
-}
+.swap { width: 1200px; margin: 0 auto; }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+ul { list-style: none; padding: 0; margin: 0; }
 
-a {
-  color: #333;
-  text-decoration: none;
-}
+a { color: #333; text-decoration: none; }
 
-body {
-  color: #333;
-  font-size: 14px;
-}
+body { color: #333; font-size: 14px; font-family: '微软雅黑'; }
 
-h2 {
-  margin: 0;
-}
+h2 { margin: 0; }
 
-.logo {
-  border-bottom: 2px solid #bc0e31;
-}
+p, h1, h2, h3, h4, dl, dt { padding: 0; margin: 0; }
 
-.logo .swap {
-  padding: 20px 0;
-}
+.logo { border-bottom: 2px solid #bc0e31; }
 
-.logo .swap h2 {
-  overflow: hidden;
-}
+.logo .swap { padding: 20px 0; }
 
-.logo .swap img {
-  height: 53px;
-}
+.logo .swap h2 { overflow: hidden; }
 
-.wrapper .swap {
-  padding: 30px 0;
-}
+.logo .swap img { height: 53px; }
 
-.wrapper .swap .ads {
-  float: left;
-  width: 770px;
-  text-align: center;
-}
+.wrapper .swap { padding: 30px 0; }
 
-.wrapper .swap .login {
-  border: 1px solid #ddd;
-  background: #fff;
-  opacity: 1;
-}
+.wrapper .swap .ads { float: left; width: 770px; text-align: center; }
 
-.wrapper .swap .login .login-list {
-  padding: 70px 50px 0px 35px;
-  background: url("../img/login/login_text.gif") no-repeat 30px 25px;
-}
+.wrapper .swap .login { border: 1px solid #ddd; background: #fff; opacity: 1; }
 
-.wrapper .swap .login .login-list dl {
-  padding: 8px 0;
-  overflow: hidden;
-  margin: 0;
-}
+.wrapper .swap .login .login-list { padding: 70px 50px 0px 35px; background: url("../img/login/login_text.gif") no-repeat 30px 25px; }
 
-.wrapper .swap .login .login-list dl dd {
-  margin: 0;
-}
+.wrapper .swap .login .login-list dl { padding: 8px 0; overflow: hidden; margin: 0; }
 
-.wrapper .swap .login .login-list dl .logon {
-  line-height: 20px;
-  width: 300px;
-  height: 20px;
-  position: relative;
-  margin-top: 6px;
-}
+.wrapper .swap .login .login-list dl dd { margin: 0; }
 
-.wrapper .swap .login .login-list dl .textarea {
-  color: #666;
-  height: 30px;
-  line-height: 32px;
-  padding: 0 5px;
-  width: 288px;
-  font-size: 14px;
-}
+.wrapper .swap .login .login-list dl .logon { line-height: 20px; width: 300px; height: 20px; position: relative; margin-top: 6px; }
 
-.wrapper .swap .login .login-list dl .email {
-  background: url("../img/login/hint_logname.gif") no-repeat 5px 8px;
-}
+.wrapper .swap .login .login-list dl .textarea { color: #666; height: 30px; line-height: 32px; padding: 0 5px; width: 288px; font-size: 14px; }
 
-.wrapper .swap .login .login-list dl .password {
-  background: url("../img/login/hint-password.gif") no-repeat 5px 8px;
-}
+.wrapper .swap .login .login-list dl .email { background: url("../img/login/hint_logname.gif") no-repeat 5px 8px; }
 
-.wrapper .swap .login .login-list dl .btn {
-  width: 300px;
-  height: 40px;
-  border: none;
-  display: block;
-  color: #fff;
-  font-family: 'Microsoft Yahei';
-  font-size: 18px;
-  cursor: pointer;
-  background: url("../img/login/btn_login.gif");
-}
+.wrapper .swap .login .login-list dl .password { background: url("../img/login/hint-password.gif") no-repeat 5px 8px; }
 
-.wrapper .swap .login .login-list .forget {
-  padding: 2px 0;
-}
+.wrapper .swap .login .login-list dl .btn { width: 300px; height: 40px; border: none; display: block; color: #fff; font-family: 'Microsoft Yahei'; font-size: 18px; cursor: pointer; background: url("../img/login/btn_login.gif"); }
 
-.wrapper .swap .login .login-list .forget a {
-  color: #3472B2;
-}
+.wrapper .swap .login .login-list .forget { padding: 2px 0; }
 
-.wrapper .swap .login .partner {
-  color: #999;
-  padding: 0 30px 10px 30px;
-  _width: 260px;
-  border-top: dotted 1px #ccc;
-  margin-top: 15px;
-}
+.wrapper .swap .login .login-list .forget a { color: #3472B2; }
 
-.wrapper .swap .login .partner p {
-  line-height: 32px;
-  margin-bottom: 2px;
-}
+.wrapper .swap .login .partner { color: #999; padding: 0 30px 10px 30px; _width: 260px; border-top: dotted 1px #ccc; margin-top: 15px; }
 
-.wrapper .swap .login .partner .weibo {
-  background: url("../img/login/btn_weibo.jpg");
-}
+.wrapper .swap .login .partner p { line-height: 32px; margin-bottom: 2px; }
 
-.wrapper .swap .login .partner .pay {
-  background: url("../img/login/btn_alipay.jpg");
-}
+.wrapper .swap .login .partner .weibo { background: url("../img/login/btn_weibo.jpg"); }
 
-.wrapper .swap .login .partner .qq {
-  background: url("../img/login/");
-}
+.wrapper .swap .login .partner .pay { background: url("../img/login/btn_alipay.jpg"); }
 
-.wrapper .swap .login .partner a {
-  width: 96px;
-  height: 30px;
-  overflow: hidden;
-  display: inline-block;
-}
+.wrapper .swap .login .partner .qq { background: url("../img/login/"); }
 
-.footer {
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 10px;
-  border-top: solid 1px #ccc;
-}
+.wrapper .swap .login .partner a { width: 96px; height: 30px; overflow: hidden; display: inline-block; }
 
-.footer .foot-license {
-  height: 20px;
-  color: #999;
-  text-align: center;
-  line-height: 20px;
-  padding: 5px 0;
-}
+.footer { margin-top: 20px; margin-right: auto; margin-left: auto; padding-top: 10px; border-top: solid 1px #ccc; }
 
-.footer .foot-license span {
-  height: 20px;
-  display: inline-block;
-}
+.footer .foot-license { height: 20px; color: #999; text-align: center; line-height: 20px; padding: 5px 0; }
 
-.footer .foot-license .top100 {
-  background: url("../img/login/bg_header2.png") no-repeat -180px -230px;
-  padding-left: 22px;
-}
+.footer .foot-license span { height: 20px; display: inline-block; }
 
-.footer .foot-license .year18 {
-  background: url("../img/login/bg_header2.png") no-repeat -180px -250px;
-  padding-left: 22px;
-}
+.footer .foot-license .top100 { background: url("../img/login/bg_header2.png") no-repeat -180px -230px; padding-left: 22px; }
 
-.footer .foot-license .shzxw {
-  background: url("../img/login/bg_header2.png") no-repeat -180px -270px;
-  padding-left: 22px;
-}
+.footer .foot-license .year18 { background: url("../img/login/bg_header2.png") no-repeat -180px -250px; padding-left: 22px; }
 
-.footer .foot-license .shgs {
-  background: url("../img/login/bg_header2.png") no-repeat -180px -290px;
-  padding-left: 22px;
-}
+.footer .foot-license .shzxw { background: url("../img/login/bg_header2.png") no-repeat -180px -270px; padding-left: 22px; }
 
-.footer .copyRight {
-  color: #999;
-  text-align: center;
-  line-height: 30px;
-}
+.footer .foot-license .shgs { background: url("../img/login/bg_header2.png") no-repeat -180px -290px; padding-left: 22px; }
 
-.footer .copyRight > a {
-  color: #999;
-}
+.footer .copyRight { color: #999; text-align: center; line-height: 30px; }
 
-.footer .copyRight > a:hover {
-  text-decoration: underline;
-}
+.footer .copyRight > a { color: #999; }
 
-.footer .copyRight .cx {
-  overflow: hidden;
-  margin: 0 auto;
-  width: 356px;
-}
+.footer .copyRight > a:hover { text-decoration: underline; }
 
-.footer .copyRight .cx span {
-  margin-left: 10px;
-  display: inline;
-}
+.footer .copyRight .cx { overflow: hidden; margin: 0 auto; width: 356px; }
+
+.footer .copyRight .cx span { margin-left: 10px; display: inline; }

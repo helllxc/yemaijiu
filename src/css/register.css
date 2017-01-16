@@ -1,316 +1,102 @@
-.clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
-}
+@charset "UTF-8";
+.clearfix::after { content: ''; display: block; clear: both; }
 
-.left {
-  float: left;
-}
+.left { float: left; }
 
-.right {
-  float: right;
-}
+.right { float: right; }
 
-.swap {
-  width: 1200px;
-  margin: 0 auto;
-}
+.swap { width: 1200px; margin: 0 auto; }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+ul { list-style: none; padding: 0; margin: 0; }
 
-a {
-  color: #333;
-  text-decoration: none;
-}
+a { color: #333; text-decoration: none; }
 
-body {
-  color: #333;
-  font-size: 14px;
-}
+body { color: #333; font-size: 14px; font-family: '微软雅黑'; }
 
-h2 {
-  margin: 0;
-}
+h2 { margin: 0; }
 
-.logo {
-  border-bottom: 2px solid #bc0e31;
-}
+p, h1, h2, h3, h4, dl, dt { padding: 0; margin: 0; }
 
-.logo .swap {
-  padding: 20px 0;
-}
+.logo { border-bottom: 2px solid #bc0e31; }
 
-.logo .swap h2 {
-  overflow: hidden;
-}
+.logo .swap { padding: 20px 0; }
 
-.logo .swap img {
-  height: 53px;
-}
+.logo .swap h2 { overflow: hidden; }
 
-.content .swap {
-  padding: 20px 0;
-  overflow: hidden;
-}
+.logo .swap img { height: 53px; }
 
-.content .register {
-  overflow: hidden;
-  padding: 20px 10px;
-  width: 378px;
-  border: 1px solid #d2d2ce;
-  background: #f8f8f5;
-}
+.content .swap { padding: 20px 0; overflow: hidden; }
 
-.content .register h2 {
-  margin: 0 12px 18px 12px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #d2d2ce;
-  text-align: left;
-  font-size: 14px;
-}
+.content .register { overflow: hidden; padding: 20px 10px; width: 378px; border: 1px solid #d2d2ce; background: #f8f8f5; }
 
-.content .register > a {
-  position: relative;
-  top: -38px;
-  left: 157px;
-  color: #06c;
-  font-size: 12px;
-}
+.content .register h2 { margin: 0 12px 18px 12px; padding-bottom: 15px; border-bottom: 1px solid #d2d2ce; text-align: left; font-size: 14px; }
 
-.content .register > a:hover {
-  text-decoration: underline;
-}
+.content .register > a { position: relative; top: -38px; left: 157px; color: #06c; font-size: 12px; }
 
-.content .register form .input-area li {
-  padding: 7px 0;
-  overflow: hidden;
-}
+.content .register > a:hover { text-decoration: underline; }
 
-.content .register form .input-area li label {
-  float: left;
-  width: 90px;
-  hight: 38px;
-  color: #363636;
-  text-align: right;
-  font-size: 14px;
-  line-height: 38px;
-}
+.content .register form .input-area li { padding: 7px 0; overflow: hidden; }
 
-.content .register form .input-area li input {
-  padding: 0 5px;
-  width: 270px;
-  height: 38px;
-  color: #666;
-  font-size: 12px;
-  line-height: 38px;
-}
+.content .register form .input-area li label { float: left; width: 90px; hight: 38px; color: #363636; text-align: right; font-size: 14px; line-height: 38px; }
 
-.content .register form .input-area li .phone {
-  background: #fff url("../img/login/hint_logname2.gif") no-repeat 8px 15px;
-}
+.content .register form .input-area li input { padding: 0 5px; width: 270px; height: 38px; color: #666; font-size: 12px; line-height: 38px; }
 
-.content .register form .input-area li #idenity, .content .register form .input-area li #message {
-  width: 165px;
-}
+.content .register form .input-area li .phone { background: #fff url("../img/login/hint_logname2.gif") no-repeat 8px 15px; }
 
-.content .register form .input-area li idenity {
-  background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px;
-}
+.content .register form .input-area li #idenity, .content .register form .input-area li #message { width: 165px; }
 
-.content .register form .input-area li .password {
-  background: #fff url("../img/login/hint_password.gif") no-repeat 8px 15px;
-}
+.content .register form .input-area li idenity { background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px; }
 
-.content .register form .input-area li .confirm {
-  background: #fff url("../img/login/hint_password2.gif") no-repeat 8px 15px;
-}
+.content .register form .input-area li .password { background: #fff url("../img/login/hint_password.gif") no-repeat 8px 15px; }
 
-.content .register form .input-area li .text {
-  display: inline-block;
-  width: 100px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  cursor: pointer;
-  background: #f45f03;
-  color: #fff;
-  font-size: 12px;
-  position: relative;
-  left: -7px;
-}
+.content .register form .input-area li .confirm { background: #fff url("../img/login/hint_password2.gif") no-repeat 8px 15px; }
 
-.content .register form .input-area li .text:hover {
-  text-decoration: underline;
-}
+.content .register form .input-area li .text { display: inline-block; width: 100px; height: 40px; line-height: 40px; text-align: center; cursor: pointer; background: #f45f03; color: #fff; font-size: 12px; position: relative; left: -7px; }
 
-.content .register form .input-area li .active {
-  background: #ffffe8;
-  border: 1px solid orange;
-}
+.content .register form .input-area li .text:hover { text-decoration: underline; }
 
-.content .register form .input-area li .texting {
-  background: #fff;
-}
+.content .register form .input-area li .active { background: #ffffe8; border: 1px solid orange; }
 
-.content .register form .input-area li .error_hint {
-  background: url("../img/login/icon_error.gif") no-repeat;
-  color: red;
-  display: none;
-  font-size: 12px;
-  padding-left: 16px;
-  margin: 10px 0 0 100px;
-}
+.content .register form .input-area li .texting { background: #fff; }
 
-.content .register form .input-area li .vip {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 14px;
-  height: 14px;
-}
+.content .register form .input-area li .error_hint { background: url("../img/login/icon_error.gif") no-repeat; color: red; display: none; font-size: 12px; padding-left: 16px; margin: 10px 0 0 100px; }
 
-.content .register form .input-area li .accept {
-  position: relative;
-  display: block;
-  margin-left: 88px;
-  padding: 8px 0 13px 0;
-  width: 290px;
-  height: 14px;
-  line-height: 14px;
-}
+.content .register form .input-area li .vip { position: absolute; top: 0; left: 0; width: 14px; height: 14px; }
 
-.content .register form .input-area li .accept span {
-  position: absolute;
-  top: 2px;
-  left: 17px;
-  width: 120px;
-  height: 14px;
-  text-align: left;
-  line-height: 14px;
-  font-size: 12px;
-}
+.content .register form .input-area li .accept { position: relative; display: block; margin-left: 88px; padding: 8px 0 13px 0; width: 290px; height: 14px; line-height: 14px; }
 
-.content .register form .input-area li .accept a {
-  position: absolute;
-  top: 3px;
-  left: 140px;
-  width: 130px;
-  height: 14px;
-  color: #06c;
-  text-align: left;
-  line-height: 14px;
-}
+.content .register form .input-area li .accept span { position: absolute; top: 2px; left: 17px; width: 120px; height: 14px; text-align: left; line-height: 14px; font-size: 12px; }
 
-.content .register form .input-area li #vip {
-  position: relative;
-  display: inline-block;
-  margin: 8px 0 9px 88px;
-  width: auto;
-  height: 14px;
-  line-height: 14px;
-  margin-left: 80px;
-}
+.content .register form .input-area li .accept a { position: absolute; top: 3px; left: 140px; width: 130px; height: 14px; color: #06c; text-align: left; line-height: 14px; }
 
-.content .register form .input-area li #vip span {
-  position: absolute;
-  top: 2px;
-  left: 17px;
-  width: 120px;
-  height: 14px;
-  text-align: left;
-  line-height: 14px;
-  font-size: 12px;
-}
+.content .register form .input-area li #vip { position: relative; display: inline-block; margin: 8px 0 9px 88px; width: auto; height: 14px; line-height: 14px; margin-left: 80px; }
 
-.content .register form .input-area li .register_btn {
-  display: block;
-  margin-right: 0;
-  margin-left: 10px;
-  width: 355px;
-  height: 45px;
-  line-height: 45px;
-  text-align: center;
-  border: 0;
-  background: #bb0e30;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
+.content .register form .input-area li #vip span { position: absolute; top: 2px; left: 17px; width: 120px; height: 14px; text-align: left; line-height: 14px; font-size: 12px; }
 
-.content .login-note {
-  background: url("../img/login/register_ads.jpg");
-  width: 790px;
-  height: 480px;
-}
+.content .register form .input-area li .register_btn { display: block; margin-right: 0; margin-left: 10px; width: 355px; height: 45px; line-height: 45px; text-align: center; border: 0; background: #bb0e30; color: #fff; font-weight: bold; font-size: 16px; cursor: pointer; }
 
-.footer {
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 10px;
-  border-top: solid 1px #ccc;
-}
+.content .login-note { background: url("../img/login/register_ads.jpg"); width: 790px; height: 480px; }
 
-.footer .foot-license {
-  height: 20px;
-  color: #999;
-  text-align: center;
-  line-height: 20px;
-  padding: 5px 0;
-}
+.footer { margin-top: 20px; margin-right: auto; margin-left: auto; padding-top: 10px; border-top: solid 1px #ccc; }
 
-.footer .foot-license span {
-  height: 20px;
-  display: inline-block;
-}
+.footer .foot-license { height: 20px; color: #999; text-align: center; line-height: 20px; padding: 5px 0; }
 
-.footer .foot-license .top100 {
-  background: url("../img/login/bg_header2.png") no-repeat -180px -230px;
-  padding-left: 22px;
-}
+.footer .foot-license span { height: 20px; display: inline-block; }
 
-.footer .foot-license .year18 {
-  background: url("../img/login/bg_header2.png") no-repeat -180px -250px;
-  padding-left: 22px;
-}
+.footer .foot-license .top100 { background: url("../img/login/bg_header2.png") no-repeat -180px -230px; padding-left: 22px; }
 
-.footer .foot-license .shzxw {
-  background: url("../img/login/bg_header2.png") no-repeat -180px -270px;
-  padding-left: 22px;
-}
+.footer .foot-license .year18 { background: url("../img/login/bg_header2.png") no-repeat -180px -250px; padding-left: 22px; }
 
-.footer .foot-license .shgs {
-  background: url("../img/login/bg_header2.png") no-repeat -180px -290px;
-  padding-left: 22px;
-}
+.footer .foot-license .shzxw { background: url("../img/login/bg_header2.png") no-repeat -180px -270px; padding-left: 22px; }
 
-.footer .copyRight {
-  color: #999;
-  text-align: center;
-  line-height: 30px;
-}
+.footer .foot-license .shgs { background: url("../img/login/bg_header2.png") no-repeat -180px -290px; padding-left: 22px; }
 
-.footer .copyRight > a {
-  color: #999;
-}
+.footer .copyRight { color: #999; text-align: center; line-height: 30px; }
 
-.footer .copyRight > a:hover {
-  text-decoration: underline;
-}
+.footer .copyRight > a { color: #999; }
 
-.footer .copyRight .cx {
-  overflow: hidden;
-  margin: 0 auto;
-  width: 356px;
-}
+.footer .copyRight > a:hover { text-decoration: underline; }
 
-.footer .copyRight .cx span {
-  margin-left: 10px;
-  display: inline;
-}
+.footer .copyRight .cx { overflow: hidden; margin: 0 auto; width: 356px; }
+
+.footer .copyRight .cx span { margin-left: 10px; display: inline; }
