@@ -23,6 +23,11 @@
   float: right;
 }
 
+.swap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -34,13 +39,13 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: #f00;
-}
-
 body {
   color: #333;
   font-size: 14px;
+}
+
+h2 {
+  margin: 0;
 }
 
 .clearfix::after {
