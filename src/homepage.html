@@ -4,6 +4,60 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="js/jquery-Shuffling/ShufflingfFigure.css">
+    <script src = 'js/jquery-3.1.1.js'></script>
+    <script src="js/jquery-Shuffling/ShufflingFigure.js"></script>
+    <script>
+
+       $(function(){
+           //点击侧栏出现导航栏
+           $('.categroup>dl').hover(function(){
+               $(this).fadeTo(600,1)
+           },function(){
+               $(this).find('dd').hide();
+           });
+
+           $('.p_area ul').shuffling({imglist:["../img/hmepage/20170106110542512.jpg","../img/hmepage/3.jpg","../img/hmepage/20170106190551736.jpg","../img/hmepage/3.jpg","../img/hmepage/1920.jpg","../img/hmepage/20170104140301650.jpg","../img/hmepage/1.jpg","../img/hmepage/20161220091848149.jpg","../img/hmepage/20170116161443903.jpg"],width:1920,height:500,time:4000});
+
+            var imglist = ['../img/hmepage/brand1.jpg','../img/hmepage/brand2.jpg','../img/hmepage/brand3.jpg','../img/hmepage/brand4.jpg','../img/hmepage/brand5.jpg','../img/hmepage/brand6.jpg']
+           for(i=0;i<imglist.length;i++){
+                var $li = $('<li/>');
+                $li.css('left',150*i+300);
+                $li.html('<img src = "'+imglist[i]+'">');
+                $li.appendTo($('.pp .center ul'));
+           }
+           $('.pp .center ul li:first').css('left',0)
+           //轮播图
+           var index = 0;
+
+           $('.pp .center ul').timer = setInterval(function(){
+               index++;
+               if(index>=imglist.length){
+                   $('.pp .center ul li:gt(0)').each(function(idx,item){
+                       $(item).animate({left:$(item).offset().left+300})
+                   })
+                   index = 1;
+               }
+               $('.pp .center ul li').eq(index).animate({left:$('.pp .center ul li').eq(index).offset().left-300})
+           },3000);
+
+           for(i=1;i<=5;i++){
+               $('<li/>').html('<a href="#"><img src = "../img/hmepage/brand_logo'+i+'.jpg "></a>').appendTo($('.pp_bottom ul'))
+           }
+           for(i=0;i<33;i++){
+               $.getJSON("php/data.json",function(data){
+                   $.each(data,function(idx,item){
+                       var $li = $('<li/>');
+                       $li.html('<div class="parea"><a href="#"><img src="'+item.img+'" alt=""></a></div><div class="base"><a href="#">'+item.name+'</a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p>').appendTo($('.comment ul'));
+                       $.each(item.main,function(i,_item){
+                           $('<div/>').addClass('_comment').html('<div class="user"><img src="'+item.userimg+'" alt=""><span>'+_item.user+'</span></div><p><span class="rank">"评分"<strong>'+_item.rank+'</strong></span><br><a href="#">'+_item.comment+'</a></p>').appendTo($li);
+                       })
+                   })
+               })
+           }
+       })
+
+    </script>
 </head>
 <body>
     <div class="header">
@@ -134,7 +188,7 @@
                                 <br>
                                 <a href="" target="_blank" >精品闪购</a>
                                 <a href="" target="_blank"  class="bg" >海淘</a>
-                                <a href="" target="_blank" >陈酿老酒</a>
+                                <a href="" target="_blank" class="bg">陈酿老酒</a>
                             </p>
                             </dt>
                             <dd class="h100">
@@ -397,7 +451,7 @@
                                         <p>
                                             <a href="" target="_blank" >酒杯</a>
                                             <a href="" target="_blank" >醒酒器</a>
-                                            <a href="" target="_blank"> </a>
+                                            <a href="" target="_blank"> 酒刀</a>
                                             <br>
                                             <a href="" target="_blank" >酒架</a>
                                             <a href="" target="_blank" >酒鼻子</a>
@@ -592,21 +646,26 @@
                     </div>
                 </dl>
                 <dl class="info">
-                    <ul>
+                    <ul class="lon_list_li">
                         <li>
-                            <a href=""></a>
+                            <a href="" class="photo_1"></a>
+                            <a href="" class="">我的订单</a>
                         </li>
                         <li>
-                            <a href=""></a>
+                            <a href="" class="photo_1"></a>
+                            <a href="" class="">我的优惠卷</a>
                         </li>
                         <li>
-                            <a href=""></a>
+                            <a href="" class="photo_1"></a>
+                            <a href="" class="">我的积分</a>
                         </li>
                         <li>
-                            <a href=""></a>
+                            <a href="" class="photo_1"></a>
+                            <a href="" class="">我的存酒</a>
                         </li>
                         <li>
-                            <a href=""></a>
+                            <a href="" class="photo_1"></a>
+                            <a href="" class="">会员升级</a>
                         </li>
                     </ul>
                 </dl>
@@ -614,8 +673,1139 @@
             </div>
         </div>
     </div>
-    <div class="main"></div>
-    <div class="footer"></div>
+    <div class="main">
+        <div class="selector">
+            <div class="p_area">
+                <ul class="clearfix">
+
+                </ul>
+            </div>
+        </div>
+        <div class="selector_tab">
+           <div class="swap">
+               <div class="tab_left left">
+                    <div class="notice_slider">
+                        <span class="transform"></span>
+                        <div class="slider">
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <img src="img/hmepage/20161011105111632.jpg" alt="">
+                                        <p>精品闪购</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                       <div class="bd">
+                        <div id="notices" class="notice-lists">
+                            <h3 class="clearfix" >
+                                <span class="first on"><a href="/news/listnews_3_1.html" target="_blank" title="促销活动">促销活动</a></span>
+                                <span class=""><a href="/news/listnews_1_1.html" target="_blank" title="最新公告">最新公告</a></span>
+                                <span class=""><a href="/news/listnews_2_1.html" target="_blank" title="媒体聚焦">媒体聚焦</a></span>
+                            </h3>
+                            <ul class="clearfix on" data-dts="IA.8.1">
+                                <li>• <a href="/news/shownews_14778.html" target="_blank" title="【双11】电影折扣券已发放">【双11】电影折扣券已发放</a></li>
+                                <li>• <a href="/news/shownews_14479.html" target="_blank" title="也买酒线下新店开业满200减100">也买酒线下新店开业满200减100</a></li>
+                                <li>• <a href="/news/shownews_14319.html" target="_blank" title="尖叫系列，汇聚全球鼎级佳酿，奢华大牌应有尽有！">尖叫系列，汇聚全球鼎级佳酿，奢华大牌应有尽有！</a></li>
+                                <li>• <a href="/news/shownews_14300.html" target="_blank" title="2016醉美薄若莱，现货到港，全球同步销售">2016醉美薄若莱，现货到港，全球同步销售</a></li>
+                                </ul>
+                            <ul class="clearfix" data-dts="IA.8.2">
+                                <li>• <a href="/news/shownews_14939.html" target="_blank" title="2017也买酒春节配送安排通知">2017也买酒春节配送安排通知</a></li>
+                                <li>• <a href="/news/shownews_14938.html" target="_blank" title="二手交易市场服务费调整通知">二手交易市场服务费调整通知</a></li>
+                                <li>• <a href="/news/shownews_14918.html" target="_blank" title="400客服热线工作时间调整通知">400客服热线工作时间调整通知</a></li>
+                                <li>• <a href="/news/shownews_14899.html" target="_blank" title="2017元旦配送安排">2017元旦配送安排</a></li>
+                                </ul>
+                            <ul class="clearfix" data-dts="IA.8.3">
+                                <li>• <a href="/news/shownews_13919.html" target="_blank" title="James Suckling TOP 5 Picks 七大产地 最佳TOP5期酒推荐">James Suckling TOP 5 Picks 七大产地 最佳TOP5期酒推荐</a></li>
+                                <li>• <a href="/news/shownews_13879.html" target="_blank" title="2014年是属于波尔多左岸的一年  2015-4-02">2014年是属于波尔多左岸的一年  2015-4-02</a></li>
+                                <li>• <a href="/news/shownews_13858.html" target="_blank" title="右岸不容小觑，600款2014年葡萄酒分数首发 2015-3-27">右岸不容小觑，600款2014年葡萄酒分数首发 2015-3-27</a></li>
+                                <li>• <a href="/news/shownews_13841.html" target="_blank" title="2014属于左岸的一年，250多款2014年份波尔多酒分数首发  2015-3-24">2014属于左岸的一年，250多款2014年份波尔多酒分数首发  2015-3-24</a></li>
+                            </ul>
+                             </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="_main">
+                   <div class="mod mod-hotgoods">
+                       <ul class="hottabs">
+                           <li class="active"> <a href="http://www.yesmywine.com/marketing/sales/sales.html" target="_blank" group1="ad" class="font26">人气抢购</a> <a href="http://www.yesmywine.com/marketing/sales/sales.html" target="_blank" group1="ad" class="font14">百元超值特价</a> <p class="right"></p> </li>
+                           <li class=""> <a href="http://list.yesmywine.com/z2-u2" target="_blank" group1="ad" class="font26">整箱特惠</a> <a href="http://list.yesmywine.com/z2-u2" target="_blank" group1="ad" class="font14">口粮囤酒必选</a> <p class="right"></p> </li>
+                           <li class=""> <a href="http://www.yesmywine.com/cms/cmsV1/grandcru/gccshop" target="_blank" group1="ad" class="font26">名庄特卖</a> <a href="http://www.yesmywine.com/cms/cmsV1/grandcru/gccshop" target="_blank" group1="ad" class="font14">限量知名酒庄</a> <p class="right"></p> </li>
+                           <li class=""> <a href="http://a.yesmywine.com/flash/index" target="blank" style="position:relative;z-index:50;" group1="ad" class="font26"> <span style="display:block; height:14px; width:22px; position:absolute; margin-left:-2px; left:85px;top:-6px;"></span>精品闪购 </a> <a href="http://a.yesmywine.com/flash/index" target="_blank" group1="ad" class="font14">优质品牌精选</a> <p class="right"></p> </li>
+                           <li class="last"> <a href="http://list.yesmywine.com/z4-t1/?dts=L207.3" target="_blank" group1="ad" class="font26">白酒/陈年老酒</a> <a href="http://list.yesmywine.com/z4-t1/?dts=L207.3" target="_blank" group1="ad" class="font14">正品保证</a> <p class="right"></p> </li>
+                       </ul><div class="_bd">
+                       <div class="goodslist" style="margin-top: 0px; height: 1800px;">
+                           <ul class="goodslist-qiang clearfix active" data-dts="I10">
+                               <li>
+                                   <div class="prod-countdown" millseconds="311288805">还剩<strong class="tcd-d">3</strong>天<strong class="tcd-h">11</strong>时<strong class="tcd-m">33</strong>分</div>
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" target="_blank" href="/goods/6214917.html#hotgood1">
+                                               <img src="http://img18.yesmyimg.com/6214917/1707618_110x180.png" onerror="imgError(this)" width="110" height="180" alt="45°西凤国香酒 500ml 2007-2008年 陈年老酒" style="opacity: 1;">
+                                           </a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a title="45°西凤国香酒 500ml 2007-2008年 陈年老酒" class="pname" target="_blank" href="/goods/6214917.html#hotgood1">
+                                               45°西凤国香酒 500ml 2007-2008年 陈年老酒<span title="" class="en"></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice"><label>抢购价：</label>¥<strong>79.0</strong></span>
+                                           </p>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li>
+                                   <div class="prod-countdown" millseconds="1002488805">还剩<strong class="tcd-d">11</strong>天<strong class="tcd-h">11</strong>时<strong class="tcd-m">34</strong>分</div>
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" target="_blank" href="/goods/5193872.html#hotgood2">
+                                               <img src="http://img19.yesmyimg.com/5193872/8108685_110x180.JPG" onerror="imgError(this)" width="110" height="180" alt="祖鲁王国王白诗南干白葡萄酒" style="opacity: 1;">
+                                           </a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a title="祖鲁王国王白诗南干白葡萄酒" class="pname" target="_blank" href="/goods/5193872.html#hotgood2">
+                                               祖鲁王国王白诗南干白葡萄酒<span title="Bayede The King Chenin Blanc" class="en">Bayede The King Chenin Blanc</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice"><label>抢购价：</label>¥<strong>79.0</strong></span>
+                                           </p>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li>
+                                   <div class="prod-countdown" millseconds="1002488804">还剩<strong class="tcd-d">11</strong>天<strong class="tcd-h">11</strong>时<strong class="tcd-m">36</strong>分</div>
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" target="_blank" href="/goods/5174806.html#hotgood3">
+                                               <img src="http://img09.yesmyimg.com/n/806/174/5174806/9861347_110x180.png" onerror="imgError(this)" width="110" height="180" alt="卢克斯半干高泡葡萄酒（银瓶）  " style="opacity: 1;">
+                                           </a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a title="卢克斯半干高泡葡萄酒（银瓶）  " class="pname" target="_blank" href="/goods/5174806.html#hotgood3">
+                                               卢克斯半干高泡葡萄酒（银瓶）  <span title="LUX Sparkling Wine (Silver)" class="en">LUX Sparkling Wine (Silver)</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice"><label>抢购价：</label>¥<strong>79.0</strong></span>
+                                           </p>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li>
+                                   <div class="prod-countdown" millseconds="1002488804">还剩<strong class="tcd-d">11</strong>天<strong class="tcd-h">11</strong>时<strong class="tcd-m">36</strong>分</div>
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" target="_blank" href="/goods/5188066.html#hotgood4">
+                                               <img src="http://img08.yesmyimg.com/5188066/0396912_110x180.JPG" onerror="imgError(this)" width="110" height="180" alt="小天使干红葡萄酒" style="opacity: 1;">
+                                           </a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a title="小天使干红葡萄酒" class="pname" target="_blank" href="/goods/5188066.html#hotgood4">
+                                               小天使干红葡萄酒<span title="Angel Wine Red Dry" class="en">Angel Wine Red Dry</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice"><label>抢购价：</label>¥<strong>79.0</strong></span>
+                                           </p>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li>
+                                   <div class="prod-countdown" millseconds="1002488804">还剩<strong class="tcd-d">11</strong>天<strong class="tcd-h">11</strong>时<strong class="tcd-m">35</strong>分</div>
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" target="_blank" href="/goods/5186556.html#hotgood5">
+                                               <img src="http://img19.yesmyimg.com/5186556/7516105_110x180.JPG" onerror="imgError(this)" width="110" height="180" alt="火地岛经典赤霞珠干红葡萄酒-6支装" style="opacity: 1;">
+                                           </a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a title="火地岛经典赤霞珠干红葡萄酒-6支装" class="pname" target="_blank" href="/goods/5186556.html#hotgood5">
+                                               火地岛经典赤霞珠干红葡萄酒-6支装<span title="" class="en"></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice"><label>抢购价：</label>¥<strong>219.0</strong></span>
+                                           </p>
+                                       </dd>
+                                   </dl>
+                               </li>
+                           </ul>
+                           <ul class="clearfix" data-dts="I11">
+                               <li goodsid="6229459">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6229459.html#hotgood6" target="_blank" title="金羊干红葡萄酒-6瓶装" style="width: 110px">
+                                               <img src="http://img18.yesmyimg.com/n/459/229/6229459/5630445_110x180.png" onerror="imgError(this)" width="110" height="180" alt="金羊干红葡萄酒-6瓶装" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6229459.html#hotgood6" target="_blank" title="金羊干红葡萄酒-6瓶装">
+                                               金羊干红葡萄酒-6瓶装<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>119.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>699</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6229815">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6229815.html#hotgood7" target="_blank" title="詹姆士船长西拉干红-6支装" style="width: 110px">
+                                               <img src="http://img19.yesmyimg.com/n/815/229/6229815/3634851_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="詹姆士船长西拉干红-6支装" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6229815.html#hotgood7" target="_blank" title="詹姆士船长西拉干红-6支装">
+                                               詹姆士船长西拉干红-6支装<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>189.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>30</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6228868">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6228868.html#hotgood8" target="_blank" title="杜维娜罗纳河谷干红葡萄酒-6支装" style="width: 110px">
+                                               <img src="http://img09.yesmyimg.com/n/868/228/6228868/6298383_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="杜维娜罗纳河谷干红葡萄酒-6支装" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6228868.html#hotgood8" target="_blank" title="杜维娜罗纳河谷干红葡萄酒-6支装">
+                                               杜维娜罗纳河谷干红葡萄酒-6支装<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>429.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>32</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="5190666">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/5190666.html#hotgood9" target="_blank" title="美景湾家族珍藏佳美娜赤霞珠红葡萄酒-6支装" style="width: 110px">
+                                               <img src="http://img08.yesmyimg.com/5190666/3176895_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="美景湾家族珍藏佳美娜赤霞珠红葡萄酒-6支装" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/5190666.html#hotgood9" target="_blank" title="美景湾家族珍藏佳美娜赤霞珠红葡萄酒-6支装">
+                                               美景湾家族珍藏佳美娜赤霞珠红葡萄酒-6支装<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>499.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>1107</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6227403">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6227403.html#hotgood10" target="_blank" title="奔富麦克斯西拉干红葡萄酒-6支装" style="width: 110px">
+                                               <img src="http://img08.yesmyimg.com/n/403/227/6227403/1654165_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="奔富麦克斯西拉干红葡萄酒-6支装" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6227403.html#hotgood10" target="_blank" title="奔富麦克斯西拉干红葡萄酒-6支装">
+                                               奔富麦克斯西拉干红葡萄酒-6支装<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>2388.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>79</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                           </ul>
+                           <ul class="clearfix" data-dts="I12">
+                               <li goodsid="6219792">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6219792.html#hotgood11" target="_blank" title="宝德根庄园干红葡萄酒2007(庞特卡奈红葡萄酒）" style="width: 110px">
+                                               <img src="http://img08.yesmyimg.com/6219792/6117212_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="宝德根庄园干红葡萄酒2007(庞特卡奈红葡萄酒）" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="miao"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6219792.html#hotgood11" target="_blank" title="宝德根庄园干红葡萄酒2007(庞特卡奈红葡萄酒）">
+                                               宝德根庄园干红葡萄酒2007(庞特卡奈红葡萄酒）<span class="en" title="Chateau Pontet Canet 2007">Chateau Pontet Canet 2007</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>829.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>31</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6217508">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6217508.html#hotgood12" target="_blank" title="木桐酒庄干红葡萄酒2012(名庄)" style="width: 110px">
+                                               <img src="http://img09.yesmyimg.com/6217508/7103546_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="木桐酒庄干红葡萄酒2012(名庄)" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="miao"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6217508.html#hotgood12" target="_blank" title="木桐酒庄干红葡萄酒2012(名庄)">
+                                               木桐酒庄干红葡萄酒2012(名庄)<span class="en" title="Chateau Mouton Rothschild 2012">Chateau Mouton Rothschild 2012</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>4299.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>9</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6215570">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6215570.html#hotgood13" target="_blank" title="奔富389赤霞珠西拉干红葡萄酒（奔富酒窖389卡本妮设拉子红葡萄酒）" style="width: 110px">
+                                               <img src="http://img19.yesmyimg.com/6215570/8325733_110x180.png" onerror="imgError(this)" width="110" height="180" alt="奔富389赤霞珠西拉干红葡萄酒（奔富酒窖389卡本妮设拉子红葡萄酒）" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6215570.html#hotgood13" target="_blank" title="奔富389赤霞珠西拉干红葡萄酒（奔富酒窖389卡本妮设拉子红葡萄酒）">
+                                               奔富389赤霞珠西拉干红葡萄酒（奔富酒窖389卡本妮设拉子红葡萄酒）<span class="en" title="Penfolds Bin 389 Cabernet - Shiraz  South Australia">Penfolds Bin 389 Cabernet - Shiraz  South Australia</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>469.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>5590</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6229487">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6229487.html#hotgood14" target="_blank" title="奔富407赤霞珠干红葡萄酒（单支礼盒装）" style="width: 110px">
+                                               <img src="http://img08.yesmyimg.com/n/487/229/6229487/0217497_110x180.png" onerror="imgError(this)" width="110" height="180" alt="奔富407赤霞珠干红葡萄酒（单支礼盒装）" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6229487.html#hotgood14" target="_blank" title="奔富407赤霞珠干红葡萄酒（单支礼盒装）">
+                                               奔富407赤霞珠干红葡萄酒（单支礼盒装）<span class="en" title="Penfolds Bin 407 Cabernet Sauvignon">Penfolds Bin 407 Cabernet Sauvignon</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>499.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>913</strong></span>
+                                           <span class="ratepercent">好评<strong>94%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6208068">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6208068.html#hotgood15" target="_blank" title="修道院侯伯王城堡干红葡萄酒1970(名庄)(预售)" style="width: 110px">
+                                               <img src="http://img18.yesmyimg.com/6208068/6668408_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="修道院侯伯王城堡干红葡萄酒1970(名庄)(预售)" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="miao"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6208068.html#hotgood15" target="_blank" title="修道院侯伯王城堡干红葡萄酒1970(名庄)(预售)">
+                                               修道院侯伯王城堡干红葡萄酒1970(名庄)(预售)<span class="en" title="Chateau La Mission Haut Brion 1970">Chateau La Mission Haut Brion 1970</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>1888.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>5</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                           </ul>
+                           <ul class="clearfix" data-dts="I13">
+                               <li goodsid="352">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/352.html#hotgood16" target="_blank" title="威迪珍藏贝露诺红葡萄酒" style="width: 110px">
+                                               <img src="http://img08.yesmyimg.com/352/3767502_110x180.png" onerror="imgError(this)" width="110" height="180" alt="威迪珍藏贝露诺红葡萄酒" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/352.html#hotgood16" target="_blank" title="威迪珍藏贝露诺红葡萄酒">
+                                               威迪珍藏贝露诺红葡萄酒<span class="en" title="Wente - Reserve Pinot Noir">Wente - Reserve Pinot Noir</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>259.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>57</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="7391">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/7391.html#hotgood17" target="_blank" title="波诺玛公司波尔多艾顿庄园红（又名：艾顿庄园红葡萄酒）" style="width: 110px">
+                                               <img src="http://img19.yesmyimg.com/7391/9237871_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="波诺玛公司波尔多艾顿庄园红（又名：艾顿庄园红葡萄酒）" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/7391.html#hotgood17" target="_blank" title="波诺玛公司波尔多艾顿庄园红（又名：艾顿庄园红葡萄酒）">
+                                               波诺玛公司波尔多艾顿庄园红（又名：艾顿庄园红葡萄酒）<span class="en" title="Chateau L’Escart Cuvee Prestige">Chateau L’Escart Cuvee Prestige</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>228.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>25</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="11544">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/11544.html#hotgood18" target="_blank" title="阿吉拉斯酒庄阳光之岛白葡萄酒" style="width: 110px">
+                                               <img src="http://img18.yesmyimg.com/11544/2254079_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="阿吉拉斯酒庄阳光之岛白葡萄酒" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/11544.html#hotgood18" target="_blank" title="阿吉拉斯酒庄阳光之岛白葡萄酒">
+                                               阿吉拉斯酒庄阳光之岛白葡萄酒<span class="en" title="ARGIOLAS Isola Del Sole white">ARGIOLAS Isola Del Sole white</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>119.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>108</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="11547">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/11547.html#hotgood19" target="_blank" title="阿吉拉斯酒庄科斯塔莫白葡萄酒DOC（又名：阿吉拉斯酒庄科斯塔莫白葡萄酒）" style="width: 110px">
+                                               <img src="http://img19.yesmyimg.com/n/547/11/11547/3420710_110x180.png" onerror="imgError(this)" width="110" height="180" alt="阿吉拉斯酒庄科斯塔莫白葡萄酒DOC（又名：阿吉拉斯酒庄科斯塔莫白葡萄酒）" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/11547.html#hotgood19" target="_blank" title="阿吉拉斯酒庄科斯塔莫白葡萄酒DOC（又名：阿吉拉斯酒庄科斯塔莫白葡萄酒）">
+                                               阿吉拉斯酒庄科斯塔莫白葡萄酒DOC（又名：阿吉拉斯酒庄科斯塔莫白葡萄酒）<span class="en" title="ARGIOLAS Costamolino，Vermentino di Sardegna DOC">ARGIOLAS Costamolino，Vermentino di Sardegna DOC</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>185.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>78</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="11594">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/11594.html#hotgood20" target="_blank" title="夏桐传统工艺天然高泡葡萄酒又名：(香桐起泡葡萄酒)" style="width: 110px">
+                                               <img src="http://img18.yesmyimg.com/11594/3941120_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="夏桐传统工艺天然高泡葡萄酒又名：(香桐起泡葡萄酒)" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/11594.html#hotgood20" target="_blank" title="夏桐传统工艺天然高泡葡萄酒又名：(香桐起泡葡萄酒)">
+                                               夏桐传统工艺天然高泡葡萄酒又名：(香桐起泡葡萄酒)<span class="en" title="CHANDON Brut">CHANDON Brut</span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>179.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>304</strong></span>
+                                           <span class="ratepercent">好评<strong>93%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                           </ul>
+                           <ul class="clearfix" data-dts="I14">
+                               <li goodsid="6224415">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6224415.html#hotgood21" target="_blank" title="飞天茅台 2016年 53度 500ml" style="width: 110px">
+                                               <img src="http://img08.yesmyimg.com/n/415/224/6224415/7203435_110x180.png" onerror="imgError(this)" width="110" height="180" alt="飞天茅台 2016年 53度 500ml" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6224415.html#hotgood21" target="_blank" title="飞天茅台 2016年 53度 500ml">
+                                               飞天茅台 2016年 53度 500ml<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>1179.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>96788</strong></span>
+                                           <span class="ratepercent">好评<strong>97%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6225486">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6225486.html#hotgood22" target="_blank" title="五粮液 2016年 52度 500ml" style="width: 110px">
+                                               <img src="http://img19.yesmyimg.com/n/486/225/6225486/0646752_110x180.png" onerror="imgError(this)" width="110" height="180" alt="五粮液 2016年 52度 500ml" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6225486.html#hotgood22" target="_blank" title="五粮液 2016年 52度 500ml">
+                                               五粮液 2016年 52度 500ml<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>779.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>234796</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6212701">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6212701.html#hotgood23" target="_blank" title="52°舍得窖龄30年 500ml" style="width: 110px">
+                                               <img src="http://img18.yesmyimg.com/6212701/3758840_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="52°舍得窖龄30年 500ml" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6212701.html#hotgood23" target="_blank" title="52°舍得窖龄30年 500ml">
+                                               52°舍得窖龄30年 500ml<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>529.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>3</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6207979">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6207979.html#hotgood24" target="_blank" title="52°五粮陈壹号500ml 礼盒装" style="width: 110px">
+                                               <img src="http://img09.yesmyimg.com/6207979/1312992_110x180.jpg" onerror="imgError(this)" width="110" height="180" alt="52°五粮陈壹号500ml 礼盒装" style="width: 110px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6207979.html#hotgood24" target="_blank" title="52°五粮陈壹号500ml 礼盒装">
+                                               52°五粮陈壹号500ml 礼盒装<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>499.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>18</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                               <li goodsid="6205521">
+                                   <dl>
+                                       <dt>
+                                           <a class="pimg" href="/goods/6205521.html#hotgood25" target="_blank" title="陈年老酒（2000年） 52°五粮液500ml" style="width: 180px">
+                                               <img src="http://img19.yesmyimg.com/n/521/205/6205521/7272931_180x180.jpg" onerror="imgError(this)" width="180" height="180" alt="陈年老酒（2000年） 52°五粮液500ml" style="width: 180px; opacity: 1;"></a>
+                                       <p class="promo-icon"><ins class="qiang"></ins></p>
+                                       </dt>
+                                       <dd class="base">
+                                           <a class="pname" href="/goods/6205521.html#hotgood25" target="_blank" title="陈年老酒（2000年） 52°五粮液500ml">
+                                               陈年老酒（2000年） 52°五粮液500ml<span class="en" title=""></span>
+                                           </a>
+                                           <p class="price">
+                                               <span class="minprice">¥<strong>1999.0</strong></span>
+                                           </p>
+                                       </dd>
+                                       <dd class="sum">
+                                           <span class="soldnum">售出<strong>51</strong></span>
+                                           <span class="ratepercent">好评<strong>100%</strong></span>
+                                       </dd>
+                                   </dl>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+                   </div>
+               </div>
+
+           </div>
+        </div>
+        <div class="bgimage">
+         <img src="http://img14.yesmyimg.com/images/event/2017/01/window20170109.jpg?01" border="0" usemap="#map7410660173" alt="" style="opacity: 1;">
+         <map name="map7410660173" id="map7410660173"> <area shape="rect" coords="1,1,1199,141" href="http://www.yesmywine.com/marketing/topic/0111461/0111461.html?" target="_blank"> <area shape="rect" coords="1,148,200,372" href="http://www.yesmywine.com/goods/6229300&#10;.html" target="_blank"> <area shape="rect" coords="204,150,400,371" href="http://www.yesmywine.com/goods/6226904.html" target="_blank"> <area shape="rect" coords="402,148,598,372" href="http://www.yesmywine.com/goods/6220416.html?dts=L201.2" target="_blank"> <area shape="rect" coords="601,148,796,372" href="http://www.yesmywine.com/goods/6228341.html" target="_blank"> <area shape="rect" coords="800,148,995,372" href="http://www.yesmywine.com/goods/5170662.html" target="_blank"> <area shape="rect" coords="998,148,1199,373" href="http://www.yesmywine.com/goods/6214476.html" target="_blank"> <area shape="rect" coords="1,377,199,600" href="http://www.yesmywine.com/goods/5175063.html" target="_blank"> <area shape="rect" coords="201,377,398,599" href="http://www.yesmywine.com/goods/6215843.html" target="_blank"> <area shape="rect" coords="401,377,597,601" href="http://www.yesmywine.com/goods/6205900.html" target="_blank"> <area shape="rect" coords="602,379,797,598" href="http://www.yesmywine.com/goods/5190659.html" target="_blank"> <area shape="rect" coords="800,378,996,598" href="http://www.yesmywine.com/goods/6227697.html" target="_blank"> <area shape="rect" coords="999,379,1195,600" href="http://www.yesmywine.com/goods/5150837.html" target="_blank"> </map>
+        </div>
+        <a name="#guess"></a>
+        <div class="content">
+            <div id="happy" data-dts="I15" data-dtsstartindex="0" data-findtag="div>dl>dt>a,div[class='block']>a">
+                <div class="tt" id="">
+                    <h1>猜你喜欢-专属推荐</h1>
+                    <a id="getnextPage" class="change change2" href="#guess" flash="SH">没有合适的？换一批</a>
+                </div>
+                <div class="left like-left">
+                    <h2></h2>
+                    <ul class="">
+                        <li>
+                            <a class="sh" id="sh" href="javascript:void(0);">实惠控</a>
+                        </li>
+                        <li>
+                            <a class="pp" id="pp" href="javascript:void(0);">品牌控</a>
+                        </li>
+                        <li>
+                            <a class="cj" id="cj" href="javascript:void(0);">餐酒控</a>
+                        </li>
+                        <li>
+                            <a class="fs" id="fs" href="javascript:void(0);">发烧控</a>
+                        </li>
+                        <li>
+                            <a class="sw" id="sw" href="javascript:void(0);">商务控</a>
+                        </li>
+                        <li>
+                            <a class="bg" id="bg" href="javascript:void(0);">逼格控</a>
+                        </li>
+                        <li>
+                            <a class="ym" id="ym" href="javascript:void(0);">夜猫控</a>
+                        </li>
+                        <li>
+                            <a class="yz" id="yz" href="javascript:void(0);">颜值控</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div id="guessPageNum" page="1">
+                    <div class="block">
+                        <a href="http://www.yesmywine.com/goods/5145420.html?source=guessYourLike" target="_blank" title="拉昂城堡干红葡萄酒">
+                            <img src="http://img18.yesmyimg.com/n/420/145/5145420/4463015_110x180.png" original="http://img18.yesmyimg.com/n/420/145/5145420/4463015_110x180.png" onerror="imgError(this)">
+                        </a>
+                        <dl style="width: 180px;">
+                            <dt class="title"><a href="http://www.yesmywine.com/goods/5145420.html?source=guessYourLike" target="_blank" title="拉昂城堡干红葡萄酒">拉昂城堡干红葡萄酒</a></dt>
+                            <dd title="La Bastide Laurent">La Bastide Laurent</dd>
+                            <dd>产地：法国(France)</dd>
+                            <dd>品种：60%歌海娜(Grenache)、30%佳丽酿(Carignan)、10%慕合怀特(Mourvedre)</dd>
+                            <dd>好评度：96%</dd>
+                            <dd class="last">
+                                <div class="minprice">
+                                    <span class="fuhao">¥</span>
+                                    <strong>55.0</strong>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="block">
+                        <a href="http://www.yesmywine.com/goods/5198845.html?source=guessYourLike" target="_blank" title="格兰家族玉酿干红葡萄酒 （佳酿等级）">
+                            <img src="http://img18.yesmyimg.com/5198845/1457733_110x180.JPG" original="http://img18.yesmyimg.com/5198845/1457733_110x180.JPG" onerror="imgError(this)">
+                        </a>
+                        <dl style="width: 180px;">
+                            <dt class="title"><a href="http://www.yesmywine.com/goods/5198845.html?source=guessYourLike" target="_blank" title="格兰家族玉酿干红葡萄酒 （佳酿等级）">格兰家族玉酿干红葡萄酒 （佳酿</a></dt>
+                            <dd title="Torre Mitica Crianza">Torre Mitica Crianza</dd>
+                            <dd>产地：西班牙(Spain)</dd>
+                            <dd>品种：50%丹魂（Tempranillo）和50%赤霞珠（Cabernet Sauvignon）</dd>
+                            <dd>好评度：98%</dd>
+                            <dd class="last">
+                                <div class="minprice">
+                                    <span class="fuhao">¥</span>
+                                    <strong>68.0</strong>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="block">
+                        <a href="http://www.yesmywine.com/goods/6217827.html?source=guessYourLike" target="_blank" title="博林干红葡萄酒">
+                            <img src="http://img08.yesmyimg.com/6217827/2680193_110x180.png" original="http://img08.yesmyimg.com/6217827/2680193_110x180.png" onerror="imgError(this)">
+                        </a>
+                        <dl style="width: 180px;">
+                            <dt class="title"><a href="http://www.yesmywine.com/goods/6217827.html?source=guessYourLike" target="_blank" title="博林干红葡萄酒">博林干红葡萄酒</a></dt>
+                            <dd title="LES HAUTS DE BOLLIN">LES HAUTS DE BOLLIN</dd>
+                            <dd>产地：法国(France)</dd>
+                            <dd>品种：50%西拉/设拉子(Syrah/Shiraz),35%歌海娜(Grenache/Granacha),15%佳丽酿(Carignan)</dd>
+                            <dd>好评度：90%</dd>
+                            <dd class="last">
+                                <div class="minprice">
+                                    <span class="fuhao">¥</span>
+                                    <strong>88.0</strong>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="block">
+                        <a href="http://www.yesmywine.com/goods/6217996.html?source=guessYourLike" target="_blank" title="佳美妃霞多丽-大芒森白葡萄酒">
+                            <img src="http://img08.yesmyimg.com/6217996/0187758_110x180.png" original="http://img08.yesmyimg.com/6217996/0187758_110x180.png" onerror="imgError(this)">
+                        </a>
+                        <dl style="width: 180px;">
+                            <dt class="title"><a href="http://www.yesmywine.com/goods/6217996.html?source=guessYourLike" target="_blank" title="佳美妃霞多丽-大芒森白葡萄酒">佳美妃霞多丽-大芒森白葡萄酒</a></dt>
+                            <dd title="Gabriel Meffre Chardonnay-Gros Manseng">Gabriel Meffre Chardonnay</dd>
+                            <dd>产地：法国(France)</dd>
+                            <dd>品种：霞多丽</dd>
+                            <dd>好评度：100%</dd>
+                            <dd class="last">
+                                <div class="minprice">
+                                    <span class="fuhao">¥</span>
+                                    <strong>59.0</strong>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="block">
+                        <a href="http://www.yesmywine.com/goods/6218038.html?source=guessYourLike" target="_blank" title="驹伯长相思干白葡萄酒">
+                            <img src="http://img19.yesmyimg.com/6218038/3237398_110x180.png" original="http://img19.yesmyimg.com/6218038/3237398_110x180.png" onerror="imgError(this)">
+                        </a>
+                        <dl style="width: 180px;">
+                            <dt class="title"><a href="http://www.yesmywine.com/goods/6218038.html?source=guessYourLike" target="_blank" title="驹伯长相思干白葡萄酒">驹伯长相思干白葡萄酒</a></dt>
+                            <dd title="Rivages Jumbo Sauvignon Blanc">Rivages Jumbo Sauvignon B</dd>
+                            <dd>产地：法国(France)</dd>
+                            <dd>品种：</dd>
+                            <dd>好评度：100%</dd>
+                            <dd class="last">
+                                <div class="minprice">
+                                    <span class="fuhao">¥</span>
+                                    <strong>66.0</strong>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="block">
+                        <a href="http://www.yesmywine.com/goods/6222446.html?source=guessYourLike" target="_blank" title="康纳斯顿IX9赤霞珠干红葡萄酒">
+                            <img src="http://img08.yesmyimg.com/6222446/7595266_110x180.png" original="http://img08.yesmyimg.com/6222446/7595266_110x180.png" onerror="imgError(this)">
+                        </a>
+                        <dl style="width: 180px;">
+                            <dt class="title"><a href="http://www.yesmywine.com/goods/6222446.html?source=guessYourLike" target="_blank" title="康纳斯顿IX9赤霞珠干红葡萄酒">康纳斯顿IX9赤霞珠干红葡萄酒</a></dt>
+                            <dd title="Cornerstone IX9 Cabernet Sauvignon">Cornerstone IX9 Cabernet </dd>
+                            <dd>产地：智利(Chile)</dd>
+                            <dd>品种：100%赤霞珠(Cabernet Sauvignon)</dd>
+                            <dd>好评度：100%</dd>
+                            <dd class="last">
+                                <div class="minprice">
+                                    <span class="fuhao">¥</span>
+                                    <strong>49.0</strong>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swap no_bottom">
+            <div id="hao_pin" class="hao_pin">
+                <h1>刚刚被好评过的</h1>
+                <div class="hao_pin_left">
+                    <div class="hot"></div>
+                    <div class="channel-slider">
+                        <ul class="slide-items" data-dts="I20" style="width: 1800px; margin-left: -1200px;">
+                            <li class="">
+                                <a class="left_img" cmtid="1112930" href="/goods/6228083.html#z1ad1" target="_blank" title="贝卡塔瑞酒庄干红葡萄酒（中级庄）">
+                                    <img src="http://img18.yesmyimg.com/n/83/228/6228083/9772231_220x360.jpg" onerror="imgError(this)" width="220" height="360" alt="贝卡塔瑞酒庄干红葡萄酒（中级庄）" style="width: 220px; opacity: 1;">
+                                </a>
+                                <div class="hot_price">159.0</div>
+                                <a class="right_prod" href="/goods/6228083.html#z1ad1" target="_blank">
+                                    <span class="prod-name">贝卡塔瑞酒庄干红葡萄酒（中级庄）</span>
+                                    <span class="prod-note">2005年份该酒款获国际葡萄酒挑战大赛铜奖，酒窖追踪评分：88/100(21 notesfrom 11 users)。醒酒半个小时，教科书一般的波尔多红酒，酒体圆润，单宁中等，红色水果、 香料和香草香味在口中充盈，与浓郁的果味交织，回味无穷，100元不到的价格买入，十分划算。</span>
+                                    <span class="soldnum">销量：<strong>139</strong></span>
+                                    <span class="ratepercent">评论：<strong>4</strong></span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="left_img" cmtid="1111728" href="/goods/5179176.html#z1ad2" target="_blank" title="欧娜干红葡萄酒（FSA）">
+                                    <img src="http://img08.yesmyimg.com/n/176/179/5179176/3285932_220x360.jpg" onerror="imgError(this)" width="220" height="360" alt="欧娜干红葡萄酒（FSA）" style="width: 220px; opacity: 1;">
+                                </a>
+                                <div class="hot_price">49.0</div>
+                                <a class="right_prod" href="/goods/5179176.html#z1ad2" target="_blank">
+                                    <span class="prod-name">欧娜干红葡萄酒（FSA）</span>
+                                    <span class="prod-note">这个时候我已经不知道该怎么评价了一直都说她很好很好很好，非常的好，自从在也买酒买了以后就一直坚持买欧娜红葡萄酒，价钱也非常的划算，非常的便宜，所以以后还会一直都买非常喜欢，也蛮久，也更加喜欢欧娜干红葡萄酒，谢谢。</span>
+                                    <span class="soldnum">销量：<strong>802544</strong></span>
+                                    <span class="ratepercent">评论：<strong>781</strong></span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a class="left_img" cmtid="1111727" href="/goods/5194264.html#z1ad3" target="_blank" title="宜兰树·埠理根伊特娜一世干红葡萄酒">
+                                    <img src="http://img18.yesmyimg.com/5194264/5077765_220x360.JPG" onerror="imgError(this)" width="220" height="360" alt="宜兰树·埠理根伊特娜一世干红葡萄酒" style="width: 220px; opacity: 1;">
+                                </a>
+                                <div class="hot_price">59.0</div>
+                                <a class="right_prod" href="/goods/5194264.html#z1ad3" target="_blank">
+                                    <span class="prod-name">宜兰树·埠理根伊特娜一世干红葡萄酒</span>
+                                    <span class="prod-note">这个酒已经买回来了，但是还没有喝到，也是从也买酒上买的，也买酒这个网站，我非常的喜欢，自从注册了以后一直在你家买红酒没有去过别的家淘宝上的红酒从来没有买过，因为那上面的酒不放心，但是也买酒的酒是一直很放心的喝起来味道也非常的纯正，非常的喜欢，所以以后还会一直支持也买酒网站</span>
+                                    <span class="soldnum">销量：<strong>11317</strong></span>
+                                    <span class="ratepercent">评论：<strong>51</strong></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="slide-index">
+                            <span class="">1</span>
+                            <span class="">2</span>
+                            <span class="active">2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buy" class="buy">
+                <div class="tt">
+                    <h1>刚刚被购买过的商品</h1>
+                </div>
+
+                <div class="block">
+                    <dl>
+                        <dd data-dts="I21">
+                            <a class="prod_img" href="http://www.yesmywine.com/goods/6220121.html" target="_blank" title="安茹莱歌堡红葡萄酒">
+                                <img src="http://img09.yesmyimg.com/6220121/1434937_110x180.jpg" onerror="imgError(this)" style="opacity: 1;">
+                            </a>
+                            <div class="right_prod">
+                                <dl>
+                                    <dt class="title"><a href="http://www.yesmywine.com/goods/6220121.html" target="_blank" title="安茹莱歌堡红葡萄酒">安茹莱歌堡红葡萄酒</a></dt>
+                                    <dd>
+                                        <div class="clearfix promotionMiddleGift_hover">
+                                            <dl class="clearifx cx_dl">
+                                                <dt>促销信息：
+                                                    <b>商品折扣</b></dt>
+                                                <dt class="p">
+                                                    <label>￥</label>
+                                                    <em>149.0</em>
+                                                </dt>
+                                                <dd class="hidden">
+                                                    <div><b>商品折扣</b><em title="明星单品促销特惠">明星单品促销特惠</em></div></dd>
+                                            </dl>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="dl_bottom">
+                        <dd class="gy_info">
+                            <label class="user_name">m_1446303033277</label>刚刚购买
+                        </dd>
+                        <dd class="soldnum">售出数量: <label>24</label>件</dd>
+                    </dl>
+                </div>
+
+                <div class="block">
+                    <dl>
+                        <dd data-dts="I21">
+                            <a class="prod_img" href="http://www.yesmywine.com/goods/5198845.html" target="_blank" title="格兰家族玉酿干红葡萄酒 （佳酿等级）">
+                                <img src="http://img18.yesmyimg.com/5198845/1457733_110x180.JPG" onerror="imgError(this)" style="opacity: 1;">
+                            </a>
+                            <div class="right_prod">
+                                <dl>
+                                    <dt class="title"><a href="http://www.yesmywine.com/goods/5198845.html" target="_blank" title="格兰家族玉酿干红葡萄酒 （佳酿等级）">格兰家族玉酿干红葡萄酒 （佳酿等级）</a></dt>
+                                    <dd>
+                                        <div class="clearfix promotionMiddleGift_hover">
+                                            <dl class="clearifx cx_dl">
+                                                <dt>促销信息：
+                                                    <b>商品折扣</b></dt>
+                                                <dt class="p">
+                                                    <label>￥</label>
+                                                    <em>68.0</em>
+                                                </dt>
+                                                <dd class="hidden">
+                                                    <div><b>商品折扣</b><em title="直采特惠">直采特惠</em></div></dd>
+                                            </dl>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="dl_bottom">
+                        <dd class="gy_info">
+                            <label class="user_name">無极</label>刚刚购买
+                        </dd>
+                        <dd class="soldnum">售出数量: <label>12621</label>件</dd>
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+        <div class="section interest" id="interest">
+            <div class="tt">
+                <h1></h1>
+            </div>
+            <div class="interest-box interest-left">
+                <h1>必买排行榜</h1>
+                <div class="block no_bottom">
+                    <a href="#" target="_blank" title="巴罗什酒庄干红葡萄酒">
+                        <img src="http://img08.yesmyimg.com/5159449/5434849_110x180.jpg">
+                    </a>
+                    <dl>
+                        <dt class="title">
+                            <a href="#" title="巴罗什酒庄干红葡萄酒">巴罗什酒庄干红葡萄酒</a>
+                        </dt>
+                                    <dt class="title-en">DOMAINE LA BARROCHE Chateauneuf Du Pape Terroir</dt>
+                                    <dt class="price">￥<strong>330.0</strong></dt>
+                                    <dt class="soldnum">售出数量：<strong>42</strong>件</dt>
+                                </dl>
+                            </div>
+                            <div class="block no_bottom">
+                                <a href="#" target="_blank" title="红蔓庄园黄牌红葡萄酒">
+                                    <img src="http://img08.yesmyimg.com/7872/8476676_110x180.jpg">
+                                </a>
+                                <dl>
+                                    <dt class="title">
+                                        <a href="#" title="红蔓庄园黄牌红葡萄酒">红蔓庄园黄牌红葡萄酒</a>
+                                    </dt>
+                                    <dt class="title-en">Tarapaca Natura Organic Wine</dt>
+                                    <dt class="price">￥<strong>359.0</strong></dt>
+                                    <dt class="soldnum">售出数量：<strong>224</strong>件</dt>
+                                </dl>
+                            </div>
+                            <a class="a-more" href="#"></a>
+
+                            <div class="tasting">
+                                <h1>品鉴会-tasting</h1>
+                                <ul>
+                                    <li style="margin-top:5px;">
+                                        <a href="#" title="新年盛筵｜贝尔莱年度晚宴">【上海】新年盛筵｜贝尔莱年度晚宴</a>
+                                    </li>
+                                    <li style="margin-top:5px;">
+                                        <a href="#"  title="YClub广州｜本是同根生，兄弟齐比较">【广州】YClub广州｜本是同根生，兄弟齐比较</a>
+                                    </li>
+                                    <li style="margin-top:5px;">
+                                        <a href="#" title="YClub上海｜“情迷六月黄”私厨酒局">【上海】YClub上海｜“情迷六月黄”私厨酒局</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="interest-box interest-main">
+                            <div class="tt">
+                                <h1>发现好货</h1>
+                            </div>
+                            <div class="p_wine">
+                                <a href="#" target="_blank" title="蒙特斯欧法赤霞珠">
+                                    <img src="http://img19.yesmyimg.com/15804/5211965_220x360.JPG">
+                                </a>
+                                <p class="promo-icon">
+                                    <ins class="wine_text">WS91、WA91</ins>
+                                    <ins class="wine_text">橡木陈酿12个月</ins>
+                                </p>
+                                <dl>
+                                    <dt class="title">
+                                        <a href="#"  title="蒙特斯欧法赤霞珠">蒙特斯欧法赤霞珠</a>
+                                    </dt>
+                                    <dt class="title-en">Montes Alpha Cabernet Sauvignon</dt>
+                                    <dt class="price">￥<strong>179.0</strong></dt>
+                                    <dt class="prod-note">蒙特斯酒厂(Vi？a Montes)是智利前五大葡萄酒出口酒厂之一，始建于1988 年。蒙特斯酒曾在全球酒界获奖无数，有智利国酒之称，她是智利的骄傲。其中“蒙特斯欧法 M“ ，“蒙特斯紫天使”和“蒙特斯富乐“。被称为酒厂中红酒的“甚佳”酒款“三剑客”；</dt>
+                                </dl>
+                            </div>
+
+                            <!--2-->
+                            <div class="p_wine">
+                                <a href="#" target="_blank" title="黄尾袋鼠珍藏西拉红葡萄酒">
+                                    <img src="http://img19.yesmyimg.com/5286/3648272_220x360.JPG">
+                                </a>
+                                <p class="promo-icon">
+                                    <ins class="wine_text">澳大利亚名酒</ins>
+                                    <ins class="wine_text">JH 91 WS 88</ins>
+                                </p>
+                                <dl>
+                                    <dt class="title">
+                                        <a href="#" title="黄尾袋鼠珍藏西拉红葡萄酒">黄尾袋鼠珍藏西拉红葡萄酒</a>
+                                    </dt>
+                                    <dt class="title-en">Yellow Tail Reserve Shiraz</dt>
+                                    <dt class="price">￥<strong>99.0</strong></dt>
+                                    <dt class="prod-note">“黄尾袋鼠”名称取自黄脚的小袋鼠，这种住在澳洲干燥区域的小袋鼠被视为澳洲美丽的小袋鼠。黄尾通过对传统葡萄酒口味的改造，使其口味更为大众化，比如减少苦涩，加重甜味，使那些从不喜欢葡萄酒的消费者也能接受。短短两年里，这种有趣的社交型饮料——黄尾作为澳大利亚和美国葡萄酒行业发展迅速的品牌，超越了法国和意大利的葡萄酒。</dt>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <div class="interest-box interest-right">
+                            <h1>本周明星推荐</h1>
+                            <dl>
+                                <dt>
+                                    <a rel="nofollow" href="#"  class="user">
+                                        <img src="http://img12.yesmyimg.com/member/00/0/8/55/85599/8559949/headImg/1471323966012.jpeg">
+                                        <span class="member-name">Jasmine huang</span>
+                                        <span class="">金牌买手</span>
+                                    </a>
+                                </dt>
+                                <!--推荐的商品-->
+                                <dd class="last">
+                                    <a href="#" title="蒙佩奇古堡干红葡萄酒2012（又名霹雳山庄干红葡萄酒）">
+                                        <img src="http://img19.yesmyimg.com/6206641/2049081_110x180.png" >
+                                        <p class="title">
+                                            <span class="cn">蒙佩奇古堡干红葡萄酒2012（又名霹雳山庄干红葡萄酒）</span>
+                                            <span class="en">Chateau Mont Perat</span>
+                                        </p>
+                                        <p class="price">￥<strong>199.0</strong></p>
+                                    </a>
+                                    <label>+1</label>
+                                    <a class="focus focus1" onclick="addFavorite(6206641);"></a>
+                                </dd>
+                                <dd class="last">
+                                    <a href="#"  title="芝路城堡甜白葡萄酒2012(香港提货价，含国际运费）">
+                                        <img src="http://img08.yesmyimg.com/5177533/1101666_110x180.jpg">
+                                        <p class="title">
+                                            <span class="cn">芝路城堡甜白葡萄酒2012(香港提货价，含国际运费）</span>
+                                            <span class="en">Chateau Guiraud 2012</span>
+                                        </p>
+                                        <p class="price">￥<strong>338.0</strong></p>
+                                    </a>
+                                    <label>+1</label>
+                                    <a class="focus focus1" onclick="addFavorite(5177533);"></a>
+                                </dd>
+                                <!--推荐理由-->
+                                <dd class="last">
+                                    <div class="tt">
+                                        <h1>推荐理由：</h1>
+                                    </div>
+                                    <a class="reason">
+                                        “喝下去的那刻只觉得一瞬间好像听到了音乐，似乎是英国70年代的摇滚乐团Queen。因为它很有劲道，所以感觉到融在口中的甜味与紧绷的酸味在嘴里整个 散开。那感觉就像Queen的主唱甜美沙哑的声音，被浑厚的吉他与沉重的鼓声所包围，感觉很有古典的味道，但又更多点现代感。”Guiraud酒庄坐落在波尔多苏黛产区，1855列级酒庄中唯一的一等苑，专注生产贵腐甜白的酒庄。而且目前也波尔多左岸是列级酒庄中唯一获得有机生态农业认证的酒庄。在美国知名葡萄酒杂志《葡萄酒观察家》(Wine Spectator) 公布的2008年度百大葡萄酒评选名单，芝路庄园位列第四名。</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+        <div class="project swap">
+            <div class="topic">
+                <h1></h1>
+            </div>
+            <div class="left">
+                <a href="#">
+                    <img src="http://img02.yesmyimg.com/slides/anna/2016/1121/1.jpg" alt="">
+                </a>
+            </div>
+            <div class="main">
+               <ul>
+                   <li><a href="#"><img src="http://img02.yesmyimg.com/slides/anna/2016/1129/9.jpg" alt=""></a></li>
+                   <li><a href="#"><img src="http://img4.yesmyimg.com/slides/newWeb/2016/0901/222.jpg" alt=""></a></li>
+                   <li><a href="#"><img src="http://img03.yesmyimg.com/slides/anna/2016/1221/SSS1.jpg" alt=""></a></li>
+                   <li><a href="#"><img src="http://img1.yesmyimg.com/slides/mall/2016/2016072505.jpg" alt=""></a></li>
+               </ul>
+            </div>
+        </div>
+        <div class = 'swap'>
+            <div class="pp">
+                <div class="title">
+                    <h1></h1>
+                    <a href="#" class="more"></a>
+                </div>
+                <div class="center">
+                    <ul class="clearfix">
+
+                    </ul>
+                </div>
+                <div class = 'pp_bottom'>
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="taste swap">
+            <div class="taste_left left">
+                <div class="title">
+                    <h3></h3>
+                    <div class="more_page">
+                        <span class="prev disabled"></span>
+                        <span class="pageNum">1/11</span>
+                        <span class="next"></span>
+                    </div>
+                </div>
+                <div class="comment">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="taste_righ">
+                <h3></h3>
+                <div>
+                    <a href="#">
+                        <img src="http://img4.yesmyimg.com/2016/10/23/20161123100943389.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="jk swap">
+            <div class="jk_header">
+                <h2></h2>
+                <ul>
+                    <li><a href="">红葡萄酒</a></li>
+                    <li><a href="">白葡萄酒</a></li>
+                    <li><a href="">桃红葡萄酒</a></li>
+                    <li><a href="">起泡酒</a></li>
+                    <li><a href="">香槟</a></li>
+                    <li><a href="">赤霞珠</a></li>
+                    <li class="more"><a href="">全部葡萄酒</a></li>
+                </ul>
+            </div>
+            <div class="jk_logo">
+                <div class="logo_left">
+                    <div class="brand">
+                        <ul>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                            <li>
+                                <a href=""></a>
+                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="footer swap left"></div>
 </body>
 </html>

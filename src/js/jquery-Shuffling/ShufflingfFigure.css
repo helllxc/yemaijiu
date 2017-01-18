@@ -1,0 +1,13 @@
+body{ margin:0;}
+.parea{width:810px;height:320px;overflow: hidden;position: relative}
+.parea img{display: block;}
+.fade li{position: relative;opacity: 0}
+.horizontal li{float:left}
+.horizontal{width:4050px}
+.parea .forward{position: absolute; font-size: 25px; top: 50%;margin-top: -15px; width:30px;display:block;height:30px;text-align:center;background-color: #eeeeee}
+.parea .back{position: absolute; font-size: 25px; top: 50%;margin-top: -15px;right:0; width:30px;display:block;height:30px;text-align:center;background-color: #eeeeee}
+.parea span:hover{color:red;cursor: pointer}
+.smallpic{position: relative;width:810px;height:320px;margin:0 2px}
+.smallpic li { float: left; opacity: 0.5}
+.smallpic img{width: 202px;height: 100px; }
+.smallpic ul .active{background-color:rgba(255,0,0,.8);opacity: 1}
