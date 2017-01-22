@@ -45,16 +45,43 @@
                $('<li/>').html('<a href="#"><img src = "../img/hmepage/brand_logo'+i+'.jpg "></a>').appendTo($('.pp_bottom ul'))
            }
            for(i=0;i<33;i++){
-               $.getJSON("php/data.json",function(data){
+               $.getJSON("jason/data.json",function(data){
                    $.each(data,function(idx,item){
                        var $li = $('<li/>');
                        $li.html('<div class="parea"><a href="#"><img src="'+item.img+'" alt=""></a></div><div class="base"><a href="#">'+item.name+'</a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p>').appendTo($('.comment ul'));
                        $.each(item.main,function(i,_item){
                            $('<div/>').addClass('_comment').html('<div class="user"><img src="'+item.userimg+'" alt=""><span>'+_item.user+'</span></div><p><span class="rank">"评分"<strong>'+_item.rank+'</strong></span><br><a href="#">'+_item.comment+'</a></p>').appendTo($li);
                        })
+
                    })
                })
            }
+
+           //
+           $.getJSON("jason/drink.json",function(data){
+               $.each(data,function(idex,item){
+                  $(".jk").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul></ul></div><div class="jk_logor"></div></div>');
+                  $.each(item.wine,function(idx,_item){
+                      $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk_header ul'));
+                  })
+                   $('.jk_header ul li:last').addClass('more');
+                   $.each(item.logo,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk_logo ul'));
+                   })
+                   $.each(item.src,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk_main ul'));
+                   })
+                   $.each(item.rightpic,function(idx,_item){
+                       $('<a/>').html('<img src="'+_item+'">').appendTo($('.jk_logor'));
+                   })
+                   $.each(item.topic,function(idx,_item){
+                      $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('.goodlist'));
+                   })
+                   $.each(item.top,function(idx,_item){
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.e-name+'</span></a></dd></dl>')
+                   })
+               })
+           })
        })
 
     </script>
@@ -1718,91 +1745,37 @@
                 </div>
             </div>
         </div>
-        <div class="taste swap">
-            <div class="taste_left left">
-                <div class="title">
-                    <h3></h3>
-                    <div class="more_page">
-                        <span class="prev disabled"></span>
-                        <span class="pageNum">1/11</span>
-                        <span class="next"></span>
-                    </div>
-                </div>
-                <div class="comment">
-                    <ul>
+        <!--<div class="taste swap">-->
+            <!--<div class="taste_left left">-->
+                <!--<div class="title">-->
+                    <!--<h3></h3>-->
+                    <!--<div class="more_page">-->
+                        <!--<span class="prev disabled"></span>-->
+                        <!--<span class="pageNum">1/11</span>-->
+                        <!--<span class="next"></span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="comment">-->
+                    <!--<ul>-->
 
-                    </ul>
-                </div>
-            </div>
-            <div class="taste_righ">
-                <h3></h3>
-                <div>
-                    <a href="#">
-                        <img src="http://img4.yesmyimg.com/2016/10/23/20161123100943389.jpg" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="taste_righ">-->
+                <!--<h3></h3>-->
+                <!--<div>-->
+                    <!--<a href="#">-->
+                        <!--<img src="http://img4.yesmyimg.com/2016/10/23/20161123100943389.jpg" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="jk swap">
-            <div class="jk_header">
-                <h2></h2>
-                <ul>
-                    <li><a href="">红葡萄酒</a></li>
-                    <li><a href="">白葡萄酒</a></li>
-                    <li><a href="">桃红葡萄酒</a></li>
-                    <li><a href="">起泡酒</a></li>
-                    <li><a href="">香槟</a></li>
-                    <li><a href="">赤霞珠</a></li>
-                    <li class="more"><a href="">全部葡萄酒</a></li>
-                </ul>
-            </div>
-            <div class="jk_logo">
-                <div class="logo_left">
-                    <div class="brand">
-                        <ul>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                            <li>
-                                <a href=""></a>
-                                <img src="http://img4.yesmyimg.com/advertImgFlv/1355895820829.jpg" alt="">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
+        </div>
+        <div class="jk_main swap">
+            <div class="goodlist">
+
             </div>
         </div>
     </div>
