@@ -4,7 +4,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "root";
-        $db = '1000phone';        
+        $db = 'datalist';
         $conn = mysqli_connect($servername,$username,$password,$db); 
         if (mysqli_connect_errno($conn)) 
         { 
@@ -29,8 +29,4 @@
         } 
         mysqli_close($conn);       
     }
-
-    $sql = "SELECT * FROM student;";
-
-    query($sql);
 ?>

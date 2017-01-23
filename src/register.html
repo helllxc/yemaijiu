@@ -58,6 +58,15 @@
                     $(this).next('div').hide();
 				}
             })
+
+			$('.register_btn').click(function () {
+				$.post('php/register.php',{
+				    phone:$('.phone').val(),
+					password:$('.password')
+				},function(response){
+					console.log(response)
+				})
+            })
 		})
 	</script>
 

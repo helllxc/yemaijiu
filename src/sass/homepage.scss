@@ -979,7 +979,7 @@ $fontSize:14px;
 			}
 		}
 	}
-	.jk{
+	.jk,.jk1,.jk2{
 		border-bottom: solid 1px #d2d2ce;
 		.jk_header{
 			height: 34px;border-bottom: solid 2px #c53f4c;
@@ -1004,7 +1004,7 @@ $fontSize:14px;
 			}
 		}
         .jk_brand{
-        .jk_logo{
+       	 .jk_logo{
           width: 200px;border: 1px #E7E7E7 solid;float: left;
           .brand{
             overflow: hidden;width: 200px;height: 250px;
@@ -1031,7 +1031,7 @@ $fontSize:14px;
                 }
               }
             }
-          };
+          }
         }
         .jk_logor{
           float: right;width:235px;overflow:hidden;
@@ -1042,63 +1042,321 @@ $fontSize:14px;
           }
         }
       }
+		.jk_mainleft{
+			.goodlist{
+				float: left;overflow: hidden;margin-right: 0; width: 960px; height: 702px;padding: 10px 0;
+				h3{
+					margin: 0 10px;height: 30px;border-bottom: solid 1px #d2d2ce;line-height: 30px;
+					strong{
+						float: left;display: block;color: #715b4a;font-size: 14px;font-family: 微软雅黑;line-height: 30px;
+					}
+					.more{
+						float: right;margin-top: 4px;width: 60px;height: 22px;background:url("../img/hmepage/sprite.png") no-repeat 0 -68px;color: #5a463d;text-align: center;font-weight: normal;line-height: 22px;
+					}
+				}
+				ul{
+					overflow: hidden;padding: 5px;height: 310px;
+					li{
+						float: left;overflow: hidden;padding: 3px;width: 180px;border: solid 2px transparent;
+						&:hover{
+							border: solid 2px #e7e7e2;box-shadow: 5px 10px 10px -10px rgba(0,0,0,0.4);
+						}
+						dl{
+							dt{
+								height: 200px;
+								a{
+									display: block;margin: 0 auto;padding-top: 10px;width: 110px;height: 180px;
+									img{
+										display: block;width: 110px;height: 180px;
+									}
+								}
+							}
+							.base{
+								padding: 10px;height: 55px;background-color: #f4f4f0;
+								a{
+									display: block;overflow: hidden;height: 32px;color: #5b473d;line-height: 16px;
+									span{
+										display: block;overflow: hidden;height: 20px;color: #777;
+									}
+								}
+								.price{
+									height: 23px;font-family: Arial;line-height: 30px;
+									span{
+										display: block;float: left;color: #c53f4c;font-size: 14px;
+										strong{
+											font-weight: normal;font-size: 20px;font-family: Georgia;
+										}
+									}
+								}
+							}
+							.sum{
+								padding: 0 10px;height: 24px;border-top: solid 1px #e7e7e2;background-color: #f4f4f0;color: #999;line-height: 24px;
+								.soldout{
+									float: left;
+									strong{
+										margin-left: 5px;color: #666;font-weight: normal;
+									}
+								}
+								.rank{
+									float: right;
+									strong{
+										margin-left: 5px;color: #666;font-weight: normal;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.jk_right{
+				float: right;overflow: hidden;width: 235px;height: 722px;background-color: #f4f4f0;
+				h4{
+					float: none;height: 40px;overflow: hidden;  width: 143px;background: url(../img/hmepage/title_01.png) no-repeat 0 -337px;;line-height: 34px;
+				}
+				ul{
+					li{
+						position: relative;padding: 10px 10px 10px 35px;height: 20px;border-top: solid 1px #ddd;line-height: 20px;
+						em{
+							position: absolute;top: 10px;left: 5px;z-index: 200;display: block;padding-right: 4px;width: 20px;height: 20px;background:url('../img/hmepage/sprite.png') -85px -70px;color: #5b473b;text-align: center;font-weight: bold;font-style: normal;font-size: 14px;font-family: Arial;line-height: 20px;
+						}
+						.pic {
+							display: none;
+						}
+						.name{
+							display: block;overflow: hidden;height: 25px;color: #5b473d;display: block;color: #777;
+						}
+						.soldout{
+							display: none;
+						}
+						.price{
+							display: none;
+						}
+					}
+					.active{
+						height:110px;padding-left: 95px;
+						em {
+							background:url('../img/hmepage/sprite.png') no-repeat -60px -70px;color: #fff;
+						}
+						.pic {
+							position: absolute;top: 10px;left: 5px;display: block;padding: 6px 10px;width: 60px;height: 98px;background-color: #fff;
+							img {
+								display: block;width: 60px;height: 98px;
+							}
+						}
+						.name{
+							overflow: hidden;height: 40px;
+						}
+						.soldout {
+							isplay: block;margin-top: 10px;color: #999;
+							strong {
+								color: #5b473d;font-weight: normal;
+							}
+						}
+						.price {
+							display: block;margin-top: 10px;color: #c53f4c;font-weight: bold;font-family: Arial;
+							strong {
+								font-weight: normal;font-size: 20px;font-family: Georgia;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
-  .jk_main{
-    .goodlist{
-      float: left;overflow: hidden;margin-right: 0; width: 960px; height: 702px;padding: 10px 0;
-      h3{
-        margin: 0 10px;height: 30px;border-bottom: solid 1px #d2d2ce;line-height: 30px;
-        strong{
-          float: left;display: block;color: #715b4a;font-size: 14px;font-family: 微软雅黑;line-height: 30px;
-        }
-        .more{
-          float: right;margin-top: 4px;width: 60px;height: 22px;background:url("../img/hmepage/sprite.png") no-repeat 0 -68px;color: #5a463d;text-align: center;font-weight: normal;line-height: 22px;
-        }
-      }
-      ul{
-        overflow: hidden;padding: 5px;height: 310px;
-        li{
-          float: left;overflow: hidden;padding: 3px;width: 180px;border: solid 2px transparent;
-          dl{
-            dt{
-              height: 200px;
-              a{
-                display: block;margin: 0 auto;padding-top: 10px;width: 110px;height: 180px;
-                img{
-                  display: block;width: 110px;height: 180px;
-                }
-              }
-            }
-            .base{
-              padding: 10px;height: 55px;background-color: #f4f4f0;
-              a{
-                display: block;overflow: hidden;height: 32px;color: #5b473d;line-height: 16px;
-                span{
-                  display: block;overflow: hidden;height: 20px;color: #777;
-                }
-              }
-              p{
-                height: 23px;font-family: Arial;line-height: 30px;
-                span{
-                  display: block;
-                  strong{
-                    font-weight: normal;font-size: 20px;font-family: Georgia;
-                  }
-                }
-              }
-            }
-            .sum{
-              padding: 0 10px;height: 24px;border-top: solid 1px #e7e7e2;background-color: #f4f4f0;color: #999;line-height: 24px;
-              .soldout{
-                float: left;
-                strong{
-                  margin-left: 5px;color: #666;font-weight: normal;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+	._jk,._jk1{
+		border-bottom: solid 1px #d2d2ce;
+		._jk_header{
+			height: 34px;border-bottom: solid 2px #c53f4c;
+			h2{
+				float: left;overflow: hidden;width: 145px;height: 34px;background: url(../img/hmepage/title_01.png) no-repeat 0 0;line-height: 34px;
+			}
+			ul {
+				float: right;
+				padding: 7px 0;
+				height: 20px;
+				li {
+					&:first-child {
+						border-left: 0;
+					}
+					float: left;
+					margin: 3px 0;
+					padding: 0 20px;
+					height: 14px;
+					border-left: solid 1px #5a463d;
+					line-height: 14px;
+					a {
+						font-size: 12px
+					}
+				}
+				.more {
+					margin: 0;
+					padding: 0 10px 0 30px;
+					height: 20px;
+					border-left: none;
+					background-color: #73584a;
+					background: url(../img/hmepage/sprite.png) no-repeat  -211px -40px;
+					line-height: 20px;
+					a {
+						color: #ece7e5;
+					}
+				}
+			}
+		}
+		._jk_main{
+			width: 960px;
+			float: left;
+			._jk_brand{
+				._jk_logo {
+					width: 200px;border: 1px #E7E7E7 solid;float: left;
+					.brand {
+						overflow: hidden;width: 200px;height: 250px;
+						ul {
+							overflow: hidden;width: 202px;height: 250px;
+							li {
+								float: left;padding: 4px 0;width: 99px;height: 40px;border: solid 1px #c0ac98;background-color: #d6c9bc;text-align: center;border-left-color: #dfd5ca;border-top-color: #dfd5ca;
+								img {
+									display: inline-block;width: 80px;height: 40px;
+								}
+							}
+						}
+					}
+				}
+				.main{
+					width:758px;height: 250px;overflow: hidden;position: relative;float: left;
+					ul{
+						width: 2280px;height: 250px;
+						li{
+							float: left;
+							a{
+								img{
+									display: block;width: 760px;height: 250px;
+								}
+							}
+						}
+					};
+				}
+			}
+			._main{
+				float: left;
+				._goodlist{
+					float: left;overflow: hidden;margin-right: 0; width: 960px; height: 320px;padding: 10px 0;
+					h3{
+						margin: 0 10px;height: 30px;border-bottom: solid 1px #d2d2ce;line-height: 30px;
+						strong{
+							float: left;display: block;color: #715b4a;font-size: 14px;font-family: 微软雅黑;line-height: 30px;
+						}
+						.more{
+							float: right;margin-top: 4px;width: 60px;height: 22px;background:url("../img/hmepage/sprite.png") no-repeat 0 -68px;color: #5a463d;text-align: center;font-weight: normal;line-height: 22px;
+						}
+					}
+					ul{
+						overflow: hidden;padding: 5px;height: 310px;
+						li{
+							float: left;overflow: hidden;padding: 3px;width: 180px;border: solid 2px transparent;
+							&:hover{
+								border: solid 2px #e7e7e2;box-shadow: 5px 10px 10px -10px rgba(0,0,0,0.4);
+							}
+							dl{
+								dt{
+									height: 200px;
+									a{
+										display: block;margin: 0 auto;padding-top: 10px;width: 110px;height: 180px;
+										img{
+											display: block;width: 110px;height: 180px;
+										}
+									}
+								}
+								.base{
+									padding: 10px;height: 55px;background-color: #f4f4f0;
+									a{
+										display: block;overflow: hidden;height: 32px;color: #5b473d;line-height: 16px;
+										span{
+											display: block;overflow: hidden;height: 20px;color: #777;
+										}
+									}
+									.price{
+										height: 23px;font-family: Arial;line-height: 30px;
+										span{
+											display: block;float: left;color: #c53f4c;font-size: 14px;
+											strong{
+												font-weight: normal;font-size: 20px;font-family: Georgia;
+											}
+										}
+									}
+								}
+								.sum{
+									padding: 0 10px;height: 24px;border-top: solid 1px #e7e7e2;background-color: #f4f4f0;color: #999;line-height: 24px;
+									.soldout{
+										float: left;
+										strong{
+											margin-left: 5px;color: #666;font-weight: normal;
+										}
+									}
+									.rank{
+										float: right;
+										strong{
+											margin-left: 5px;color: #666;font-weight: normal;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.right {
+			float: right;overflow: hidden;width: 240px;height: 590px;background-color: #f4f4f0;
+			h4{
+				float: none;height: 40px;overflow: hidden;  width: 143px;background: url(../img/hmepage/title_01.png) no-repeat 0 -337px;;line-height: 34px;
+			}
+			ul{
+				li{
+					position: relative;padding: 10px 10px 10px 35px;height: 25px;border-top: solid 1px #ddd;line-height: 20px;
+					em{
+						position: absolute;top: 10px;left: 5px;z-index: 200;display: block;padding-right: 4px;width: 20px;height: 20px;background:url('../img/hmepage/sprite.png') -85px -70px;color: #5b473b;text-align: center;font-weight: bold;font-style: normal;font-size: 14px;font-family: Arial;line-height: 20px;
+					}
+					.pic {
+						display: none;
+					}
+					.name{
+						display: block;overflow: hidden;height: 25px;color: #5b473d;display: block;color: #777;
+					}
+					.soldout{
+						display: none;
+					}
+					.price{
+						display: none;
+					}
+				}
+				.active{
+					height:110px;padding-left: 95px;
+					em {
+						background:url('../img/hmepage/sprite.png') no-repeat -60px -70px;color: #fff;
+					}
+					.pic {
+						position: absolute;top: 10px;left: 5px;display: block;padding: 6px 10px;width: 60px;height: 98px;background-color: #fff;
+						img {
+							display: block;width: 60px;height: 98px;
+						}
+					}
+					.name{
+						overflow: hidden;height: 40px;
+					}
+					.soldout {
+						isplay: block;margin-top: 10px;color: #999;
+						strong {
+							color: #5b473d;font-weight: normal;
+						}
+					}
+					.price {
+						display: block;margin-top: 10px;color: #c53f4c;font-weight: bold;font-family: Arial;
+						strong {
+							font-weight: normal;font-size: 20px;font-family: Georgia;
+						}
+					}
+				}
+			}
+		}
+	}
 }

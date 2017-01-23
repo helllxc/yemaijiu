@@ -60,26 +60,166 @@
            //
            $.getJSON("jason/drink.json",function(data){
                $.each(data,function(idex,item){
-                  $(".jk").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul></ul></div><div class="jk_logor"></div></div>');
+                  $(".jk").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul class="clearfix"></ul></div><div class="jk_logor"></div></div>');
                   $.each(item.wine,function(idx,_item){
-                      $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk_header ul'));
+                      $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk .jk_header ul'));
                   })
-                   $('.jk_header ul li:last').addClass('more');
+                   $('.jk .jk_header ul li:last').addClass('more');
                    $.each(item.logo,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk_logo ul'));
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk .jk_logo ul'));
                    })
                    $.each(item.src,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk_main ul'));
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk .jk_main ul'));
                    })
                    $.each(item.rightpic,function(idx,_item){
-                       $('<a/>').html('<img src="'+_item+'">').appendTo($('.jk_logor'));
+                       $('<a/>').html('<img src="'+_item+'">').appendTo($('.jk .jk_logor'));
                    })
+
+                   $('<div class="jk_mainleft clearfix"></div>').html('<div class="goodlist"></div>').appendTo($('.jk'))
                    $.each(item.topic,function(idx,_item){
-                      $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('.goodlist'));
+                      $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('.jk .goodlist'));
                    })
                    $.each(item.top,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.e-name+'</span></a></dd></dl>')
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk .goodlist ul:first'));
                    })
+                   $.each(item.buttom,function(idx,_item){
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk .goodlist ul:last'));
+                   })
+
+                   $('<div class = "jk_right"></div>').html('<h4></h4><ul></ul>').appendTo($('.jk .jk_mainleft'));
+                   $.each(item.right,function(idx,_item){
+                        $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk .jk_right ul'))
+                   })
+                   $('.jk .jk_right ul li:lt(3)').addClass('active');
+               })
+           })
+
+
+           $.getJSON("jason/drink01.json",function(data){
+               $.each(data,function(idex,item){
+                   $("._jk").html('<div class="_jk_header"><h2></h2><ul></ul></div><div class="_jk_main clearfix"><div class = "_jk_brand"><div class="_jk_logo"><div class="brand"><ul></ul></div></div><div class="main"><ul></ul></div><div class="_main"><ul></ul><div class="_goodlist"><ul></ul></div></div></div></div><div class="right"><h4></h4><ul></ul></div>');
+                   $.each(item.wine,function(idx,_item){
+                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('._jk ._jk_header ul'));
+                   })
+                   $('._jk ._jk_header ul li:last').addClass('more');
+                   $.each(item.logo,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('._jk ._jk_logo ul'));
+                   })
+                   $.each(item.src,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('._jk .main ul'));
+                   })
+
+                   $.each(item.topic,function(idx,_item){
+                       $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('._jk ._goodlist'));
+                   })
+                   $.each(item.top,function(idx,_item){
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('._jk ._goodlist ul:first'));
+                   })
+
+                   $.each(item.right,function(idx,_item){
+                       $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('._jk .right ul'))
+                   })
+                   $('._jk .right ul li:first').addClass('active');
+               })
+           })
+
+           $.getJSON("jason/drink.json",function(data){
+               $.each(data,function(idex,item){
+                   $(".jk1").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul class="clearfix"></ul></div><div class="jk_logor"></div></div>');
+                   $.each(item.wine,function(idx,_item){
+                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk1 .jk_header ul'));
+                   })
+                   $('.jk1 .jk_header ul li:last').addClass('more');
+                   $.each(item.logo,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk1 .jk_logo ul'));
+                   })
+                   $.each(item.src,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk1 .jk_main ul'));
+                   })
+                   $.each(item.rightpic,function(idx,_item){
+                       $('<a/>').html('<img src="'+_item+'">').appendTo($('.jk1 .jk_logor'));
+                   })
+
+                   $('<div class="jk_mainleft clearfix"></div>').html('<div class="goodlist"></div>').appendTo($('.jk1'))
+                   $.each(item.topic,function(idx,_item){
+                       $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('.jk1 .goodlist'));
+                   })
+                   $.each(item.top,function(idx,_item){
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk1 .goodlist ul:first'));
+                   })
+                   $.each(item.buttom,function(idx,_item){
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk1 .goodlist ul:last'));
+                   })
+
+                   $('<div class = "jk_right"></div>').html('<h4></h4><ul></ul>').appendTo($('.jk1 .jk_mainleft'));
+                   $.each(item.right,function(idx,_item){
+                       $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk1 .jk_right ul'))
+                   })
+                   $('.jk1 .jk_right ul li:lt(3)').addClass('active');
+               })
+           })
+
+           $.getJSON("jason/drink.json",function(data){
+               $.each(data,function(idex,item){
+                   $(".jk2").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul class="clearfix"></ul></div><div class="jk_logor"></div></div>');
+                   $.each(item.wine,function(idx,_item){
+                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk2 .jk_header ul'));
+                   })
+                   $('.jk2 .jk_header ul li:last').addClass('more');
+                   $.each(item.logo,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk2 .jk_logo ul'));
+                   })
+                   $.each(item.src,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk2 .jk_main ul'));
+                   })
+                   $.each(item.rightpic,function(idx,_item){
+                       $('<a/>').html('<img src="'+_item+'">').appendTo($('.jk2 .jk_logor'));
+                   })
+
+                   $('<div class="jk_mainleft clearfix"></div>').html('<div class="goodlist"></div>').appendTo($('.jk2'))
+                   $.each(item.topic,function(idx,_item){
+                       $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('.jk2 .goodlist'));
+                   })
+                   $.each(item.top,function(idx,_item){
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk2 .goodlist ul:first'));
+                   })
+                   $.each(item.buttom,function(idx,_item){
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk2 .goodlist ul:last'));
+                   })
+
+                   $('<div class = "jk_right"></div>').html('<h4></h4><ul></ul>').appendTo($('.jk2 .jk_mainleft'));
+                   $.each(item.right,function(idx,_item){
+                       $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk2 .jk_right ul'))
+                   })
+                   $('.jk2 .jk_right ul li:lt(3)').addClass('active');
+               })
+           })
+
+           $.getJSON("jason/drink01.json",function(data){
+               $.each(data,function(idex,item){
+                   $("._jk1").html('<div class="_jk_header"><h2></h2><ul></ul></div><div class="_jk_main clearfix"><div class = "_jk_brand"><div class="_jk_logo"><div class="brand"><ul></ul></div></div><div class="main"><ul></ul></div><div class="_main"><ul></ul><div class="_goodlist"><ul></ul></div></div></div></div><div class="right"><h4></h4><ul></ul></div>');
+                   $.each(item.wine,function(idx,_item){
+                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('._jk1 ._jk_header ul'));
+                   })
+                   $('._jk1 ._jk_header ul li:last').addClass('more');
+                   $.each(item.logo,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('._jk1 ._jk_logo ul'));
+                   })
+                   $.each(item.src,function(idx,_item){
+                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('._jk1 .main ul'));
+                   })
+
+                   $.each(item.topic,function(idx,_item){
+                       $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('._jk1 ._goodlist'));
+                   })
+                   $.each(item.top,function(idx,_item){
+                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('._jk1 ._goodlist ul:first'));
+                   })
+
+                   $.each(item.right,function(idx,_item){
+                       $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('._jk1 .right ul'))
+                   })
+                   $('._jk1 .right ul li:first').addClass('active');
                })
            })
        })
@@ -1770,14 +1910,11 @@
                 <!--</div>-->
             <!--</div>-->
         <!--</div>-->
-        <div class="jk swap">
-
-        </div>
-        <div class="jk_main swap">
-            <div class="goodlist">
-
-            </div>
-        </div>
+        <div class="jk swap"></div>
+        <div class="_jk swap"></div>
+        <div class="jk1 swap"></div>
+        <div class="jk2 swap"></div>
+        <div class="_jk1 swap"></div>
     </div>
     <div class="footer swap left"></div>
 </body>

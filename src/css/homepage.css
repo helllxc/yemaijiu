@@ -663,78 +663,234 @@ p, h1, h2, h3, h4, h5, dl, dt, dd { padding: 0; margin: 0; }
 
 .main .taste .taste_righ div img { width: 240px; height: 210px; }
 
-.main .jk { border-bottom: solid 1px #d2d2ce; }
+.main .jk, .main .jk1, .main .jk2 { border-bottom: solid 1px #d2d2ce; }
 
-.main .jk .jk_header { height: 34px; border-bottom: solid 2px #c53f4c; }
+.main .jk .jk_header, .main .jk1 .jk_header, .main .jk2 .jk_header { height: 34px; border-bottom: solid 2px #c53f4c; }
 
-.main .jk .jk_header h2 { float: left; overflow: hidden; width: 145px; height: 34px; background: url(../img/hmepage/title1.png) no-repeat 0 -384px; line-height: 34px; }
+.main .jk .jk_header h2, .main .jk1 .jk_header h2, .main .jk2 .jk_header h2 { float: left; overflow: hidden; width: 145px; height: 34px; background: url(../img/hmepage/title1.png) no-repeat 0 -384px; line-height: 34px; }
 
-.main .jk .jk_header ul { float: right; padding: 7px 0; height: 20px; }
+.main .jk .jk_header ul, .main .jk1 .jk_header ul, .main .jk2 .jk_header ul { float: right; padding: 7px 0; height: 20px; }
 
-.main .jk .jk_header ul li { float: left; margin: 3px 0; padding: 0 20px; height: 14px; border-left: solid 1px #5a463d; line-height: 14px; }
+.main .jk .jk_header ul li, .main .jk1 .jk_header ul li, .main .jk2 .jk_header ul li { float: left; margin: 3px 0; padding: 0 20px; height: 14px; border-left: solid 1px #5a463d; line-height: 14px; }
 
-.main .jk .jk_header ul li:first-child { border-left: 0; }
+.main .jk .jk_header ul li:first-child, .main .jk1 .jk_header ul li:first-child, .main .jk2 .jk_header ul li:first-child { border-left: 0; }
 
-.main .jk .jk_header ul li a { font-size: 12px; }
+.main .jk .jk_header ul li a, .main .jk1 .jk_header ul li a, .main .jk2 .jk_header ul li a { font-size: 12px; }
 
-.main .jk .jk_header ul .more { margin: 0; padding: 0 10px 0 30px; height: 20px; border-left: none; background-color: #73584a; background: url(../img/hmepage/sprite.png) no-repeat -211px -40px; line-height: 20px; }
+.main .jk .jk_header ul .more, .main .jk1 .jk_header ul .more, .main .jk2 .jk_header ul .more { margin: 0; padding: 0 10px 0 30px; height: 20px; border-left: none; background-color: #73584a; background: url(../img/hmepage/sprite.png) no-repeat -211px -40px; line-height: 20px; }
 
-.main .jk .jk_header ul .more a { color: #ece7e5; }
+.main .jk .jk_header ul .more a, .main .jk1 .jk_header ul .more a, .main .jk2 .jk_header ul .more a { color: #ece7e5; }
 
-.main .jk .jk_brand .jk_logo { width: 200px; border: 1px #E7E7E7 solid; float: left; }
+.main .jk .jk_brand .jk_logo, .main .jk1 .jk_brand .jk_logo, .main .jk2 .jk_brand .jk_logo { width: 200px; border: 1px #E7E7E7 solid; float: left; }
 
-.main .jk .jk_brand .jk_logo .brand { overflow: hidden; width: 200px; height: 250px; }
+.main .jk .jk_brand .jk_logo .brand, .main .jk1 .jk_brand .jk_logo .brand, .main .jk2 .jk_brand .jk_logo .brand { overflow: hidden; width: 200px; height: 250px; }
 
-.main .jk .jk_brand .jk_logo .brand ul { overflow: hidden; width: 202px; height: 250px; }
+.main .jk .jk_brand .jk_logo .brand ul, .main .jk1 .jk_brand .jk_logo .brand ul, .main .jk2 .jk_brand .jk_logo .brand ul { overflow: hidden; width: 202px; height: 250px; }
 
-.main .jk .jk_brand .jk_logo .brand ul li { float: left; padding: 4px 0; width: 99px; height: 40px; border: solid 1px #c0ac98; background-color: #d6c9bc; text-align: center; border-left-color: #dfd5ca; border-top-color: #dfd5ca; }
+.main .jk .jk_brand .jk_logo .brand ul li, .main .jk1 .jk_brand .jk_logo .brand ul li, .main .jk2 .jk_brand .jk_logo .brand ul li { float: left; padding: 4px 0; width: 99px; height: 40px; border: solid 1px #c0ac98; background-color: #d6c9bc; text-align: center; border-left-color: #dfd5ca; border-top-color: #dfd5ca; }
 
-.main .jk .jk_brand .jk_logo .brand ul li img { display: inline-block; width: 80px; height: 40px; }
+.main .jk .jk_brand .jk_logo .brand ul li img, .main .jk1 .jk_brand .jk_logo .brand ul li img, .main .jk2 .jk_brand .jk_logo .brand ul li img { display: inline-block; width: 80px; height: 40px; }
 
-.main .jk .jk_brand .jk_main { width: 760px; height: 250px; overflow: hidden; position: relative; float: left; }
+.main .jk .jk_brand .jk_main, .main .jk1 .jk_brand .jk_main, .main .jk2 .jk_brand .jk_main { width: 760px; height: 250px; overflow: hidden; position: relative; float: left; }
 
-.main .jk .jk_brand .jk_main ul { width: 2280px; height: 250px; }
+.main .jk .jk_brand .jk_main ul, .main .jk1 .jk_brand .jk_main ul, .main .jk2 .jk_brand .jk_main ul { width: 2280px; height: 250px; }
 
-.main .jk .jk_brand .jk_main ul li { float: left; }
+.main .jk .jk_brand .jk_main ul li, .main .jk1 .jk_brand .jk_main ul li, .main .jk2 .jk_brand .jk_main ul li { float: left; }
 
-.main .jk .jk_brand .jk_main ul li a img { display: block; width: 760px; height: 250px; }
+.main .jk .jk_brand .jk_main ul li a img, .main .jk1 .jk_brand .jk_main ul li a img, .main .jk2 .jk_brand .jk_main ul li a img { display: block; width: 760px; height: 250px; }
 
-.main .jk .jk_brand .jk_logor { float: right; width: 235px; overflow: hidden; }
+.main .jk .jk_brand .jk_logor, .main .jk1 .jk_brand .jk_logor, .main .jk2 .jk_brand .jk_logor { float: right; width: 235px; overflow: hidden; }
 
-.main .jk .jk_brand .jk_logor a img { display: block; width: 240px; height: 125px; }
+.main .jk .jk_brand .jk_logor a img, .main .jk1 .jk_brand .jk_logor a img, .main .jk2 .jk_brand .jk_logor a img { display: block; width: 240px; height: 125px; }
 
-.main .jk_main .goodlist { float: left; overflow: hidden; margin-right: 0; width: 960px; height: 702px; padding: 10px 0; }
+.main .jk .jk_mainleft .goodlist, .main .jk1 .jk_mainleft .goodlist, .main .jk2 .jk_mainleft .goodlist { float: left; overflow: hidden; margin-right: 0; width: 960px; height: 702px; padding: 10px 0; }
 
-.main .jk_main .goodlist h3 { margin: 0 10px; height: 30px; border-bottom: solid 1px #d2d2ce; line-height: 30px; }
+.main .jk .jk_mainleft .goodlist h3, .main .jk1 .jk_mainleft .goodlist h3, .main .jk2 .jk_mainleft .goodlist h3 { margin: 0 10px; height: 30px; border-bottom: solid 1px #d2d2ce; line-height: 30px; }
 
-.main .jk_main .goodlist h3 strong { float: left; display: block; color: #715b4a; font-size: 14px; font-family: 微软雅黑; line-height: 30px; }
+.main .jk .jk_mainleft .goodlist h3 strong, .main .jk1 .jk_mainleft .goodlist h3 strong, .main .jk2 .jk_mainleft .goodlist h3 strong { float: left; display: block; color: #715b4a; font-size: 14px; font-family: 微软雅黑; line-height: 30px; }
 
-.main .jk_main .goodlist h3 .more { float: right; margin-top: 4px; width: 60px; height: 22px; background: url("../img/hmepage/sprite.png") no-repeat 0 -68px; color: #5a463d; text-align: center; font-weight: normal; line-height: 22px; }
+.main .jk .jk_mainleft .goodlist h3 .more, .main .jk1 .jk_mainleft .goodlist h3 .more, .main .jk2 .jk_mainleft .goodlist h3 .more { float: right; margin-top: 4px; width: 60px; height: 22px; background: url("../img/hmepage/sprite.png") no-repeat 0 -68px; color: #5a463d; text-align: center; font-weight: normal; line-height: 22px; }
 
-.main .jk_main .goodlist ul { overflow: hidden; padding: 5px; height: 310px; }
+.main .jk .jk_mainleft .goodlist ul, .main .jk1 .jk_mainleft .goodlist ul, .main .jk2 .jk_mainleft .goodlist ul { overflow: hidden; padding: 5px; height: 310px; }
 
-.main .jk_main .goodlist ul li { float: left; overflow: hidden; padding: 3px; width: 180px; border: solid 2px transparent; }
+.main .jk .jk_mainleft .goodlist ul li, .main .jk1 .jk_mainleft .goodlist ul li, .main .jk2 .jk_mainleft .goodlist ul li { float: left; overflow: hidden; padding: 3px; width: 180px; border: solid 2px transparent; }
 
-.main .jk_main .goodlist ul li dl dt { height: 200px; }
+.main .jk .jk_mainleft .goodlist ul li:hover, .main .jk1 .jk_mainleft .goodlist ul li:hover, .main .jk2 .jk_mainleft .goodlist ul li:hover { border: solid 2px #e7e7e2; box-shadow: 5px 10px 10px -10px rgba(0, 0, 0, 0.4); }
 
-.main .jk_main .goodlist ul li dl dt a { display: block; margin: 0 auto; padding-top: 10px; width: 110px; height: 180px; }
+.main .jk .jk_mainleft .goodlist ul li dl dt, .main .jk1 .jk_mainleft .goodlist ul li dl dt, .main .jk2 .jk_mainleft .goodlist ul li dl dt { height: 200px; }
 
-.main .jk_main .goodlist ul li dl dt a img { display: block; width: 110px; height: 180px; }
+.main .jk .jk_mainleft .goodlist ul li dl dt a, .main .jk1 .jk_mainleft .goodlist ul li dl dt a, .main .jk2 .jk_mainleft .goodlist ul li dl dt a { display: block; margin: 0 auto; padding-top: 10px; width: 110px; height: 180px; }
 
-.main .jk_main .goodlist ul li dl .base { padding: 10px; height: 55px; background-color: #f4f4f0; }
+.main .jk .jk_mainleft .goodlist ul li dl dt a img, .main .jk1 .jk_mainleft .goodlist ul li dl dt a img, .main .jk2 .jk_mainleft .goodlist ul li dl dt a img { display: block; width: 110px; height: 180px; }
 
-.main .jk_main .goodlist ul li dl .base a { display: block; overflow: hidden; height: 32px; color: #5b473d; line-height: 16px; }
+.main .jk .jk_mainleft .goodlist ul li dl .base, .main .jk1 .jk_mainleft .goodlist ul li dl .base, .main .jk2 .jk_mainleft .goodlist ul li dl .base { padding: 10px; height: 55px; background-color: #f4f4f0; }
 
-.main .jk_main .goodlist ul li dl .base a span { display: block; overflow: hidden; height: 20px; color: #777; }
+.main .jk .jk_mainleft .goodlist ul li dl .base a, .main .jk1 .jk_mainleft .goodlist ul li dl .base a, .main .jk2 .jk_mainleft .goodlist ul li dl .base a { display: block; overflow: hidden; height: 32px; color: #5b473d; line-height: 16px; }
 
-.main .jk_main .goodlist ul li dl .base p { height: 23px; font-family: Arial; line-height: 30px; }
+.main .jk .jk_mainleft .goodlist ul li dl .base a span, .main .jk1 .jk_mainleft .goodlist ul li dl .base a span, .main .jk2 .jk_mainleft .goodlist ul li dl .base a span { display: block; overflow: hidden; height: 20px; color: #777; }
 
-.main .jk_main .goodlist ul li dl .base p span { display: block; }
+.main .jk .jk_mainleft .goodlist ul li dl .base .price, .main .jk1 .jk_mainleft .goodlist ul li dl .base .price, .main .jk2 .jk_mainleft .goodlist ul li dl .base .price { height: 23px; font-family: Arial; line-height: 30px; }
 
-.main .jk_main .goodlist ul li dl .base p span strong { font-weight: normal; font-size: 20px; font-family: Georgia; }
+.main .jk .jk_mainleft .goodlist ul li dl .base .price span, .main .jk1 .jk_mainleft .goodlist ul li dl .base .price span, .main .jk2 .jk_mainleft .goodlist ul li dl .base .price span { display: block; float: left; color: #c53f4c; font-size: 14px; }
 
-.main .jk_main .goodlist ul li dl .sum { padding: 0 10px; height: 24px; border-top: solid 1px #e7e7e2; background-color: #f4f4f0; color: #999; line-height: 24px; }
+.main .jk .jk_mainleft .goodlist ul li dl .base .price span strong, .main .jk1 .jk_mainleft .goodlist ul li dl .base .price span strong, .main .jk2 .jk_mainleft .goodlist ul li dl .base .price span strong { font-weight: normal; font-size: 20px; font-family: Georgia; }
 
-.main .jk_main .goodlist ul li dl .sum .soldout { float: left; }
+.main .jk .jk_mainleft .goodlist ul li dl .sum, .main .jk1 .jk_mainleft .goodlist ul li dl .sum, .main .jk2 .jk_mainleft .goodlist ul li dl .sum { padding: 0 10px; height: 24px; border-top: solid 1px #e7e7e2; background-color: #f4f4f0; color: #999; line-height: 24px; }
 
-.main .jk_main .goodlist ul li dl .sum .soldout strong { margin-left: 5px; color: #666; font-weight: normal; }
+.main .jk .jk_mainleft .goodlist ul li dl .sum .soldout, .main .jk1 .jk_mainleft .goodlist ul li dl .sum .soldout, .main .jk2 .jk_mainleft .goodlist ul li dl .sum .soldout { float: left; }
+
+.main .jk .jk_mainleft .goodlist ul li dl .sum .soldout strong, .main .jk1 .jk_mainleft .goodlist ul li dl .sum .soldout strong, .main .jk2 .jk_mainleft .goodlist ul li dl .sum .soldout strong { margin-left: 5px; color: #666; font-weight: normal; }
+
+.main .jk .jk_mainleft .goodlist ul li dl .sum .rank, .main .jk1 .jk_mainleft .goodlist ul li dl .sum .rank, .main .jk2 .jk_mainleft .goodlist ul li dl .sum .rank { float: right; }
+
+.main .jk .jk_mainleft .goodlist ul li dl .sum .rank strong, .main .jk1 .jk_mainleft .goodlist ul li dl .sum .rank strong, .main .jk2 .jk_mainleft .goodlist ul li dl .sum .rank strong { margin-left: 5px; color: #666; font-weight: normal; }
+
+.main .jk .jk_mainleft .jk_right, .main .jk1 .jk_mainleft .jk_right, .main .jk2 .jk_mainleft .jk_right { float: right; overflow: hidden; width: 235px; height: 722px; background-color: #f4f4f0; }
+
+.main .jk .jk_mainleft .jk_right h4, .main .jk1 .jk_mainleft .jk_right h4, .main .jk2 .jk_mainleft .jk_right h4 { float: none; height: 40px; overflow: hidden; width: 143px; background: url(../img/hmepage/title_01.png) no-repeat 0 -337px; line-height: 34px; }
+
+.main .jk .jk_mainleft .jk_right ul li, .main .jk1 .jk_mainleft .jk_right ul li, .main .jk2 .jk_mainleft .jk_right ul li { position: relative; padding: 10px 10px 10px 35px; height: 20px; border-top: solid 1px #ddd; line-height: 20px; }
+
+.main .jk .jk_mainleft .jk_right ul li em, .main .jk1 .jk_mainleft .jk_right ul li em, .main .jk2 .jk_mainleft .jk_right ul li em { position: absolute; top: 10px; left: 5px; z-index: 200; display: block; padding-right: 4px; width: 20px; height: 20px; background: url("../img/hmepage/sprite.png") -85px -70px; color: #5b473b; text-align: center; font-weight: bold; font-style: normal; font-size: 14px; font-family: Arial; line-height: 20px; }
+
+.main .jk .jk_mainleft .jk_right ul li .pic, .main .jk1 .jk_mainleft .jk_right ul li .pic, .main .jk2 .jk_mainleft .jk_right ul li .pic { display: none; }
+
+.main .jk .jk_mainleft .jk_right ul li .name, .main .jk1 .jk_mainleft .jk_right ul li .name, .main .jk2 .jk_mainleft .jk_right ul li .name { display: block; overflow: hidden; height: 25px; color: #5b473d; display: block; color: #777; }
+
+.main .jk .jk_mainleft .jk_right ul li .soldout, .main .jk1 .jk_mainleft .jk_right ul li .soldout, .main .jk2 .jk_mainleft .jk_right ul li .soldout { display: none; }
+
+.main .jk .jk_mainleft .jk_right ul li .price, .main .jk1 .jk_mainleft .jk_right ul li .price, .main .jk2 .jk_mainleft .jk_right ul li .price { display: none; }
+
+.main .jk .jk_mainleft .jk_right ul .active, .main .jk1 .jk_mainleft .jk_right ul .active, .main .jk2 .jk_mainleft .jk_right ul .active { height: 110px; padding-left: 95px; }
+
+.main .jk .jk_mainleft .jk_right ul .active em, .main .jk1 .jk_mainleft .jk_right ul .active em, .main .jk2 .jk_mainleft .jk_right ul .active em { background: url("../img/hmepage/sprite.png") no-repeat -60px -70px; color: #fff; }
+
+.main .jk .jk_mainleft .jk_right ul .active .pic, .main .jk1 .jk_mainleft .jk_right ul .active .pic, .main .jk2 .jk_mainleft .jk_right ul .active .pic { position: absolute; top: 10px; left: 5px; display: block; padding: 6px 10px; width: 60px; height: 98px; background-color: #fff; }
+
+.main .jk .jk_mainleft .jk_right ul .active .pic img, .main .jk1 .jk_mainleft .jk_right ul .active .pic img, .main .jk2 .jk_mainleft .jk_right ul .active .pic img { display: block; width: 60px; height: 98px; }
+
+.main .jk .jk_mainleft .jk_right ul .active .name, .main .jk1 .jk_mainleft .jk_right ul .active .name, .main .jk2 .jk_mainleft .jk_right ul .active .name { overflow: hidden; height: 40px; }
+
+.main .jk .jk_mainleft .jk_right ul .active .soldout, .main .jk1 .jk_mainleft .jk_right ul .active .soldout, .main .jk2 .jk_mainleft .jk_right ul .active .soldout { isplay: block; margin-top: 10px; color: #999; }
+
+.main .jk .jk_mainleft .jk_right ul .active .soldout strong, .main .jk1 .jk_mainleft .jk_right ul .active .soldout strong, .main .jk2 .jk_mainleft .jk_right ul .active .soldout strong { color: #5b473d; font-weight: normal; }
+
+.main .jk .jk_mainleft .jk_right ul .active .price, .main .jk1 .jk_mainleft .jk_right ul .active .price, .main .jk2 .jk_mainleft .jk_right ul .active .price { display: block; margin-top: 10px; color: #c53f4c; font-weight: bold; font-family: Arial; }
+
+.main .jk .jk_mainleft .jk_right ul .active .price strong, .main .jk1 .jk_mainleft .jk_right ul .active .price strong, .main .jk2 .jk_mainleft .jk_right ul .active .price strong { font-weight: normal; font-size: 20px; font-family: Georgia; }
+
+.main ._jk, .main ._jk1 { border-bottom: solid 1px #d2d2ce; }
+
+.main ._jk ._jk_header, .main ._jk1 ._jk_header { height: 34px; border-bottom: solid 2px #c53f4c; }
+
+.main ._jk ._jk_header h2, .main ._jk1 ._jk_header h2 { float: left; overflow: hidden; width: 145px; height: 34px; background: url(../img/hmepage/title_01.png) no-repeat 0 0; line-height: 34px; }
+
+.main ._jk ._jk_header ul, .main ._jk1 ._jk_header ul { float: right; padding: 7px 0; height: 20px; }
+
+.main ._jk ._jk_header ul li, .main ._jk1 ._jk_header ul li { float: left; margin: 3px 0; padding: 0 20px; height: 14px; border-left: solid 1px #5a463d; line-height: 14px; }
+
+.main ._jk ._jk_header ul li:first-child, .main ._jk1 ._jk_header ul li:first-child { border-left: 0; }
+
+.main ._jk ._jk_header ul li a, .main ._jk1 ._jk_header ul li a { font-size: 12px; }
+
+.main ._jk ._jk_header ul .more, .main ._jk1 ._jk_header ul .more { margin: 0; padding: 0 10px 0 30px; height: 20px; border-left: none; background-color: #73584a; background: url(../img/hmepage/sprite.png) no-repeat -211px -40px; line-height: 20px; }
+
+.main ._jk ._jk_header ul .more a, .main ._jk1 ._jk_header ul .more a { color: #ece7e5; }
+
+.main ._jk ._jk_main, .main ._jk1 ._jk_main { width: 960px; float: left; }
+
+.main ._jk ._jk_main ._jk_brand ._jk_logo, .main ._jk1 ._jk_main ._jk_brand ._jk_logo { width: 200px; border: 1px #E7E7E7 solid; float: left; }
+
+.main ._jk ._jk_main ._jk_brand ._jk_logo .brand, .main ._jk1 ._jk_main ._jk_brand ._jk_logo .brand { overflow: hidden; width: 200px; height: 250px; }
+
+.main ._jk ._jk_main ._jk_brand ._jk_logo .brand ul, .main ._jk1 ._jk_main ._jk_brand ._jk_logo .brand ul { overflow: hidden; width: 202px; height: 250px; }
+
+.main ._jk ._jk_main ._jk_brand ._jk_logo .brand ul li, .main ._jk1 ._jk_main ._jk_brand ._jk_logo .brand ul li { float: left; padding: 4px 0; width: 99px; height: 40px; border: solid 1px #c0ac98; background-color: #d6c9bc; text-align: center; border-left-color: #dfd5ca; border-top-color: #dfd5ca; }
+
+.main ._jk ._jk_main ._jk_brand ._jk_logo .brand ul li img, .main ._jk1 ._jk_main ._jk_brand ._jk_logo .brand ul li img { display: inline-block; width: 80px; height: 40px; }
+
+.main ._jk ._jk_main ._jk_brand .main, .main ._jk1 ._jk_main ._jk_brand .main { width: 758px; height: 250px; overflow: hidden; position: relative; float: left; }
+
+.main ._jk ._jk_main ._jk_brand .main ul, .main ._jk1 ._jk_main ._jk_brand .main ul { width: 2280px; height: 250px; }
+
+.main ._jk ._jk_main ._jk_brand .main ul li, .main ._jk1 ._jk_main ._jk_brand .main ul li { float: left; }
+
+.main ._jk ._jk_main ._jk_brand .main ul li a img, .main ._jk1 ._jk_main ._jk_brand .main ul li a img { display: block; width: 760px; height: 250px; }
+
+.main ._jk ._jk_main ._main, .main ._jk1 ._jk_main ._main { float: left; }
+
+.main ._jk ._jk_main ._main ._goodlist, .main ._jk1 ._jk_main ._main ._goodlist { float: left; overflow: hidden; margin-right: 0; width: 960px; height: 320px; padding: 10px 0; }
+
+.main ._jk ._jk_main ._main ._goodlist h3, .main ._jk1 ._jk_main ._main ._goodlist h3 { margin: 0 10px; height: 30px; border-bottom: solid 1px #d2d2ce; line-height: 30px; }
+
+.main ._jk ._jk_main ._main ._goodlist h3 strong, .main ._jk1 ._jk_main ._main ._goodlist h3 strong { float: left; display: block; color: #715b4a; font-size: 14px; font-family: 微软雅黑; line-height: 30px; }
+
+.main ._jk ._jk_main ._main ._goodlist h3 .more, .main ._jk1 ._jk_main ._main ._goodlist h3 .more { float: right; margin-top: 4px; width: 60px; height: 22px; background: url("../img/hmepage/sprite.png") no-repeat 0 -68px; color: #5a463d; text-align: center; font-weight: normal; line-height: 22px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul, .main ._jk1 ._jk_main ._main ._goodlist ul { overflow: hidden; padding: 5px; height: 310px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li, .main ._jk1 ._jk_main ._main ._goodlist ul li { float: left; overflow: hidden; padding: 3px; width: 180px; border: solid 2px transparent; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li:hover, .main ._jk1 ._jk_main ._main ._goodlist ul li:hover { border: solid 2px #e7e7e2; box-shadow: 5px 10px 10px -10px rgba(0, 0, 0, 0.4); }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl dt, .main ._jk1 ._jk_main ._main ._goodlist ul li dl dt { height: 200px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl dt a, .main ._jk1 ._jk_main ._main ._goodlist ul li dl dt a { display: block; margin: 0 auto; padding-top: 10px; width: 110px; height: 180px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl dt a img, .main ._jk1 ._jk_main ._main ._goodlist ul li dl dt a img { display: block; width: 110px; height: 180px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .base, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .base { padding: 10px; height: 55px; background-color: #f4f4f0; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .base a, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .base a { display: block; overflow: hidden; height: 32px; color: #5b473d; line-height: 16px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .base a span, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .base a span { display: block; overflow: hidden; height: 20px; color: #777; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .base .price, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .base .price { height: 23px; font-family: Arial; line-height: 30px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .base .price span, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .base .price span { display: block; float: left; color: #c53f4c; font-size: 14px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .base .price span strong, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .base .price span strong { font-weight: normal; font-size: 20px; font-family: Georgia; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .sum, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .sum { padding: 0 10px; height: 24px; border-top: solid 1px #e7e7e2; background-color: #f4f4f0; color: #999; line-height: 24px; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .sum .soldout, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .sum .soldout { float: left; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .sum .soldout strong, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .sum .soldout strong { margin-left: 5px; color: #666; font-weight: normal; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .sum .rank, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .sum .rank { float: right; }
+
+.main ._jk ._jk_main ._main ._goodlist ul li dl .sum .rank strong, .main ._jk1 ._jk_main ._main ._goodlist ul li dl .sum .rank strong { margin-left: 5px; color: #666; font-weight: normal; }
+
+.main ._jk .right, .main ._jk1 .right { float: right; overflow: hidden; width: 240px; height: 590px; background-color: #f4f4f0; }
+
+.main ._jk .right h4, .main ._jk1 .right h4 { float: none; height: 40px; overflow: hidden; width: 143px; background: url(../img/hmepage/title_01.png) no-repeat 0 -337px; line-height: 34px; }
+
+.main ._jk .right ul li, .main ._jk1 .right ul li { position: relative; padding: 10px 10px 10px 35px; height: 25px; border-top: solid 1px #ddd; line-height: 20px; }
+
+.main ._jk .right ul li em, .main ._jk1 .right ul li em { position: absolute; top: 10px; left: 5px; z-index: 200; display: block; padding-right: 4px; width: 20px; height: 20px; background: url("../img/hmepage/sprite.png") -85px -70px; color: #5b473b; text-align: center; font-weight: bold; font-style: normal; font-size: 14px; font-family: Arial; line-height: 20px; }
+
+.main ._jk .right ul li .pic, .main ._jk1 .right ul li .pic { display: none; }
+
+.main ._jk .right ul li .name, .main ._jk1 .right ul li .name { display: block; overflow: hidden; height: 25px; color: #5b473d; display: block; color: #777; }
+
+.main ._jk .right ul li .soldout, .main ._jk1 .right ul li .soldout { display: none; }
+
+.main ._jk .right ul li .price, .main ._jk1 .right ul li .price { display: none; }
+
+.main ._jk .right ul .active, .main ._jk1 .right ul .active { height: 110px; padding-left: 95px; }
+
+.main ._jk .right ul .active em, .main ._jk1 .right ul .active em { background: url("../img/hmepage/sprite.png") no-repeat -60px -70px; color: #fff; }
+
+.main ._jk .right ul .active .pic, .main ._jk1 .right ul .active .pic { position: absolute; top: 10px; left: 5px; display: block; padding: 6px 10px; width: 60px; height: 98px; background-color: #fff; }
+
+.main ._jk .right ul .active .pic img, .main ._jk1 .right ul .active .pic img { display: block; width: 60px; height: 98px; }
+
+.main ._jk .right ul .active .name, .main ._jk1 .right ul .active .name { overflow: hidden; height: 40px; }
+
+.main ._jk .right ul .active .soldout, .main ._jk1 .right ul .active .soldout { isplay: block; margin-top: 10px; color: #999; }
+
+.main ._jk .right ul .active .soldout strong, .main ._jk1 .right ul .active .soldout strong { color: #5b473d; font-weight: normal; }
+
+.main ._jk .right ul .active .price, .main ._jk1 .right ul .active .price { display: block; margin-top: 10px; color: #c53f4c; font-weight: bold; font-family: Arial; }
+
+.main ._jk .right ul .active .price strong, .main ._jk1 .right ul .active .price strong { font-weight: normal; font-size: 20px; font-family: Georgia; }
