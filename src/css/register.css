@@ -45,7 +45,7 @@ p, h1, h2, h3, h4, h5, dl, dt, dd { padding: 0; margin: 0; }
 
 .content .register form .input-area li #idenity, .content .register form .input-area li #message { width: 165px; }
 
-.content .register form .input-area li idenity { background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px; }
+.content .register form .input-area li .idenity { background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px; }
 
 .content .register form .input-area li .password { background: #fff url("../img/login/hint_password.gif") no-repeat 8px 15px; }
 

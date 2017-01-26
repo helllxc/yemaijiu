@@ -5,17 +5,22 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="js/jquery-Shuffling/ShufflingfFigure.css">
+    <link rel="stylesheet" href="js/jquery-Carousel/jquery-Carousel.css">
     <script src = 'js/jquery-3.1.1.js'></script>
     <script src="js/jquery-Shuffling/ShufflingFigure.js"></script>
+    <script src="js/jquery-Carousel/jquery-Carousel.js"></script>
+    <script src ="js/jquery-Countdown/jquey-Countdown.js"></script>
     <script>
 
        $(function(){
            //点击侧栏出现导航栏
            $('.categroup>dl').hover(function(){
-               $(this).fadeTo(600,1)
+               $(this).find('dd').animate({opacity:1},1000).show();
            },function(){
-               $(this).find('dd').hide();
+               $(this).find('dd').stop().animate({opacity:0},1000).hide();
            });
+
+           //生成轮播图，实现淡入淡出效果
 
            $('.p_area ul').shuffling({imglist:["../img/hmepage/20170106110542512.jpg","../img/hmepage/3.jpg","../img/hmepage/20170106190551736.jpg","../img/hmepage/3.jpg","../img/hmepage/1920.jpg","../img/hmepage/20170104140301650.jpg","../img/hmepage/1.jpg","../img/hmepage/20161220091848149.jpg","../img/hmepage/20170116161443903.jpg"],width:1920,height:500,time:4000});
 
@@ -27,6 +32,7 @@
                 $li.appendTo($('.pp .center ul'));
            }
            $('.pp .center ul li:first').css('left',0)
+
            //轮播图
            var index = 0;
 
@@ -40,6 +46,7 @@
                }
                $('.pp .center ul li').eq(index).animate({left:$('.pp .center ul li').eq(index).offset().left-300})
            },3000);
+
 
            for(i=1;i<=5;i++){
                $('<li/>').html('<a href="#"><img src = "../img/hmepage/brand_logo'+i+'.jpg "></a>').appendTo($('.pp_bottom ul'))
@@ -57,10 +64,24 @@
                })
            }
 
-           //
+           //hottabs鼠标移入触发效果，下方商品margin-top改变
+            $('.selector_tab ._main .hottabs li').each(function(idx,item){
+                    $(item).on('mouseenter',function () {
+                       $(item).closest('ul').children().removeClass('active').eq(idx).addClass('active');
+                        $('.selector_tab ._main ._bd .goodslist').animate({marginTop:-idx*360},100)
+                    })
+            })
+           //默认第一个li高亮
+           $('.selector_tab ._main .hottabs li').eq(0).addClass('active');
+
+           //人气抢购产品倒计时函数
+            $('.selector_tab ._main ._bd .prod-countdown').Countdowm();
+
+
            $.getJSON("jason/drink.json",function(data){
                $.each(data,function(idex,item){
                   $(".jk").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul class="clearfix"></ul></div><div class="jk_logor"></div></div>');
+
                   $.each(item.wine,function(idx,_item){
                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk .jk_header ul'));
                   })
@@ -91,9 +112,9 @@
                         $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk .jk_right ul'))
                    })
                    $('.jk .jk_right ul li:lt(3)').addClass('active');
+                   $('.jk .jk_main ul').Carousel();
                })
            })
-
 
            $.getJSON("jason/drink01.json",function(data){
                $.each(data,function(idex,item){
@@ -120,6 +141,7 @@
                        $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('._jk .right ul'))
                    })
                    $('._jk .right ul li:first').addClass('active');
+                   $('._jk .main ul').Carousel();
                })
            })
 
@@ -156,6 +178,7 @@
                        $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk1 .jk_right ul'))
                    })
                    $('.jk1 .jk_right ul li:lt(3)').addClass('active');
+                   $('.jk1 .jk_main ul').Carousel();
                })
            })
 
@@ -192,6 +215,7 @@
                        $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk2 .jk_right ul'))
                    })
                    $('.jk2 .jk_right ul li:lt(3)').addClass('active');
+                   $('.jk2 .jk_main ul').Carousel();
                })
            })
 
@@ -220,6 +244,7 @@
                        $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('._jk1 .right ul'))
                    })
                    $('._jk1 .right ul li:first').addClass('active');
+                   $('._jk1 .main ul').Carousel();
                })
            })
        })
@@ -347,15 +372,13 @@
                                 <a href="" target="_blank" class="bg" >礼盒 </a>
                                 <span style="margin-left:10px" class="hot_menu">
                                 </span>
-                                <a href="" target="_blank" >餐酒精选</a>
-                                <a href="" target="_blank">实惠套装</a>
-                                <br>
-                                <a href="" target="_blank">权威高分酒</a>
-                                <a href="" target="_blank" >聚会婚庆整箱</a>
-                                <br>
-                                <a href="" target="_blank" >精品闪购</a>
-                                <a href="" target="_blank"  class="bg" >海淘</a>
-                                <a href="" target="_blank" class="bg">陈酿老酒</a>
+                                <a href="#" >餐酒精选</a>
+                                <a href="#">实惠套装</a><br>
+                                <a href="#">权威高分酒</a>
+                                <a href="#" >聚会婚庆整箱</a><br>
+                                <a href="#" >精品闪购</a>
+                                <a href="#"  class="bg" >海淘</a>
+                                <a href="#" class="bg">陈酿老酒</a>
                             </p>
                             </dt>
                             <dd class="h100">
@@ -378,17 +401,17 @@
                         <dl>
                             <dt>
                                 <h4>
-                                    <a href="" class="topcate" target="_blank" >洋酒烈酒</a>
+                                    <a href="#" class="topcate"  >洋酒烈酒</a>
                                 </h4>
                                 <p>
-                                    <a href="/" target="_blank" >轩尼诗</a>
-                                    <a href="" target="_blank" >威士忌</a>
-                                    <a href="" target="_blank" >鸡尾酒</a>
-                                    <a href=" "target="_blank">百利甜</a>
-                                    <a href="" target="_blank" >干邑</a>
-                                    <a href=""target="_blank" >白兰地</a>
-                                    <a href="" target="_blank">朗姆酒</a>
-                                    <a href="" target="_blank">伏加特</a>
+                                    <a href="#">轩尼诗</a>
+                                    <a href="#">威士忌</a>
+                                    <a href="#">鸡尾酒</a>
+                                    <a href="#">百利甜</a>
+                                    <a href="#">干邑</a>
+                                    <a href="#">白兰地</a>
+                                    <a href="#" >朗姆酒</a>
+                                    <a href="#" >伏加特</a>
                                 </p>
                             </dt>
                             <dd class="h320" data-dts="ILP3">
@@ -396,38 +419,38 @@
                                     <li>
                                         <h5>种类</h5>
                                         <p class="lh22">
-                                            <a href="" target="_blank">威士忌</a>
-                                            <a href="" target="_blank">伏特加</a>
-                                            <a href="" target="_blank">白兰地</a> <br>
-                                            <a href="" target="_blank">力娇酒</a>
-                                            <a href="" target="_blank">干邑</a>
-                                            <a href="" target="_blank">雅文邑</a> <br>
-                                            <a href="" target="_blank">纯麦芽威士忌</a>
-                                            <a href="" target="_blank">金酒</a> <br>
-                                            <a href="" target="_blank">朗姆酒</a>
-                                            <a href="" target="_blank">墨西哥烈酒</a> <br>
-                                            <a href="" target="_blank">开胃酒</a>
-                                            <a href="" target="_blank">清酒</a>
-                                            <a href="" target="_blank">烧酒</a> </p> </li>
+                                            <a href="#">威士忌</a>
+                                            <a href="#">伏特加</a>
+                                            <a href="#">白兰地</a> <br>
+                                            <a href="#">力娇酒</a>
+                                            <a href="#">干邑</a>
+                                            <a href="#">雅文邑</a> <br>
+                                            <a href="#">纯麦芽威士忌</a>
+                                            <a href="#">金酒</a> <br>
+                                            <a href="#">朗姆酒</a>
+                                            <a href="#">墨西哥烈酒</a> <br>
+                                            <a href="#">开胃酒</a>
+                                            <a href="#">清酒</a>
+                                            <a href="#">烧酒</a> </p> </li>
                                     <li>
                                         <h5>产地</h5>
                                         <p class="lh22">
-                                            <a href="" target="_blank">法国</a>
-                                            <a href="" target="_blank">意大利</a>
-                                            <a href="" target="_blank">西班牙</a> <br>
-                                            <a href="" target="_blank">德国</a>
-                                            <a href="" target="_blank">美国</a>
-                                            <a href="" target="_blank">南非</a> <br>
-                                            <a href="" target="_blank">阿根廷</a>
-                                            <a href="" target="_blank">葡萄牙</a>
-                                            <a href="" target="_blank">英国</a> <br>
-                                            <a href="" target="_blank">印度</a>
-                                            <a href="" target="_blank">瑞典</a>
-                                            <a href="" target="_blank">乌克兰</a> <br>
-                                            <a href="" target="_blank">墨西哥</a>
-                                            <a href="" target="_blank">俄罗斯</a>
-                                            <a href="" target="_blank">爱尔兰</a> <br>
-                                            <a href="" target="_blank">牙买加</a>
+                                            <a href="#">法国</a>
+                                            <a href="#">意大利</a>
+                                            <a href="#">西班牙</a> <br>
+                                            <a href="#">德国</a>
+                                            <a href="#">美国</a>
+                                            <a href="#">南非</a> <br>
+                                            <a href="#">阿根廷</a>
+                                            <a href="#">葡萄牙</a>
+                                            <a href="#">英国</a> <br>
+                                            <a href="#">印度</a>
+                                            <a href="#">瑞典</a>
+                                            <a href="#">乌克兰</a> <br>
+                                            <a href="#">墨西哥</a>
+                                            <a href="#">俄罗斯</a>
+                                            <a href="#">爱尔兰</a> <br>
+                                            <a href="#">牙买加</a>
                                         </p>
                                     </li>
                                 </ul>
@@ -435,48 +458,48 @@
                                     <li>
                                         <h5>品牌</h5>
                                         <p class="lh22">
-                                            <a href="javascript" target="_blank">人头马</a>
-                                            <a href="javascript" target="_blank">轩尼诗</a>
-                                            <a href="javascript" target="_blank">摩根船长</a> <br>
-                                            <a href="javascript" target="_blank">芝华士</a>
-                                            <a href="javascript" target="_blank">百龄坛</a>
-                                            <a href="javascript" target="_blank">百利</a> <br>
-                                            <a href="javascript" target="_blank">金巴利</a>
-                                            <a href="javascript" target="_blank">百加得</a>
-                                            <a href="javascript" target="_blank">占边</a> <br>
-                                            <a href="javascript" target="_blank">斯米诺</a>
-                                            <a href="javascript" target="_blank">万事好</a>
-                                            <a href="javascript" target="_blank">杰克丹尼</a> <br>
-                                            <a href="javascript" target="_blank">奥美加</a>
-                                            <a href="javascript" target="_blank">必富达</a>
-                                            <a href="javascript" target="_blank">百富</a> <br>
-                                            <a href="javascript" target="_blank">帝萨诺</a>
-                                            <a href="javascript" target="_blank">尊美醇</a>
-                                            <a href="javascript" target="_blank">甘露</a> <br>
-                                            <a href="javascript" target="_blank">杰彼斯</a>
-                                            <a href="javascript" target="_blank">柑曼怡</a>
-                                            <a href="javascript" target="_blank">蜂巢</a> <br>
-                                            <a href="javascript" target="_blank">爱德华</a>
-                                            <a href="javascript" target="_blank">皇家</a>
-                                            <a href="javascript" target="_blank">奥特西诺</a> <br>
-                                            <a href="javascript" target="_blank">哥顿</a>
-                                            <a href="javascript" target="_blank">富豪</a>
-                                            <a href="javascript" target="_blank">灰雁</a> <br>
-                                            <a href="javascript" target="_blank">红牌</a>
-                                            <a href="javascript" target="_blank">格朗</a>
-                                            <a href="javascript" target="_blank">君度</a><br>
-                                            <a href="javascript" target="_blank">苏本</a>
-                                            <a href="javascript" target="_blank">马爹利</a>
-                                            <a href="javascript" target="_blank">尊尼获加</a><br>
-                                            <a href="javascript" target="_blank">绝对</a>
-                                            <a href="javascript" target="_blank">博泰勒斯</a>
-                                            <a href="javascript" target="_blank">格兰威特</a> <br>
-                                            <a href="javascript" target="_blank">帝王</a>
-                                            <a href="javascript" target="_blank">高原骑士</a>
-                                            <a href="javascript" target="_blank">伯爵斯云利</a> <br>
-                                            <a href="javascript" target="_blank">托马斯</a>
-                                            <a href="javascript" target="_blank">马天尼</a>
-                                            <a href="javascript" target="_blank">拿破仑</a>
+                                            <a href="#">人头马</a>
+                                            <a href="#">轩尼诗</a>
+                                            <a href="#">摩根船长</a> <br>
+                                            <a href="#">芝华士</a>
+                                            <a href="#">百龄坛</a>
+                                            <a href="#">百利</a> <br>
+                                            <a href="#">金巴利</a>
+                                            <a href="#">百加得</a>
+                                            <a href="#">占边</a> <br>
+                                            <a href="#">斯米诺</a>
+                                            <a href="#">万事好</a>
+                                            <a href="#">杰克丹尼</a> <br>
+                                            <a href="#">奥美加</a>
+                                            <a href="#">必富达</a>
+                                            <a href="#">百富</a> <br>
+                                            <a href="#">帝萨诺</a>
+                                            <a href="#">尊美醇</a>
+                                            <a href="#">甘露</a> <br>
+                                            <a href="#">杰彼斯</a>
+                                            <a href="#">柑曼怡</a>
+                                            <a href="#">蜂巢</a> <br>
+                                            <a href="#">爱德华</a>
+                                            <a href="#">皇家</a>
+                                            <a href="#">奥特西诺</a> <br>
+                                            <a href="#">哥顿</a>
+                                            <a href="#">富豪</a>
+                                            <a href="#">灰雁</a> <br>
+                                            <a href="#">红牌</a>
+                                            <a href="#">格朗</a>
+                                            <a href="#">君度</a><br>
+                                            <a href="#">苏本</a>
+                                            <a href="#">马爹利</a>
+                                            <a href="#">尊尼获加</a><br>
+                                            <a href="#">绝对</a>
+                                            <a href="#">博泰勒斯</a>
+                                            <a href="#">格兰威特</a> <br>
+                                            <a href="#">帝王</a>
+                                            <a href="#">高原骑士</a>
+                                            <a href="#">伯爵斯云利</a> <br>
+                                            <a href="#">托马斯</a>
+                                            <a href="#">马天尼</a>
+                                            <a href="#">拿破仑</a>
                                         </p>
                                     </li>
                                 </ul>
@@ -485,13 +508,13 @@
                         <dl>
                             <dt>
                                 <h4>
-                                    <a group2="1308" group1="ad" target="_blank" class="topcate" href="//list.yesmywine.com/z4/" data-dts="IL4.0">中国白酒</a>
+                                    <a class="topcate" href="#">中国白酒</a>
                                 </h4>
                                 <p>
-                                    <a target="_blank" href="javascript">茅台</a>
-                                    <a target="_blank" href="javascript">五粮液</a>
-                                    <a target="_blank" href="javascript">洋河</a>
-                                    <a target="_blank" href="javascript">红花郎</a>
+                                    <a target="_blank" href="#">茅台</a>
+                                    <a target="_blank" href="#">五粮液</a>
+                                    <a target="_blank" href="#">洋河</a>
+                                    <a target="_blank" href="#">红花郎</a>
                                 </p>
                             </dt>
                             <dd class="h400" data-dts="ILP4">
@@ -499,8 +522,8 @@
                                     <li>
                                         <h5>白酒</h5>
                                         <p>
-                                            <a target="_blank" href="#">白酒特卖馆</a>
-                                            <a target="_blank" href="#">陈年老酒馆</a>
+                                            <a href="#">白酒特卖馆</a>
+                                            <a href="#">陈年老酒馆</a>
                                         </p>
                                     </li>
                                     <li>
@@ -519,29 +542,26 @@
                                     <li>
                                         <h5>产地</h5>
                                         <p>
-                                            <a target="_blank" href="javascript">贵州</a>
-                                            <a target="_blank" href="javascript">四川</a>
-                                            <a target="_blank" href="javascript">山西</a>
-                                            <a target="_blank" href="javascript">北京</a><br>
-                                            <a target="_blank" href="javascript">江苏</a>
-                                            <a target="_blank" href="javascript">安徽</a><br>
-                                            <a target="_blank" href="javascript">新疆</a>
-                                            <a target="_blank" href="javascript">其他产地
-                                            </a>
+                                            <a href="#">贵州</a>
+                                            <a href="#">四川</a>
+                                            <a href="#">山西</a>
+                                            <a href="#">北京</a><br>
+                                            <a href="#">江苏</a>
+                                            <a href="#">安徽</a><br>
+                                            <a href="#">新疆</a>
+                                            <a href="#">其他产地</a>
                                         </p>
                                     </li>
                                     <li>
                                         <h5>价格</h5>
                                         <p>
-                                            <a target="_blank" href="">1-49</a>
-                                            <a target="_blank" href="">50-99</a>
-                                            <a target="_blank" href="">100-199</a>
-                                            <br>
-                                            <a target="_blank" href="javascript">200-299</a>
-                                            <a target="_blank" href="javascript">300-499</a>
-                                            <a target="_blank" href="javascript">500-999</a>
-                                            <br>
-                                            <a target="_blank" href="javascript">1000以上</a>
+                                            <a href="#">1-49</a>
+                                            <a href="#">50-99</a>
+                                            <a href="#">100-199</a><br>
+                                            <a href="#">200-299</a>
+                                            <a href="#">300-499</a>
+                                            <a href="#">500-999</a><br>
+                                            <a href="#">1000以上</a>
                                         </p>
                                     </li>
                                 </ul>
@@ -566,35 +586,36 @@
                                     <li>
                                         <h5>品牌</h5>
                                         <p>
-                                            <a target="_blank" href="javascript">茅台</a>
-                                            <a target="_blank" href="javascript">五粮液</a>
-                                            <a target="_blank" href="javascript">泸州老窖</a><br>
-                                            <a target="_blank" href="javascript">剑南春</a>
-                                            <a target="_blank" href="javascript">洋河</a>
-                                            <a target="_blank" href="javascript">口子窖</a> <br>
-                                            <a target="_blank" href="javascript">汾酒</a>
-                                            <a target="_blank" href="javascript">国窖</a>
-                                            <a target="_blank" href="javascript">水井坊</a> <br>
-                                            <a target="_blank" href="javascript">西凤</a> <a group2="1308" group1="ad" target="_blank" href="//list.yesmywine.com/z4-ge/">牛栏山</a>
-                                            <a target="_blank" href="javascript">金六福</a> <br>
-                                            <a target="_blank" href="javascript">宋河</a>
-                                            <a target="_blank" href="javascript">杜康</a>
-                                            <a target="_blank" href="javascript">红星二锅头</a> <br>
-                                            <a target="_blank" href="javascript">古井贡</a>
-                                            <a target="_blank" href="javascript">迎驾贡酒</a>
-                                            <a target="_blank" href="javascript">红楼梦</a> <br>
-                                            <a target="_blank" href="javascript">丰谷</a>
-                                            <a target="_blank" href="javascript">国粹</a>
-                                            <a target="_blank" href="javascript">沱牌</a> <br>
-                                            <a target="_blank" href="javascript">河套</a>
-                                            <a target="_blank" href="javascript">董酒</a>
-                                            <a target="_blank" href="javascript">小糊涂仙</a> <br>
-                                            <a target="_blank" href="javascript">舍得</a>
-                                            <a target="_blank" href="javascript">习酒</a>
-                                            <a target="_blank" href="javascript">今世缘</a> <br>
-                                            <a target="_blank" href="javascript">酒鬼</a>
-                                            <a target="_blank" href="javascript">燃点</a>
-                                            <a target="_blank" href="javascript">兄弟</a>
+                                            <a href="#">茅台</a>
+                                            <a href="#">五粮液</a>
+                                            <a href="#">泸州老窖</a><br>
+                                            <a href="#">剑南春</a>
+                                            <a href="#">洋河</a>
+                                            <a href="#">口子窖</a> <br>
+                                            <a href="#">汾酒</a>
+                                            <a href="#">国窖</a>
+                                            <a href="#">水井坊</a> <br>
+                                            <a href="#">西凤</a>
+                                            <a href="#">牛栏山</a>
+                                            <a href="#">金六福</a> <br>
+                                            <a href="#">宋河</a>
+                                            <a href="#">杜康</a>
+                                            <a href="#">红星二锅头</a> <br>
+                                            <a href="#">古井贡</a>
+                                            <a href="#">迎驾贡酒</a>
+                                            <a href="#">红楼梦</a> <br>
+                                            <a href="#">丰谷</a>
+                                            <a href="#">国粹</a>
+                                            <a href="#">沱牌</a> <br>
+                                            <a href="#">河套</a>
+                                            <a href="#">董酒</a>
+                                            <a href="#">小糊涂仙</a> <br>
+                                            <a href="#">舍得</a>
+                                            <a href="#">习酒</a>
+                                            <a href="#">今世缘</a> <br>
+                                            <a href="#">酒鬼</a>
+                                            <a href="#">燃点</a>
+                                            <a href="#">兄弟</a>
                                         </p>
                                     </li>
                                 </ul>
@@ -632,13 +653,12 @@
                                     <li>
                                         <h5>品牌</h5>
                                         <p class="lh22">
-                                            <a href="//list.yesmywine.com/z1?q=%E9%86%B4%E9%93%8ERiedel" target="_blank" group1="ad" group2="1308">醴铎</a>
-                                            <a href="//list.yesmywine.com/z1?q=%E5%BC%93%E7%AE%AD" target="_blank" group1="ad" group2="1308">弓箭</a>
-                                            <a href="//list.yesmywine.com/z1?q=%E8%AF%97%E6%9D%AF%E5%AE%A2%E4%B9%90" target="_blank" group1="ad" group2="1308">诗杯客乐 </a>
-                                            <br>
-                                            <a href="//list.yesmywine.com/z1?q=%E7%9F%B3%E5%B2%9B" target="_blank" group1="ad" group2="1308">石岛</a>
-                                            <a href="//list.yesmywine.com/z1?q=%E6%A2%B5%E9%85%B7" target="_blank" group1="ad" group2="1308">梵酷</a>
-                                            <a href="//list.yesmywine.com/z1?q=lucaris" target="_blank" group1="ad" group2="1308">卢卡瑞斯</a> </p> </li>
+                                            <a href="#">醴铎</a>
+                                            <a href="#">弓箭</a>
+                                            <a href="#">诗杯客乐 </a><br>
+                                            <a href="#">石岛</a>
+                                            <a href="#">梵酷</a>
+                                            <a href="#">卢卡瑞斯</a> </p> </li>
                                 </ul>
                             </dd>
                         </dl>
@@ -848,7 +868,7 @@
                 </ul>
             </div>
         </div>
-        <div class="selector_tab">
+        <div class="selector_tab clearfix">
            <div class="swap">
                <div class="tab_left left">
                     <div class="notice_slider">
@@ -895,14 +915,14 @@
                <div class="_main">
                    <div class="mod mod-hotgoods">
                        <ul class="hottabs">
-                           <li class="active"> <a href="http://www.yesmywine.com/marketing/sales/sales.html" target="_blank" group1="ad" class="font26">人气抢购</a> <a href="http://www.yesmywine.com/marketing/sales/sales.html" target="_blank" group1="ad" class="font14">百元超值特价</a> <p class="right"></p> </li>
-                           <li class=""> <a href="http://list.yesmywine.com/z2-u2" target="_blank" group1="ad" class="font26">整箱特惠</a> <a href="http://list.yesmywine.com/z2-u2" target="_blank" group1="ad" class="font14">口粮囤酒必选</a> <p class="right"></p> </li>
-                           <li class=""> <a href="http://www.yesmywine.com/cms/cmsV1/grandcru/gccshop" target="_blank" group1="ad" class="font26">名庄特卖</a> <a href="http://www.yesmywine.com/cms/cmsV1/grandcru/gccshop" target="_blank" group1="ad" class="font14">限量知名酒庄</a> <p class="right"></p> </li>
-                           <li class=""> <a href="http://a.yesmywine.com/flash/index" target="blank" style="position:relative;z-index:50;" group1="ad" class="font26"> <span style="display:block; height:14px; width:22px; position:absolute; margin-left:-2px; left:85px;top:-6px;"></span>精品闪购 </a> <a href="http://a.yesmywine.com/flash/index" target="_blank" group1="ad" class="font14">优质品牌精选</a> <p class="right"></p> </li>
-                           <li class="last"> <a href="http://list.yesmywine.com/z4-t1/?dts=L207.3" target="_blank" group1="ad" class="font26">白酒/陈年老酒</a> <a href="http://list.yesmywine.com/z4-t1/?dts=L207.3" target="_blank" group1="ad" class="font14">正品保证</a> <p class="right"></p> </li>
+                           <li> <a href="" class="font26">人气抢购</a> <a href="http://www.yesmywine.com/marketing/sales/sales.html" class="font14">百元超值特价</a> <p class="right"></p> </li>
+                           <li> <a href="" class="font26">整箱特惠</a> <a href="http://list.yesmywine.com/z2-u2" class="font14">口粮囤酒必选</a> <p class="right"></p> </li>
+                           <li> <a href="" class="font26">名庄特卖</a> <a href="http://www.yesmywine.com/cms/cmsV1/grandcru/gccshop"class="font14">限量知名酒庄</a> <p class="right"></p> </li>
+                           <li ><a href=""class="font26"> <span style="display:block; height:14px; width:22px; position:absolute; margin-left:-2px; left:85px;top:-6px;"></span>精品闪购 </a> <a href="http://a.yesmywine.com/flash/index"  class="font14">优质品牌精选</a> <p class="right"></p> </li>
+                           <li class="last"> <a href="" class="font26">白酒/陈年老酒</a> <a href="http://list.yesmywine.com/z4-t1/?dts=L207.3" class="font14">正品保证</a> <p class="right"></p> </li>
                        </ul><div class="_bd">
                        <div class="goodslist" style="margin-top: 0px; height: 1800px;">
-                           <ul class="goodslist-qiang clearfix active" data-dts="I10">
+                           <ul class="goodslist-qiang clearfix" data-dts="I10">
                                <li>
                                    <div class="prod-countdown" millseconds="311288805">还剩<strong class="tcd-d">3</strong>天<strong class="tcd-h">11</strong>时<strong class="tcd-m">33</strong>分</div>
                                    <dl>

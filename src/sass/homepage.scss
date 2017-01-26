@@ -168,7 +168,7 @@ $fontSize:14px;
 							}
 						}
 						dd{
-							position: absolute;top: -1px;left: 200px;opacity: 0;overflow: hidden;width: 520px;box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+							position: absolute;top: -1px;left: 200px;opacity: 0;overflow: hidden;width: 520px;box-shadow: 0 6px 12px rgba(0,0,0,0.3);background-color: #fff;display: none;
 							ul{
 								float: left;padding: 0 10px;width: 240px;height: 100%;
 								li{
@@ -202,11 +202,14 @@ $fontSize:14px;
 						.h400{
 							height: 400px;
 							.subcates{
-								backgrpund-color:rgba(255,255,255,0.9);
+								background-color:rgba(255,255,255,0.9);
 								p{
 									margin-left: 85px;overflow: hidden;
 								}
 								}
+							.relcates{
+								background-color:rgba(255,255,255,0.9);
+							}
 							}
 						}
 						.h100{
@@ -435,6 +438,10 @@ $fontSize:14px;
 											}
 										}
 									}
+								}
+								.active{
+									background: url(../img/hmepage/right_btn.png) #d3161b 209px 16px no-repeat;margin-left: -2px;padding-top: 2px;border-top: none;background: #d3161b !important;color: #d95b44;font-weight: normal;
+									a{color:#fff}
 								}
 							}
 							.goodslist-qiang{
@@ -987,7 +994,7 @@ $fontSize:14px;
 				float: left;overflow: hidden;width: 145px;height: 34px;background: url(../img/hmepage/title1.png) no-repeat 0 -384px;line-height: 34px;
 			}
 			ul{
-				float: right;padding: 7px 0;height: 20px;
+				float: right;padding: 7px 0;height: 20px;position: relative;
 				li{
                     &:first-child{
                       border-left:0;
@@ -1022,7 +1029,7 @@ $fontSize:14px;
         .jk_main{
           width:760px;height: 250px;overflow: hidden;position: relative;float: left;
           ul{
-            width: 2280px;height: 250px;
+            width: 2280px;height: 250px;position: relative;
             li{
               float: left;
               a{
@@ -1171,9 +1178,7 @@ $fontSize:14px;
 				float: left;overflow: hidden;width: 145px;height: 34px;background: url(../img/hmepage/title_01.png) no-repeat 0 0;line-height: 34px;
 			}
 			ul {
-				float: right;
-				padding: 7px 0;
-				height: 20px;
+				float: right;padding: 7px 0;height: 20px;
 				li {
 					&:first-child {
 						border-left: 0;
@@ -1224,7 +1229,7 @@ $fontSize:14px;
 				.main{
 					width:758px;height: 250px;overflow: hidden;position: relative;float: left;
 					ul{
-						width: 2280px;height: 250px;
+						width: 2280px;height: 250px;position: relative;
 						li{
 							float: left;
 							a{
@@ -1359,4 +1364,7 @@ $fontSize:14px;
 			}
 		}
 	}
+}
+.footer{
+	height: 450px;
 }

@@ -30,11 +30,12 @@
             $self.addClass(opt.type);
 
             if(opt.type ==='fade'){
-                $self.find('li').eq(opt.index).css('opacity','1');
+
                 var imghtml = opt.imglist.map(function(url,idx){
                     return '<li><img src="'+url+'"/></li>';
                 }).join('\n');
                 $(this).html(imghtml);
+                $self.find('li').eq(opt.index).css('opacity','1');
                 $(this).find("img").eq(opt.index).attr('opacity','1');
                 var $index = opt.index;
                 var  $lastindex = 0;

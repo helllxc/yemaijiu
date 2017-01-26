@@ -40,7 +40,7 @@
 		@url: json文件地址, 请自行修改
 		@db: 数据库信息
 	*/
-    query('datademo.json',$p2);
+    query('data.json',$p2);
 
 
 
@@ -92,7 +92,7 @@
 
 	    echo timenow()."已获取表单相关属性:<br/>";
 	    // 获取表单字段及详情
-    	$temp = mysqli_query($conn,'SHOW FULL FIELDS FROM usermessage');
+    	$temp = mysqli_query($conn,'SHOW FULL FIELDS FROM wine');
     	while($row = mysqli_fetch_array($temp)){
 			echo timenow().'字段名称：'.$row['Field'].' ---数据类型：'.$row['Type'].' ---注释：'.$row['Comment'].'<br/>';
 		}
@@ -112,7 +112,7 @@
 			$fieldStr = implode(",", $fields);
 			$priceStr = implode(",", $price);
 			// 添加进数据库
-			$temp = "INSERT INTO usermessage($fieldStr) VALUES($priceStr);";
+			$temp = "INSERT INTO wine($fieldStr) VALUES($priceStr);";
 
 			if (mysqli_query($conn,$temp) == true) {
 	    		echo timenow().'下标 <'.$num.'> 数据插入成功<br/>';
