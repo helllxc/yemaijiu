@@ -1,0 +1,50 @@
+[{
+  "style":[
+    {"topic":"葡萄酒","wine":["红葡萄酒","白葡萄酒","桃红葡萄酒","起泡酒","加强葡萄酒","香槟","冰酒"]},
+    {"topic":"洋酒","wine":["米酒","果味酒","威士忌","伏特加","白兰地","力娇酒","干邑","雅文邑","纯麦芽威士忌","金酒","朗姆酒","墨西哥烈酒","开胃酒","清酒","烧酒"]},
+    {"topic":"白酒","wine":["馥郁香型","浓香型","酱香型","清香型","凤香型","绵柔型","米香型","兼香型","其他香型白酒"]},
+    {"topic":"老酒","wine":["浓香型","酱香型","清香型","凤香型","绵柔型","米香型","兼香型","其他香型白酒","馥郁香型"]},
+    {"topic":"啤酒","wine":["红啤酒","黄啤酒","黑啤酒","白啤酒"]},
+    {"topic":"酒具","wine":["壶","酒柜","礼盒","酒杯","醒酒器","酒鼻子","酒刀","酒架","其他酒器","其他"]},
+    {"topic":"食品","wine":["茶叶/冲调饮品/牛奶"," 零食/坚果/特产"," 粮油米面/南北干货/调味品","进口食品"," 水产肉类/新鲜蔬果/熟食","保健食品","食品提货劵"]},
+    {"topic":"黄酒","wine":["大米黄酒","糯米黄酒","红区黄酒","黍米黄酒"]}
+  ],
+  "topSell":[
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"露品庄园干红葡萄酒","price":"59.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"黄尾袋鼠西拉红葡萄酒（又名：黄尾袋鼠西拉子红葡萄酒","price":"59.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"拉菲传奇波尔多干红葡萄酒(又名：传奇波尔多红葡萄酒)","price":"69.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"冰飞艳草莓果味起泡葡萄酒（又名：冰飞艳起泡葡萄酒）750ml（促销活动）","price":"89.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"欧娜干红葡萄酒（FSA）","price":"39.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"卢克斯半干高泡葡萄酒（银瓶）  ","price":"79.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"莎普蒂尔比拉干红葡萄酒","price":"99.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"火地岛经典赤霞珠干红葡萄酒","price":"49.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"爱之湾桃红莫斯卡托甜起泡酒","price":"59.0"},
+    {"url":"http://img08.yesmyimg.com/5170934/6707650_60x98.png","name":"索之光红葡萄酒（FSA）","price":"39.0"}
+  ],
+  "recommend":[
+    {"img":"http://img08.yesmyimg.com/12689/4806718_60x98.jpg","name":"美景湾家族珍藏佳美娜赤霞珠红葡萄酒","ename":"Rio Bueno Family Rerverve Carmenere  Cabernet Sauvignon","price":"138.0"},
+    {"img":"http://img08.yesmyimg.com/5170662/7096153_60x98.png","name":"莎普蒂尔比拉干红葡萄酒","ename":"M Chapoutier Les Vignes de Bila Haut","price":"99.0"},
+    {"img":"http://img19.yesmyimg.com/5197664/5586067_60x98.jpg","name":"宝石庄园干红葡萄酒2007（又名：小宝嘉龙）","ename":"Le Petit Caillou","price":"299.0"},
+    {"img":"http://img09.yesmyimg.com/6212930/5784763_60x98.jpg","name":"木桐嘉棣红葡萄酒（又名：木桐嘉隶红葡萄酒）","ename":"Mouton Cadet Rouge","price":"149.0"},
+    {"img":"http://img08.yesmyimg.com/6206609/2025794_60x98.JPG","name":"恋恋雷司令半甜葡萄酒","ename":"Passion Hill Riesling","price":"169.0"},
+    {"img":"http://img09.yesmyimg.com/5189104/9937902_60x98.png","name":"泥房子马尔堡长相思干白葡萄酒（原泥房子天鹅系列长相思干白葡萄酒） ","ename":"Mudhouse Marlborough Sauvignon Blanc","price":"96.0"},
+    {"img":"http://img18.yesmyimg.com/5187914/9218825_60x98.png","name":"冰飞艳草莓果味起泡葡萄酒（又名：冰飞艳起泡葡萄酒）750ml（促销活动）","ename":"Fresita","price":"89.0"},
+    {"img":"http://img18.yesmyimg.com/5197635/6252076_60x98.jpg","name":"英国丝彤姜酒（带礼盒）","ename":"Stone Ginger Wine","price":"199.0"}
+  ],
+  "mainTop":[
+    {"img":"http://img18.yesmyimg.com/n/420/145/5145420/4463015_110x180.png","name":"拉昂城堡干红葡萄酒","ename":"La Bastide Laurent","price":"59.0"},
+    {"img":"http://img08.yesmyimg.com/n/847/179/5179847/2175626_110x180.png","name":"托德尔莫慕斯卡甜高泡葡萄酒","ename":"Tor dell Elmo Moscato dolce spumante","price":"55.0"},
+    {"img":"http://img19.yesmyimg.com/6212166/9777454_110x180.png","name":"柏图斯庄主的私家珍藏-波尔多侯爵干红葡萄酒","ename":"","price":"198.0"}
+  ],
+  "type":[
+    {"name":"品牌","range":["木桐","巴黎之花","奔富","黄尾袋鼠","桃乐丝","贝尔莱","蒙斯特","康纳斯顿"],"more":true},
+    {"name":"产地","range":["法国","意大利","澳大利亚","德国","美国","西班牙","智利","新西兰"],"more":true},
+    {"name":"类型","range":["红葡萄酒","白葡萄酒","桃红葡萄酒","起泡酒","加强葡萄酒","香槟","冰酒"]},
+    {"name":"品种","range":["赤霞珠","黑皮诺","美乐","雷司令","长相思","丹魂","琼瑶浆","麝香","佳美娜","马尔贝克","仙粉黛"],"more":true},
+    {"name":"价格","range":["1-49元","50-99元","100-199元","200-299元","300-499元","500-799元","800-999元","1000元以上"]}
+  ],
+  "main":[
+    {"topic":["全部","特惠","整箱","组合","香港免税"]},
+    {"order":["默认","销量","价格","评论数","上架时间","评分"]}
+  ]
+}]

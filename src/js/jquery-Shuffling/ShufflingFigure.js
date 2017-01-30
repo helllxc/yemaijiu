@@ -17,7 +17,7 @@
             transform:true,
             smallPic:false,
             direction:false,
-            time:3000,
+            time:4000,
             index:0,
             width:810,
             height:320
@@ -28,34 +28,51 @@
        return this.each(function(){
             var $self = $(this);
             $self.addClass(opt.type);
+            $('<div class="slide-index"></div>').appendTo($self.closest('div'));
+            for(i=1;i<=len;i++){
+                $('<span/>').html(i).appendTo($('.slide-index'));
+            }
+            $('.slide-index span').eq(0).addClass('active');
 
             if(opt.type ==='fade'){
-
                 var imghtml = opt.imglist.map(function(url,idx){
                     return '<li><img src="'+url+'"/></li>';
                 }).join('\n');
                 $(this).html(imghtml);
                 $self.find('li').eq(opt.index).css('opacity','1');
-                $(this).find("img").eq(opt.index).attr('opacity','1');
                 var $index = opt.index;
+
+                $('.slide-index').on('mouseenter','span',function(){
+                    $index = $(this).index();
+                    showpic();
+                })
                 var  $lastindex = 0;
                 if(opt.transform){
-                    var $timer = setInterval(function(){
-                        $index++;
-                        if($index>=len){
-                            $index =0;
-                        }
-                        var $li = $self.find('li').eq($index);
-                        var $lastli = $self.find('li').eq($lastindex);
-                        $li.animate({opacity:'1'},2000);
-                        $lastli.animate({opacity:'0'},200);
+                    $self.closest('div').on('mouseenter',function(){
+                        clearInterval($self.timer);
+                    }).on('mouseleave',function(){
+                        $self.timer = setInterval(function(){
+                            $index++;
+                            showpic();
+                        },opt.time);
+                    }).trigger('mouseleave');
+                }
 
-                        $lastindex=$index;
+                function showpic(){
+                    if($index>=len){
+                        $index =0;
+                    }
+                    var $li = $self.find('li').eq($index);
+                    var $lastli = $self.find('li').eq($lastindex);
+                    $li.animate({opacity:'1'},2000);
+                    $lastli.animate({opacity:'0'},2000);
+                    $('.slide-index').children().removeClass('active').eq($index).addClass('active');
 
-                        if(opt.smallPic){
-                            highlight();
-                        }
-                    },opt.time);
+                    $lastindex=$index;
+
+                    if(opt.smallPic){
+                        highlight();
+                    }
                 }
             }
 

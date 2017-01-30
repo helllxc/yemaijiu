@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>也买酒官网主页</title>
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="js/jquery-Shuffling/ShufflingfFigure.css">
     <link rel="stylesheet" href="js/jquery-Carousel/jquery-Carousel.css">
@@ -15,9 +15,9 @@
        $(function(){
            //点击侧栏出现导航栏
            $('.categroup>dl').hover(function(){
-               $(this).find('dd').animate({opacity:1},1000).show();
+               $(this).find('dd').animate({opacity:0.9,left:200},500).animate({}).show();
            },function(){
-               $(this).find('dd').stop().animate({opacity:0},1000).hide();
+               $(this).find('dd').stop().animate({opacity:0,left:150},500).hide();
            });
 
            //生成轮播图，实现淡入淡出效果

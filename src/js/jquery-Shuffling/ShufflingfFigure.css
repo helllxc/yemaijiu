@@ -2,6 +2,9 @@ body{ margin:0;}
 .parea{width:810px;height:320px;overflow: hidden;position: relative}
 .parea img{display: block;}
 .fade li{position: relative;opacity: 0}
+.slide-index{    position: absolute;right: 50%;bottom: 10px;margin-right: -180px;}
+.slide-index span{float: left;display: block;margin-left: 5px;width: 30px;height: 30px;border-radius: 15px;background: #86685e;color: #fff;text-align: center;font: 16px/30px verdana;cursor: pointer;}
+.slide-index .active{background: #D3161B;}
 .horizontal li{float:left}
 .horizontal{width:4050px}
 .parea .forward{position: absolute; font-size: 25px; top: 50%;margin-top: -15px; width:30px;display:block;height:30px;text-align:center;background-color: #eeeeee}

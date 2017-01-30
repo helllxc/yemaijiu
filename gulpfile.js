@@ -34,7 +34,7 @@ gulp.task('server',function(){
 			baseDir:"./src"
 		},
 		post:4000,
-		//proxy:'http://localhost/',
+		// proxy:'http://localhost/',
 		//添加html文件
 		files:['./src/*.html'],
 	});
