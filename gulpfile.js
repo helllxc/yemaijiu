@@ -30,11 +30,11 @@ gulp.task('jtSass',function(){
 //创建任务（执行任务）
 gulp.task('server',function(){
 	browserSync({
-		server:{
-			baseDir:"./src"
-		},
+		// server:{
+		// 	baseDir:"./src"
+		// },
 		post:4000,
-		// proxy:'http://localhost/',
+		proxy:'http://localhost/',
 		//添加html文件
 		files:['./src/*.html'],
 	});

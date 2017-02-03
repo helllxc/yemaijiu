@@ -34,7 +34,12 @@ $fontSize:14px;
 			}
 			.userinfo{
 				height: 30px;position: relative;
+
 				.register{color: #85726c;background: 0;background-position: -180px -200px;font-weight: bold}
+				.bldr{background: url(../img/goods/bg_header3.png) no-repeat -180px -200px;}
+				a{
+					img{vertical-align: middle;width: 16px;border:0;height: 16px;}
+				}
 			}
 			.sitelinks{
 				.weight{color: #85726c;font-weight: bold}

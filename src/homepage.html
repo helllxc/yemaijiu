@@ -12,6 +12,13 @@
     <script src ="js/jquery-Countdown/jquey-Countdown.js"></script>
     <script>
 
+        $.post('php/confirm.php',function(response){
+            var $obj = eval('('+response+')');
+            if($obj.state){
+               $('.userinfo').remove();
+               $('<ul class="userinfo left"></ul>').html('<li style="height:16px;overflow:hidden;">您好，<a href="javascript:;" >'+$obj.clientName+'<img align="absmiddle" width="16" height="16" src="http://img11.yesmyimg.com/newWeb/images/global/member/s/MEMBER_LEVEL_NORMAL.png"></a></li><li class="bldr"><a href="javascript:;" class="txt-logout" >退出</a></li>').appendTo($('.header_top .swap'));
+            }
+        })
        $(function(){
            //点击侧栏出现导航栏
            $('.categroup>dl').hover(function(){
@@ -22,16 +29,16 @@
 
            //生成轮播图，实现淡入淡出效果
 
-           $('.p_area ul').shuffling({imglist:["../img/hmepage/20170106110542512.jpg","../img/hmepage/3.jpg","../img/hmepage/20170106190551736.jpg","../img/hmepage/3.jpg","../img/hmepage/1920.jpg","../img/hmepage/20170104140301650.jpg","../img/hmepage/1.jpg","../img/hmepage/20161220091848149.jpg","../img/hmepage/20170116161443903.jpg"],width:1920,height:500,time:4000});
+           $('.p_area ul').shuffling({imglist:["img/hmepage/20170106110542512.jpg","img/hmepage/3.jpg","img/hmepage/20170106190551736.jpg","img/hmepage/3.jpg","img/hmepage/1920.jpg","img/hmepage/20170104140301650.jpg","../img/hmepage/1.jpg","img/hmepage/20161220091848149.jpg","img/hmepage/20170116161443903.jpg"],width:1920,height:500,time:4000});
 
-            var imglist = ['../img/hmepage/brand1.jpg','../img/hmepage/brand2.jpg','../img/hmepage/brand3.jpg','../img/hmepage/brand4.jpg','../img/hmepage/brand5.jpg','../img/hmepage/brand6.jpg']
+            var imglist = ['img/hmepage/brand1.jpg','img/hmepage/brand2.jpg','img/hmepage/brand3.jpg','img/hmepage/brand4.jpg','img/hmepage/brand5.jpg','img/hmepage/brand6.jpg']
            for(i=0;i<imglist.length;i++){
                 var $li = $('<li/>');
                 $li.css('left',150*i+300);
                 $li.html('<img src = "'+imglist[i]+'">');
                 $li.appendTo($('.pp .center ul'));
            }
-           $('.pp .center ul li:first').css('left',0)
+           $('.pp .center ul li:first').css('left',0);
 
            //轮播图
            var index = 0;
@@ -49,7 +56,7 @@
 
 
            for(i=1;i<=5;i++){
-               $('<li/>').html('<a href="#"><img src = "../img/hmepage/brand_logo'+i+'.jpg "></a>').appendTo($('.pp_bottom ul'))
+               $('<li/>').html('<a href="#"><img src = "img/hmepage/brand_logo'+i+'.jpg "></a>').appendTo($('.pp_bottom ul'))
            }
            for(i=0;i<33;i++){
                $.getJSON("jason/data.json",function(data){

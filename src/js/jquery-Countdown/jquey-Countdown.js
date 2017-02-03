@@ -4,7 +4,7 @@
 ;(function($){
     $.fn.Countdowm = function(options){
         var defaults ={
-            date:"2017-1-29 12:00:00"
+            date:"2017-2-10 12:00:00"
         }
         var opt = $.extend({},defaults,options);
 

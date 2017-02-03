@@ -6,8 +6,19 @@
     <link rel="stylesheet" href="css/goodslist.css">
     <script src="js/jquery-3.1.1.js"></script>
     <script>
+        $.post('php/confirm.php',function(response){
+            var $obj = eval('('+response+')');
+            if($obj.state){
+                $('.userinfo').remove();
+                $('<ul class="userinfo left"></ul>').html('<li style="height:16px;overflow:hidden;">您好，<a href="javascript:;" >'+$obj.clientName+'<img align="absmiddle" width="16" height="16" src="http://img11.yesmyimg.com/newWeb/images/global/member/s/MEMBER_LEVEL_NORMAL.png"></a></li><li class="bldr"><a href="javascript:;" class="txt-logout" >退出</a></li>').appendTo($('.header_top .swap'));
+            }
+        })
         $(function(){
             //通过jason生成左侧导航栏
+            $(window).scroll(function (){
+                console.log($(this).scrollTop())
+            })
+
             $.getJSON("jason/classify.json",function(data){
                 $.each(data,function (idx,item) {
                     $('<div class="classify"></div>').appendTo($('.content_left'));
@@ -99,6 +110,12 @@
                     $('<li/>').html('<dl><dt><a class="pic" href=""><img src="'+item.src+'"></a></dt><dd class="base"><a href="" class="name"><span class="cn">'+item.name+'</span><span class="en">'+item.ename+'</span><span class="promo">'+item.information+'</span></a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p></dd>' +
                         '<dd class="action"><p><a class="btn">加入购物车</a></p></dd><dd class="sum"><span class="rate"><strong>'+item.rank+'</strong>好评度</span><span class="comment"><a><strong>'+item.comment+'</strong></a>评论</span><span class="soldout"><strong>'+item.soldout+'</strong>售出</span></dd></dl>').appendTo('.main .goodlist ul')
                })
+            })
+            //点击右侧购物车弹出信息
+            $('.ym-nBar-tab-cart').hover(function(){
+                $(this).find('.ym-nBar-pop').show()
+            },function(){
+                $(this).find('.ym-nBar-pop').hide();
             })
 
             //点击分页查找数据库数据
@@ -695,6 +712,50 @@
             <a>2</a>
             <!--<a href="" class="next">下一页</a>-->
             <!--<a href="" class="next">尾页</a>-->
+        </div>
+    </div>
+</div>
+<div class="bar">
+    <div class="tabs">
+        <div class="ym-nBar-tab ym-nBar-tab-user">
+            <div class="ym-nBar-user-header">
+                <img src="http://imgblog.yesmyimg.com/microblog/images/headerDefault.jpg" alt="" class="responsive">
+            </div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-cart">
+            <a href="#">
+                <div class="ym-nBar-cart-logo"></div>
+                <div class="ym-nBar-cart-txt">购物车</div>
+                <div class="ym-nBar-cart-num"><em>0</em></div>
+            </a>
+            <div class="ym-nBar-pop">
+                <div class="ym-nBar-pop-icon">◆</div>
+                <div class="shopcart-list"><div class="empty">您的购物车里没有任何商品，赶快去挑选商品吧！</div></div>
+            </div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-asset" style="top: 368.2px;">
+            <a href="#">
+                <div class="ym-nBar-asset-logo"></div>
+            </a>
+            <div class="ym-nBar-pop ym-nBar-pop-tip">
+                我的资产
+                <div class="ym-nBar-pop-icon">◆</div>
+            </div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-charge" style="top: 403.2px;">
+            <a href="#">
+                <div class="ym-nBar-charge-logo"></div>
+            </a>
+            <div class="ym-nBar-pop ym-nBar-pop-tip">
+                账户充值
+                <div class="ym-nBar-pop-icon">◆</div>
+            </div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-chat" style="top: 438.2px;">
+            <div class="ym-nBar-chat-logo"></div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-valid" style="top: 473.2px;">
+            <div class="ym-nBar-valid-logo"></div>
         </div>
     </div>
 </div>

@@ -7,6 +7,12 @@
 
 .swap { width: 1200px; margin: 0 auto; }
 
+.mt20 { margin-top: 20px; }
+
+.mb20 { margin-bottom: 20px; }
+
+fieldset, img { border: 0; }
+
 ul { list-style: none; padding: 0; margin: 0; }
 
 a { color: #333; text-decoration: none; font-size: 12px; }
@@ -18,6 +24,16 @@ body { color: #333; font-size: 14px; font-family: '微软雅黑'; margin: 0; }
 p, h1, h2, h3, h4, h5, dl, dt, dd { padding: 0; margin: 0; }
 
 span { font-size: 12px; }
+
+em, i { font-style: normal; }
+
+.ym-nBar-user-default, .ym-nBar-cart-logo, .ym-nBar-asset-logo, .ym-nBar-charge-logo, .ym-nBar-feedback-logo, .ym-nBar-chat-logo, .ym-nBar-chat-title em, .ym-nBar-chat-min, .ym-nBar-chat-max, .ym-nBar-chat-close, .ym-nBar-valid-logo, .ym-nBar-tab-valid .error, .ym-nBar-qrcode-logo, .ym-nBar-backtop-logo, .ym-nBar-pop-sign, .ym-nBar-pop-box li em, .ym-nBar-pop-privs a, .bubble_l .ym-nBar-chat-head, .bubble_r .ym-nBar-chat-head { background-image: url(../img/goods/nBar_icon.png?20150309); background-repeat: no-repeat; width: 20px; height: 20px; }
+
+.ym-nBar-tab-user, .ym-nBar-tab-cart, .ym-nBar-tab-feedback, .ym-nBar-tab-chat, .ym-nBar-tab-valid { border-bottom: 1px solid #8b1a1b; }
+
+.ym-nBar-pop { position: absolute; right: 34px; z-index: 1001; display: none; padding: 20px; height: auto; border: 1px solid #ddd; background: #fff; box-shadow: 0 0 2px #ccc; }
+
+.ym-nBar-pop .ym-nBar-pop-icon { position: absolute; right: -8px; top: 10px; color: #fff; font-family: "宋体"; font-size: 16px; height: 16px; line-height: 16px; text-align: center; width: 16px; }
 
 .header .header_top { background: url(../img/hmepage/bg_header4.png) repeat-x; position: relative; }
 
@@ -36,6 +52,10 @@ span { font-size: 12px; }
 .header .header_top .userinfo .register { background: url("../img/goods/bg_header3.png") no-repeat -180px -200px; font-weight: bold; }
 
 .header .header_top .userinfo .register a { color: #85726c; background: 0; }
+
+.header .header_top .userinfo .bldr { background: url(../img/goods/bg_header3.png) no-repeat -180px -200px; }
+
+.header .header_top .userinfo a img { vertical-align: middle; width: 16px; border: 0; height: 16px; }
 
 .header .header_top .sitelinks .weight { color: #85726c; font-weight: bold; }
 
@@ -357,7 +377,7 @@ span { font-size: 12px; }
 
 .content .main .goods .goodlist ul li dl .action p .btn { margin: 0 auto; background: #dd3939; display: block; height: 26px; line-height: 26px; text-align: center; color: #fff; width: 170px; border-color: #ddd; }
 
-.content .main .goods .goodlist ul li dl .action p .btn:hover { border-color: #bb0f2e; opacity: 0.8; }
+.content .main .goods .goodlist ul li dl .action p .btn:hover { border-color: #bb0f2e; opacity: 0.8; cursor: pointer; }
 
 .content .main .goods .goodlist ul li dl .sum { height: 44px; border-top: solid 1px #EFEFEF; color: #666; border-radius: 0 0 5px 5px; }
 
@@ -380,6 +400,50 @@ span { font-size: 12px; }
 .content .main .page a { display: inline-block; height: 32px; line-height: 32px; border: solid 1px #AA998A; font-size: 14px; padding: 0 12px; background-color: #f7f5f2; margin: 0 3px; }
 
 .content .main .page .on { background-color: #C6404F; border-color: #C63F4E; color: #fff; }
+
+.bar { position: fixed; top: 0; right: 0; background: #7e0001; width: 34px; height: 100%; z-index: 1400; }
+
+.bar .tabs { position: absolute; top: 0; left: 0; width: 34px; height: 100%; color: #fff; font-family: "Microsoft Yahei","微软雅黑","宋体"; }
+
+.bar .tabs .ym-nBar-tab { position: absolute; padding: 7px; width: 20px; height: auto; display: block; cursor: pointer; }
+
+.bar .tabs .ym-nBar-tab:hover { background: #000; }
+
+.bar .tabs .ym-nBar-tab-user { top: 208.2px; }
+
+.bar .tabs .ym-nBar-tab-cart { top: 248.2px; }
+
+.bar .tabs .ym-nBar-tab-cart a .ym-nBar-cart-logo { background-position: -20px 1px; }
+
+.bar .tabs .ym-nBar-tab-cart a .ym-nBar-cart-txt { text-align: center; line-height: 1.2; color: #fff; }
+
+.bar .tabs .ym-nBar-tab-cart a .ym-nBar-cart-num { margin: 9px 0; background: #f46b0a; width: 20px; height: 20px; text-align: center; display: block; border-radius: 30px; }
+
+.bar .tabs .ym-nBar-tab-cart a .ym-nBar-cart-num em { line-height: 20px; color: #fff; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop { top: 50%; margin-top: -5px; padding: 0; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .ym-nBar-pop-icon { position: absolute; right: -8px; top: 50%; color: #fff; font-family: "宋体"; font-size: 16px; height: 16px; line-height: 16px; text-align: center; width: 16px; margin-top: -8px; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list { width: 360px; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list .empty { color: #666; font-size: 14px; line-height: 30px; padding: 20px; text-align: center; }
+
+.bar .tabs .ym-nBar-tab-asset .ym-nBar-asset-logo { background-position: -40px 0; }
+
+.bar .tabs .ym-nBar-tab-asset .ym-nBar-asset-logo .ym-nBar-pop-tip { padding: 7px 20px 7px 7px; width: 70px; height: 20px; line-height: 20px; color: #333; background: #ddd; border: none; top: 0; }
+
+.bar .tabs .ym-nBar-tab-charge .ym-nBar-charge-logo { background-position: -60px 0; }
+
+.bar .tabs .ym-nBar-tab-charge .ym-nBar-charge-logo .ym-nBar-pop-tip { padding: 7px 20px 7px 7px; width: 70px; height: 20px; line-height: 20px; color: #333; background: #ddd; border: none; top: 0; }
+
+.bar .tabs .ym-nBar-tab-charge .ym-nBar-charge-logo .ym-nBar-pop-tip .ym-nBar-pop-icon { color: #ddd; }
+
+.bar .tabs .ym-nBar-tab-chat { cursor: auto; position: relative; }
+
+.bar .tabs .ym-nBar-tab-chat .ym-nBar-chat-logo { background-position: -160px 0; }
+
+.bar .tabs .ym-nBar-tab-valid .ym-nBar-valid-logo { background-position: -140px 0; }
 
 .footer { float: left; padding-bottom: 20px; width: 100%; background-color: #e8e8e8; }
 

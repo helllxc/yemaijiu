@@ -17,6 +17,12 @@
 
 .swap { width: 1200px; margin: 0 auto; }
 
+.mt20 { margin-top: 20px; }
+
+.mb20 { margin-bottom: 20px; }
+
+fieldset, img { border: 0; }
+
 ul { list-style: none; padding: 0; margin: 0; }
 
 a { color: #333; text-decoration: none; font-size: 12px; }
@@ -28,6 +34,8 @@ body { color: #333; font-size: 14px; font-family: '微软雅黑'; margin: 0; }
 p, h1, h2, h3, h4, h5, dl, dt, dd { padding: 0; margin: 0; }
 
 span { font-size: 12px; }
+
+em, i { font-style: normal; }
 
 .header .header_top { background: url(../img/hmepage/bg_header4.png) repeat-x; position: relative; }
 
@@ -44,6 +52,10 @@ span { font-size: 12px; }
 .header .header_top .userinfo { height: 30px; position: relative; }
 
 .header .header_top .userinfo .register { color: #85726c; background: 0; background-position: -180px -200px; font-weight: bold; }
+
+.header .header_top .userinfo .bldr { background: url(../img/goods/bg_header3.png) no-repeat -180px -200px; }
+
+.header .header_top .userinfo a img { vertical-align: middle; width: 16px; border: 0; height: 16px; }
 
 .header .header_top .sitelinks .weight { color: #85726c; font-weight: bold; }
 

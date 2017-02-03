@@ -87,16 +87,14 @@
                 })
 			    if($('.error_hint').is(":visible")){
 			        return false;
-				}
-				else{
+				}else{
                     $.post('php/register.php',{
                         phone:$('#phone').val(),
                         password:$('#password').val()
                     },function(response){
-                        console.log(response);
                         var $obj = eval('('+response+')');
 					if($obj.state){
-                        window.location.href = 'login.php';
+                        window.location.href = 'login.html';
 					}else{
 						$('#phone').next('div').find('span').html($obj.message+'<a>登录</a>');
                         $('#phone').next('div').show();

@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	if(isset($_SESSION['login_name'])){
+	}else {
+		//跳转页面
+		header("Location: login.html");
+		exit;
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +65,7 @@
             })
             //点击"登录"判断是否输入框为空,若不为空且无报错信息，则发送ajax请求;
             $('.btn').click(function(){
+                console.log($('.input').eq(0).val())
                 if( $('.email').val()==''){
                     $('<span class="error_hint"></span>').html('请输入正确的E-mail或手机号').appendTo($('.email').closest('dd'));
                 }else if($('.password').val()==''){
@@ -64,12 +74,17 @@
                 if($('.error_hint').is(":visible")){
                     return false;
                 }else{
-                    $.post('php/register.php',{
-                        phone:$('.email'),
-                        password:$('.password')
+                    $.post('php/login.php',{
+                        phone:$('input').eq(0).val(),
+                        password:$('input').eq(1).val(),
                     },function(data){
-                        console.log(response);
-
+                        console.log(data)
+                        var $obj = eval('(' + data + ')');
+                        if($obj.state){
+                            window.location.href = 'homepage.html';
+                        } else {
+                            alert($obj.message);
+                        }
                     })
                 }
 
@@ -102,13 +117,13 @@
                     <form action="">
                         <dl>
                             <dd>
-                                <input type ='text' class = 'email textarea' name = 'email'>
+                                <input type ='text' class = 'email textarea' name = 'email' id="phone">
                                 <!--<span class="error_hint"></span>-->
                             </dd>
                         </dl>
                         <dl>
                             <dd>
-                                <input type ='password' class = 'password textarea' name ='password'>
+                                <input type ='password' class = 'password textarea' name ='password' id="password">
                             </dd>
                         </dl>
                         <dl>
@@ -119,7 +134,7 @@
                         </dl>
                         <dl>
                             <dd>
-                                <button type = 'submit' class = 'btn'>登&nbsp;&nbsp;&nbsp;录</button>
+                                <button type = 'button' class = 'btn'>登&nbsp;&nbsp;&nbsp;录</button>
                             </dd>
                         </dl>
                         <dl class="forget">
