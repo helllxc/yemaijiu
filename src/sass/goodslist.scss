@@ -560,7 +560,7 @@
 				background: #f7f5f2 url(../img/goods/icons.png) no-repeat 8px -116px;padding-left: 24px;
 			}
 			a{
-				display: inline-block;height: 32px;line-height: 32px;border: solid 1px #AA998A;font-size: 14px;padding: 0 12px;background-color: #f7f5f2;margin: 0 3px;
+				cursor:pointer;display: inline-block;height: 32px;line-height: 32px;border: solid 1px #AA998A;font-size: 14px;padding: 0 12px;background-color: #f7f5f2;margin: 0 3px;
 			}
 			.on{
 				background-color: #C6404F;border-color: #C63F4E;color: #fff;
@@ -596,8 +596,27 @@
 				}
 				.shopcart-list {
 					width: 360px;
-					.empty {
-						color: #666;font-size: 14px;line-height: 30px;padding: 20px;text-align: center;}
+					.empty {color: #666;font-size: 14px;line-height: 30px;padding: 20px;text-align: center;}
+					h2{padding: 15px 15px 10px 15px;color: #666}
+					ul{
+						padding: 0 15px;
+						li{
+							border-top: 1px dashed #ddd;height: 68px;line-height: 20px;padding: 20px 40px 20px 80px;position: relative;
+							a{
+								img{
+									height: 98px;left: 10px;position: absolute;top: 5px;width: 60px;
+								}
+								span{display: block}
+								.name{color: #5b473d;height: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+								.en{color: #85726c;height: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+								.price{
+									color: #85726c;padding-top: 10px;
+									strong{color: #c53f4c;font-family: Arial}
+									em{font-style: normal};
+								}
+							}
+						}
+					}
 				}
 			}
 		}

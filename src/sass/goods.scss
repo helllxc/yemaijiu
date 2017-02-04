@@ -3,15 +3,14 @@
 body{
 	background: #fbfaf9;color: #333;font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
 }
-.wrap{
-	width: 960px;margin: 0 auto;
-}
+
 .ym-nBar-user-default, .ym-nBar-cart-logo, .ym-nBar-asset-logo, .ym-nBar-charge-logo, .ym-nBar-feedback-logo, .ym-nBar-chat-logo, .ym-nBar-chat-title em, .ym-nBar-chat-min, .ym-nBar-chat-max, .ym-nBar-chat-close, .ym-nBar-valid-logo, .ym-nBar-tab-valid .error, .ym-nBar-qrcode-logo, .ym-nBar-backtop-logo, .ym-nBar-pop-sign, .ym-nBar-pop-box li em, .ym-nBar-pop-privs a, .bubble_l .ym-nBar-chat-head, .bubble_r .ym-nBar-chat-head {
 	background-image: url(../img/goods/nBar_icon.png?20150309);background-repeat: no-repeat;width: 20px;height: 20px;
 }
 .ym-nBar-tab-user, .ym-nBar-tab-cart, .ym-nBar-tab-feedback, .ym-nBar-tab-chat, .ym-nBar-tab-valid {
 	border-bottom: 1px solid #8b1a1b;
 }
+
 .ym-nBar-pop{
 	position: absolute;right: 34px;z-index: 1001;display: none;padding: 20px;height: auto;border: 1px solid #ddd;background: #fff;box-shadow: 0 0 2px #ccc;
 	.ym-nBar-pop-icon {
@@ -823,10 +822,29 @@ body{
 				.ym-nBar-pop-icon{
 					position: absolute;right: -8px;top: 50%;color: #fff;font-family: "宋体";font-size: 16px;height: 16px;line-height: 16px;text-align: center;width: 16px;margin-top:-8px;
 				}
-				.shopcart-list {
+				.shopcart-list{
 					width: 360px;
-					.empty {
-						color: #666;font-size: 14px;line-height: 30px;padding: 20px;text-align: center;}
+					.empty {color: #666;font-size: 14px;line-height: 30px;padding: 20px;text-align: center;}
+					h2{padding: 15px 15px 10px 15px;color: #666}
+					ul{
+						padding: 0 15px;
+						li{
+							border-top: 1px dashed #ddd;height: 68px;line-height: 20px;padding: 20px 40px 20px 80px;position: relative;
+							a{
+								img{
+									height: 98px;left: 10px;position: absolute;top: 5px;width: 60px;
+								}
+								span{display: block}
+								.name{color: #5b473d;height: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+								.en{color: #85726c;height: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+								.price{
+									color: #85726c;padding-top: 10px;
+									strong{color: #c53f4c;font-family: Arial}
+									em{font-style: normal};
+								}
+							}
+						}
+					}
 				}
 			}
 		}

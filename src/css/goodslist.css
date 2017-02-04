@@ -13,6 +13,8 @@
 
 fieldset, img { border: 0; }
 
+.wrap { width: 960px; margin: 0 auto; }
+
 ul { list-style: none; padding: 0; margin: 0; }
 
 a { color: #333; text-decoration: none; font-size: 12px; }
@@ -21,11 +23,13 @@ a:hover { text-decoration: none; }
 
 body { color: #333; font-size: 14px; font-family: '微软雅黑'; margin: 0; }
 
-p, h1, h2, h3, h4, h5, dl, dt, dd { padding: 0; margin: 0; }
+p, h1, h2, h3, h4, h5, dl, dt, dd, font { padding: 0; margin: 0; }
 
 span { font-size: 12px; }
 
 em, i { font-style: normal; }
+
+table, tbody, tfoot, thead, tr, th, td { border-collapse: collapse; border-spacing: 0; padding: 0px; margin: 0px; }
 
 .ym-nBar-user-default, .ym-nBar-cart-logo, .ym-nBar-asset-logo, .ym-nBar-charge-logo, .ym-nBar-feedback-logo, .ym-nBar-chat-logo, .ym-nBar-chat-title em, .ym-nBar-chat-min, .ym-nBar-chat-max, .ym-nBar-chat-close, .ym-nBar-valid-logo, .ym-nBar-tab-valid .error, .ym-nBar-qrcode-logo, .ym-nBar-backtop-logo, .ym-nBar-pop-sign, .ym-nBar-pop-box li em, .ym-nBar-pop-privs a, .bubble_l .ym-nBar-chat-head, .bubble_r .ym-nBar-chat-head { background-image: url(../img/goods/nBar_icon.png?20150309); background-repeat: no-repeat; width: 20px; height: 20px; }
 
@@ -397,7 +401,7 @@ em, i { font-style: normal; }
 
 .content .main .page .prev { background: #f7f5f2 url(../img/goods/icons.png) no-repeat 8px -116px; padding-left: 24px; }
 
-.content .main .page a { display: inline-block; height: 32px; line-height: 32px; border: solid 1px #AA998A; font-size: 14px; padding: 0 12px; background-color: #f7f5f2; margin: 0 3px; }
+.content .main .page a { cursor: pointer; display: inline-block; height: 32px; line-height: 32px; border: solid 1px #AA998A; font-size: 14px; padding: 0 12px; background-color: #f7f5f2; margin: 0 3px; }
 
 .content .main .page .on { background-color: #C6404F; border-color: #C63F4E; color: #fff; }
 
@@ -428,6 +432,26 @@ em, i { font-style: normal; }
 .bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list { width: 360px; }
 
 .bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list .empty { color: #666; font-size: 14px; line-height: 30px; padding: 20px; text-align: center; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list h2 { padding: 15px 15px 10px 15px; color: #666; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul { padding: 0 15px; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul li { border-top: 1px dashed #ddd; height: 68px; line-height: 20px; padding: 20px 40px 20px 80px; position: relative; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul li a img { height: 98px; left: 10px; position: absolute; top: 5px; width: 60px; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul li a span { display: block; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul li a .name { color: #5b473d; height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul li a .en { color: #85726c; height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul li a .price { color: #85726c; padding-top: 10px; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul li a .price strong { color: #c53f4c; font-family: Arial; }
+
+.bar .tabs .ym-nBar-tab-cart .ym-nBar-pop .shopcart-list ul li a .price em { font-style: normal; }
 
 .bar .tabs .ym-nBar-tab-asset .ym-nBar-asset-logo { background-position: -40px 0; }
 

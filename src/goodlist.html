@@ -5,7 +5,11 @@
     <title>商品列表页</title>
     <link rel="stylesheet" href="css/goodslist.css">
     <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script>
+
+//        ...............验证是否有保存用户名.....................
+
         $.post('php/confirm.php',function(response){
             var $obj = eval('('+response+')');
             if($obj.state){
@@ -15,9 +19,8 @@
         })
         $(function(){
             //通过jason生成左侧导航栏
-            $(window).scroll(function (){
-                console.log($(this).scrollTop())
-            })
+//
+            var carList = [];
 
             $.getJSON("jason/classify.json",function(data){
                 $.each(data,function (idx,item) {
@@ -54,7 +57,7 @@
                     })
 
                     $.each(item.type,function(i,_item){
-                        $('<dl/>').html('<dt>    '+_item.name+': </dt><dd><div class="selector_range min"><a href="" class="on">不限</a></div></dd>').appendTo($('.goodsSelector .range'));
+                        $('<dl/>').html('<dt>'+_item.name+': </dt><dd><div class="selector_range min"><a href="" class="on">不限</a></div></dd>').appendTo($('.goodsSelector .range'));
                         if(_item.more){
                             $('<span class="more">更多</span>').appendTo($('.goodsSelector .range dl').eq(i).find('.selector_range'))
                         }
@@ -76,6 +79,8 @@
                     })
                     $($('.main .goods .title ul li:first').addClass('all'))
                 })
+
+
                 //默认葡萄酒是显示的
                 $('.content_left .goods_style ul').eq(0).addClass('on');
                 $('.goods_style .type-mod').eq(0).find('span').addClass('active');
@@ -104,25 +109,117 @@
                 },function(){
                     $(this).find('em').removeClass('hot');
                 })
+
             })
+            //默认page值为第一页
             $.post('php/goodslist.php',{page:1},function(response){
                $.each(JSON.parse(response),function(idx,item){
-                    $('<li/>').html('<dl><dt><a class="pic" href=""><img src="'+item.src+'"></a></dt><dd class="base"><a href="" class="name"><span class="cn">'+item.name+'</span><span class="en">'+item.ename+'</span><span class="promo">'+item.information+'</span></a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p></dd>' +
-                        '<dd class="action"><p><a class="btn">加入购物车</a></p></dd><dd class="sum"><span class="rate"><strong>'+item.rank+'</strong>好评度</span><span class="comment"><a><strong>'+item.comment+'</strong></a>评论</span><span class="soldout"><strong>'+item.soldout+'</strong>售出</span></dd></dl>').appendTo('.main .goodlist ul')
+                    $('<li data-guid="'+item.indexid+'"></li>').html('<dl><dt><a class="pic" href=""><img src="'+item.src+'"></a></dt><dd class="base"><a href="" class="name"><span class="cn">'+item.name+'</span><span class="en">'+item.ename+'</span><span class="promo">'+item.information+'</span></a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p></dd>' +
+                        '<dd class="action"><p><a class="btn">加入购物车</a></p></dd><dd class="sum"><span class="rate"><strong>'+item.rank+'</strong>好评度</span><span class="comment"><a><strong>'+item.comment+'</strong></a>评论</span><span class="soldout"><strong>'+item.soldout+'</strong>售出</span></dd></dl>').appendTo($('.main .goodlist ul'));
                })
+                    addCookies();
             })
+//                ...............................cookie保存..........................
+            function addCookies(){
+                var $index = 0;
+                $('.main .goodlist ul li .btn').on('click',function(){
+                    $index++;
+                    $('.ym-nBar-cart-num em').html($index)
+                    var $li = $(this).closest('li')
+                    var $img =  $li.find('img').clone();
+                    //获取小图路径
+                    var $src = $img.attr('src').replace(/110x180/ig,'60x98');
+                    var currentGUID = $li[0].getAttribute('data-guid');
+
+                    // 先创建一个对象保存当前商品信息
+                    var goodsObj = {};
+                    goodsObj.guid = currentGUID;
+                    goodsObj.qty = 1;
+                    goodsObj.name = $li.find('.cn').html();
+                    goodsObj.ename = $li.find('.en').html();
+                    goodsObj.price = $li.find('.price strong').html();
+                    goodsObj.imgUrl = $src;
+
+                    // 如果cookie为空，则直接添加
+                    if(carList.length===0){
+                        // 添加到carList
+                        carList.push(goodsObj);
+                    }else{
+                        // 先判断cookie中有无相同的guid商品
+                        for(var i=0;i<carList.length;i++){
+                            // 如果商品已经存在cookie中，则数量+1
+                            if(carList[i].guid === currentGUID){
+                                carList[i].qty++;
+                                break;
+                            }
+                        }
+
+                        // 如果原cookie中没有当前商品
+                        if(i===carList.length){
+                            // 添加到carList
+                            carList.push(goodsObj);
+                        }
+
+                    }
+                    // 存入cookie
+                    // 把对象/数组转换诚json字符串：JSON.stringify()
+                    document.cookie = 'carlist=' + JSON.stringify(carList);
+
+
+
+//                    ...............点击加入购物车，右侧的购物车信息更新.....................
+
+                    //购物车提示信息清空
+                    if( $('.shopcart-list .empty')[0]!==undefined){
+                        console.log(1)
+                        $('.shopcart-list .empty').remove();
+                        $('<h2></h2>').html('最近加入').appendTo($('.shopcart-list'));
+                        $('<ul/>').html('<li data-guid="'+$li.attr('data-guid')+'"><a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a></li>').appendTo($('.shopcart-list'));
+                    }else{
+                        var bol;
+                        $('.shopcart-list ul li').each(function(idx,item){
+                            if($(item).attr('data-guid')==$li.attr('data-guid')){
+                                var index = $(item).find('.price em').html();
+                                $(item).find('.price em').html((index-0)+1)
+                                bol = true
+                            }
+                        })
+                        if(!bol){
+                            $('<li data-guid="'+$li.attr('data-guid')+'""></li>').html('<a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a>').appendTo($('.shopcart-list ul'))
+                        }
+                    }
+
+                    $(this).closest('li').find('img').clone()
+                })
+            }
+
+//                ........................点击分页效果.............................
+            $('.main .page a').on('click',function(){
+                $('.goodlist ul').empty();
+                $self = $(this);
+                //a标签点击高亮
+                $self.closest('.page').children().removeClass('on');
+                $self.addClass('on');
+                //点击分页
+                //点击数据库请求数据;
+                $.post('php/goodslist.php',{page:$self.html()},function(response){
+                    $.each(JSON.parse(response),function(idx,item){
+                        $('<li data-guid="'+item.indexid+'"></li>').html('<dl><dt><a class="pic" href=""><img src="'+item.src+'"></a></dt><dd class="base"><a href="" class="name"><span class="cn">'+item.name+'</span><span class="en">'+item.ename+'</span><span class="promo">'+item.information+'</span></a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p></dd>' +
+                            '<dd class="action"><p><a class="btn">加入购物车</a></p></dd><dd class="sum"><span class="rate"><strong>'+item.rank+'</strong>好评度</span><span class="comment"><a><strong>'+item.comment+'</strong></a>评论</span><span class="soldout"><strong>'+item.soldout+'</strong>售出</span></dd></dl>').appendTo($('.main .goodlist ul'));
+                    })
+                    addCookies();
+                })
+            })
+
+
             //点击右侧购物车弹出信息
             $('.ym-nBar-tab-cart').hover(function(){
                 $(this).find('.ym-nBar-pop').show()
             },function(){
                 $(this).find('.ym-nBar-pop').hide();
             })
-
-            //点击分页查找数据库数据
-//            $('.main .page a').on('click',function(){
-//
-//            })
         })
+
     </script>
 </head>
 <body>
