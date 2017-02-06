@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    //默认点击左侧导航栏的葡萄酒跳转链接
     <meta charset="UTF-8">
     <title>也买酒官网主页</title>
     <link rel="stylesheet" href="css/homepage.css">
@@ -10,253 +11,7 @@
     <script src="js/jquery-Shuffling/ShufflingFigure.js"></script>
     <script src="js/jquery-Carousel/jquery-Carousel.js"></script>
     <script src ="js/jquery-Countdown/jquey-Countdown.js"></script>
-    <script>
-
-        $.post('php/confirm.php',function(response){
-            var $obj = eval('('+response+')');
-            if($obj.state){
-               $('.userinfo').remove();
-               $('<ul class="userinfo left"></ul>').html('<li style="height:16px;overflow:hidden;">您好，<a href="javascript:;" >'+$obj.clientName+'<img align="absmiddle" width="16" height="16" src="http://img11.yesmyimg.com/newWeb/images/global/member/s/MEMBER_LEVEL_NORMAL.png"></a></li><li class="bldr"><a href="javascript:;" class="txt-logout" >退出</a></li>').appendTo($('.header_top .swap'));
-            }
-        })
-       $(function(){
-           //点击侧栏出现导航栏
-           $('.categroup>dl').hover(function(){
-               $(this).find('dd').animate({opacity:0.9,left:200},500).animate({}).show();
-           },function(){
-               $(this).find('dd').stop().animate({opacity:0,left:150},500).hide();
-           });
-
-           //生成轮播图，实现淡入淡出效果
-
-           $('.p_area ul').shuffling({imglist:["img/hmepage/20170106110542512.jpg","img/hmepage/3.jpg","img/hmepage/20170106190551736.jpg","img/hmepage/3.jpg","img/hmepage/1920.jpg","img/hmepage/20170104140301650.jpg","../img/hmepage/1.jpg","img/hmepage/20161220091848149.jpg","img/hmepage/20170116161443903.jpg"],width:1920,height:500,time:4000});
-
-            var imglist = ['img/hmepage/brand1.jpg','img/hmepage/brand2.jpg','img/hmepage/brand3.jpg','img/hmepage/brand4.jpg','img/hmepage/brand5.jpg','img/hmepage/brand6.jpg']
-           for(i=0;i<imglist.length;i++){
-                var $li = $('<li/>');
-                $li.css('left',150*i+300);
-                $li.html('<img src = "'+imglist[i]+'">');
-                $li.appendTo($('.pp .center ul'));
-           }
-           $('.pp .center ul li:first').css('left',0);
-
-           //轮播图
-           var index = 0;
-
-           $('.pp .center ul').timer = setInterval(function(){
-               index++;
-               if(index>=imglist.length){
-                   $('.pp .center ul li:gt(0)').each(function(idx,item){
-                       $(item).animate({left:$(item).offset().left+300})
-                   })
-                   index = 1;
-               }
-               $('.pp .center ul li').eq(index).animate({left:$('.pp .center ul li').eq(index).offset().left-300})
-           },3000);
-
-
-           for(i=1;i<=5;i++){
-               $('<li/>').html('<a href="#"><img src = "img/hmepage/brand_logo'+i+'.jpg "></a>').appendTo($('.pp_bottom ul'))
-           }
-           for(i=0;i<33;i++){
-               $.getJSON("jason/data.json",function(data){
-                   $.each(data,function(idx,item){
-                       var $li = $('<li/>');
-                       $li.html('<div class="parea"><a href="#"><img src="'+item.img+'" alt=""></a></div><div class="base"><a href="#">'+item.name+'</a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p>').appendTo($('.comment ul'));
-                       $.each(item.main,function(i,_item){
-                           $('<div/>').addClass('_comment').html('<div class="user"><img src="'+item.userimg+'" alt=""><span>'+_item.user+'</span></div><p><span class="rank">"评分"<strong>'+_item.rank+'</strong></span><br><a href="#">'+_item.comment+'</a></p>').appendTo($li);
-                       })
-
-                   })
-               })
-           }
-
-           //hottabs鼠标移入触发效果，下方商品margin-top改变
-            $('.selector_tab ._main .hottabs li').each(function(idx,item){
-                    $(item).on('mouseenter',function () {
-                       $(item).closest('ul').children().removeClass('active').eq(idx).addClass('active');
-                        $('.selector_tab ._main ._bd .goodslist').animate({marginTop:-idx*360},100)
-                    })
-            })
-           //默认第一个li高亮
-           $('.selector_tab ._main .hottabs li').eq(0).addClass('active');
-
-           //人气抢购产品倒计时函数
-            $('.selector_tab ._main ._bd .prod-countdown').Countdowm();
-
-
-           $.getJSON("jason/drink.json",function(data){
-               $.each(data,function(idex,item){
-                  $(".jk").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul class="clearfix"></ul></div><div class="jk_logor"></div></div>');
-
-                  $.each(item.wine,function(idx,_item){
-                      $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk .jk_header ul'));
-                  })
-                   $('.jk .jk_header ul li:last').addClass('more');
-                   $.each(item.logo,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk .jk_logo ul'));
-                   })
-                   $.each(item.src,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk .jk_main ul'));
-                   })
-                   $.each(item.rightpic,function(idx,_item){
-                       $('<a/>').html('<img src="'+_item+'">').appendTo($('.jk .jk_logor'));
-                   })
-
-                   $('<div class="jk_mainleft clearfix"></div>').html('<div class="goodlist"></div>').appendTo($('.jk'))
-                   $.each(item.topic,function(idx,_item){
-                      $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('.jk .goodlist'));
-                   })
-                   $.each(item.top,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk .goodlist ul:first'));
-                   })
-                   $.each(item.buttom,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk .goodlist ul:last'));
-                   })
-
-                   $('<div class = "jk_right"></div>').html('<h4></h4><ul></ul>').appendTo($('.jk .jk_mainleft'));
-                   $.each(item.right,function(idx,_item){
-                        $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk .jk_right ul'))
-                   })
-                   $('.jk .jk_right ul li:lt(3)').addClass('active');
-                   $('.jk .jk_main ul').Carousel();
-               })
-           })
-
-           $.getJSON("jason/drink01.json",function(data){
-               $.each(data,function(idex,item){
-                   $("._jk").html('<div class="_jk_header"><h2></h2><ul></ul></div><div class="_jk_main clearfix"><div class = "_jk_brand"><div class="_jk_logo"><div class="brand"><ul></ul></div></div><div class="main"><ul></ul></div><div class="_main"><ul></ul><div class="_goodlist"><ul></ul></div></div></div></div><div class="right"><h4></h4><ul></ul></div>');
-                   $.each(item.wine,function(idx,_item){
-                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('._jk ._jk_header ul'));
-                   })
-                   $('._jk ._jk_header ul li:last').addClass('more');
-                   $.each(item.logo,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('._jk ._jk_logo ul'));
-                   })
-                   $.each(item.src,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('._jk .main ul'));
-                   })
-
-                   $.each(item.topic,function(idx,_item){
-                       $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('._jk ._goodlist'));
-                   })
-                   $.each(item.top,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('._jk ._goodlist ul:first'));
-                   })
-
-                   $.each(item.right,function(idx,_item){
-                       $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('._jk .right ul'))
-                   })
-                   $('._jk .right ul li:first').addClass('active');
-                   $('._jk .main ul').Carousel();
-               })
-           })
-
-           $.getJSON("jason/drink.json",function(data){
-               $.each(data,function(idex,item){
-                   $(".jk1").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul class="clearfix"></ul></div><div class="jk_logor"></div></div>');
-                   $.each(item.wine,function(idx,_item){
-                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk1 .jk_header ul'));
-                   })
-                   $('.jk1 .jk_header ul li:last').addClass('more');
-                   $.each(item.logo,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk1 .jk_logo ul'));
-                   })
-                   $.each(item.src,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk1 .jk_main ul'));
-                   })
-                   $.each(item.rightpic,function(idx,_item){
-                       $('<a/>').html('<img src="'+_item+'">').appendTo($('.jk1 .jk_logor'));
-                   })
-
-                   $('<div class="jk_mainleft clearfix"></div>').html('<div class="goodlist"></div>').appendTo($('.jk1'))
-                   $.each(item.topic,function(idx,_item){
-                       $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('.jk1 .goodlist'));
-                   })
-                   $.each(item.top,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk1 .goodlist ul:first'));
-                   })
-                   $.each(item.buttom,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk1 .goodlist ul:last'));
-                   })
-
-                   $('<div class = "jk_right"></div>').html('<h4></h4><ul></ul>').appendTo($('.jk1 .jk_mainleft'));
-                   $.each(item.right,function(idx,_item){
-                       $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk1 .jk_right ul'))
-                   })
-                   $('.jk1 .jk_right ul li:lt(3)').addClass('active');
-                   $('.jk1 .jk_main ul').Carousel();
-               })
-           })
-
-           $.getJSON("jason/drink.json",function(data){
-               $.each(data,function(idex,item){
-                   $(".jk2").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul class="clearfix"></ul></div><div class="jk_logor"></div></div>');
-                   $.each(item.wine,function(idx,_item){
-                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('.jk2 .jk_header ul'));
-                   })
-                   $('.jk2 .jk_header ul li:last').addClass('more');
-                   $.each(item.logo,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk2 .jk_logo ul'));
-                   })
-                   $.each(item.src,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('.jk2 .jk_main ul'));
-                   })
-                   $.each(item.rightpic,function(idx,_item){
-                       $('<a/>').html('<img src="'+_item+'">').appendTo($('.jk2 .jk_logor'));
-                   })
-
-                   $('<div class="jk_mainleft clearfix"></div>').html('<div class="goodlist"></div>').appendTo($('.jk2'))
-                   $.each(item.topic,function(idx,_item){
-                       $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('.jk2 .goodlist'));
-                   })
-                   $.each(item.top,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk2 .goodlist ul:first'));
-                   })
-                   $.each(item.buttom,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('.jk2 .goodlist ul:last'));
-                   })
-
-                   $('<div class = "jk_right"></div>').html('<h4></h4><ul></ul>').appendTo($('.jk2 .jk_mainleft'));
-                   $.each(item.right,function(idx,_item){
-                       $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('.jk2 .jk_right ul'))
-                   })
-                   $('.jk2 .jk_right ul li:lt(3)').addClass('active');
-                   $('.jk2 .jk_main ul').Carousel();
-               })
-           })
-
-           $.getJSON("jason/drink01.json",function(data){
-               $.each(data,function(idex,item){
-                   $("._jk1").html('<div class="_jk_header"><h2></h2><ul></ul></div><div class="_jk_main clearfix"><div class = "_jk_brand"><div class="_jk_logo"><div class="brand"><ul></ul></div></div><div class="main"><ul></ul></div><div class="_main"><ul></ul><div class="_goodlist"><ul></ul></div></div></div></div><div class="right"><h4></h4><ul></ul></div>');
-                   $.each(item.wine,function(idx,_item){
-                       $('<li/>').html('<a>'+_item+'</a>').appendTo($('._jk1 ._jk_header ul'));
-                   })
-                   $('._jk1 ._jk_header ul li:last').addClass('more');
-                   $.each(item.logo,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('._jk1 ._jk_logo ul'));
-                   })
-                   $.each(item.src,function(idx,_item){
-                       $('<li/>').html('<a><img src = "'+_item+'"></a>').appendTo($('._jk1 .main ul'));
-                   })
-
-                   $.each(item.topic,function(idx,_item){
-                       $('<h3><strong>'+_item+'</strong><a href="#" class="more">'+item.more+'</a></h3><ul></ul>').appendTo($('._jk1 ._goodlist'));
-                   })
-                   $.each(item.top,function(idx,_item){
-                       $('<li/>').html('<dl><dt><a href=""><img src="'+_item.img+'" alt=""></a></dt><dd class="base"><a href="">'+_item.picname+'<span>'+_item.ename+'</span></a><p class="price"><span>￥<strong>'+_item.price+'</strong></span></p></dd><dd class="sum"><span class="soldout">售出<strong>'+_item.soldout+'</strong></span><span class="rank">好评<strong>'+_item.rank+'</strong></span></dd></dl>').appendTo($('._jk1 ._goodlist ul:first'));
-                   })
-
-                   $.each(item.right,function(idx,_item){
-                       $('<li/>').html('<em>'+(idx+1)+'</em><a class="pic"><img src = "'+_item.img+'"></a><a class="name">'+_item.name+'<span>'+_item.ename+'</span></a><span class="soldout">售出'+_item.soldout+'<strong></strong></span><span class="price">￥<strong>'+_item.price+'</strong></span>').appendTo($('._jk1 .right ul'))
-                   })
-                   $('._jk1 .right ul li:first').addClass('active');
-                   $('._jk1 .main ul').Carousel();
-               })
-           })
-       })
-
-    </script>
+    <script src="js/homepage.js"></script>
 </head>
 <body>
     <div class="header">
@@ -336,35 +91,35 @@
                         <dl class="first">
                             <dt>
                             <h4>
-                                <a href="//list.yesmywine.com/z2/" class="topcate" target="_blank" group1="ad" group2="1308" data-dts="IL1.0">葡萄酒</a>
+                                <a href="goodlist.html">葡萄酒</a>
                             </h4>
                             <p>
-                                <a href="//list.yesmywine.com/z2-a1/" target="_blank" group1="ad" group2="1308" data-dts="IL1.1">法国</a>
-                                <a href="//list.yesmywine.com/z2-a6/" target="_blank" group1="ad" group2="1308" data-dts="IL1.2">西班牙</a>
-                                <a href="//list.yesmywine.com/z2-a2/" target="_blank" group1="ad" group2="1308" data-dts="IL1.3">意大利</a>
-                                <a href="//list.yesmywine.com/z2-a7/" target="_blank" group1="ad" group2="1308" data-dts="IL1.4">智利</a>
-                                <a href="//list.yesmywine.com/z2-e1/" target="_blank" group1="ad" group2="1308" data-dts="IL1.5">干红</a>
-                                <a href="//list.yesmywine.com/z2-c3/" target="_blank" group1="ad" group2="1308" data-dts="IL1.6">桃红</a>
-                                <a href="//list.yesmywine.com/z2-e9/" target="_blank" group1="ad" group2="1308" data-dts="IL1.7">甜白</a>
-                                <a href="//list.yesmywine.com/z2-c4/" target="_blank" group1="ad" group2="1308" data-dts="IL1.8">起泡</a>
-                                <a href="//list.yesmywine.com/z2-c6" target="_blank" group1="ad" group2="1308" data-dts="IL1.8">香槟</a>
-                                <a href="//list.yesmywine.com/z2-c5" target="_blank" group1="ad" group2="1308" data-dts="IL1.1">加强葡萄酒</a>
-                                <a href="http://www.yesmywine.com/cms/cmsV1/grandcru/gccshop" target="_blank" group1="ad" group2="1308" data-dts="IL1.2">列级名庄</a>
+                                <a href="">法国</a>
+                                <a href="">西班牙</a>
+                                <a href="">意大利</a>
+                                <a href="">智利</a>
+                                <a href="">干红</a>
+                                <a href="">桃红</a>
+                                <a href="">甜白</a>
+                                <a href="">起泡</a>
+                                <a href=">香槟</a>
+                                <a href=">加强葡萄酒</a>
+                                <a href="">列级名庄</a>
                             </p>
                             </dt>
                             <dd class="h400" data-dts="ILP1">
                                 <ul class="subcates">
-                                    <li> <h5><a href="//list.yesmywine.com/z2-c1/" target="_blank" group1="ad" group2="1308">红葡萄酒</a></h5> <p class="lh22"> <a href="//list.yesmywine.com/z2-e1/" target="_blank" group1="ad" group2="1308">干红</a> <a href="//list.yesmywine.com/z2-e2/" target="_blank" group1="ad" group2="1308">半干红</a> <a href="//list.yesmywine.com/z2-e3/" target="_blank" group1="ad" group2="1308">半甜红</a> <a href="//list.yesmywine.com/z2-e4/" target="_blank" group1="ad" group2="1308">甜红</a> </p> </li>
-                                    <li> <h5><a href="//list.yesmywine.com/z2-c2/" target="_blank" group1="ad" group2="1308">白葡萄酒</a></h5> <p class="lh22 h44"> <a href="//list.yesmywine.com/z2-e6/" target="_blank" group1="ad" group2="1308">干白</a> <a href="//list.yesmywine.com/z2-e7/" target="_blank" group1="ad" group2="1308">半干白</a> <a href="//list.yesmywine.com/z2-e8/" target="_blank" group1="ad" group2="1308">半甜白</a> <a href="//list.yesmywine.com/z2-e9/" target="_blank" group1="ad" group2="1308">甜白</a> <a href="//list.yesmywine.com/z2-ea/" target="_blank" group1="ad" group2="1308">贵腐酒</a> </p> </li>
-                                    <li> <h5><a href="//list.yesmywine.com/z2-c3/" target="_blank" group1="ad" group2="1308">桃红葡萄酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-ec/" target="_blank" group1="ad" group2="1308">干型桃红</a> <a href="//list.yesmywine.com/z2-ed/" target="_blank" group1="ad" group2="1308">半干型桃红</a> <a href="//list.yesmywine.com/z2-ee/" target="_blank" group1="ad" group2="1308">半甜桃红</a> <a href="//list.yesmywine.com/z2-ef/" target="_blank" group1="ad" group2="1308">甜型桃红</a> </p> </li>
-                                    <li> <h5><a href="//list.yesmywine.com/z2-c4/" target="_blank" group1="ad" group2="1308">起泡酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e10/" target="_blank" group1="ad" group2="1308">干起泡酒</a> <a href="//list.yesmywine.com/z2-e11/" target="_blank" group1="ad" group2="1308">半干起泡酒</a> <br> <a href="//list.yesmywine.com/z2-e12/" target="_blank" group1="ad" group2="1308">甜起泡酒</a> <a href="//list.yesmywine.com/z2-e13/" target="_blank" group1="ad" group2="1308">绝干型起泡酒</a> <br> <a href="//list.yesmywine.com/z2-e14/" target="_blank" group1="ad" group2="1308">半甜型起泡酒</a> </p> </li>
-                                    <li> <h5><a href="//list.yesmywine.com/z2-c6/" target="_blank" group1="ad" group2="1308">香槟</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e1b/" target="_blank" group1="ad" group2="1308">干香槟</a> <a href="//list.yesmywine.com/z2-e1c/" target="_blank" group1="ad" group2="1308">半干香槟</a> <br> <a href="//list.yesmywine.com/z2-e1d/" target="_blank" group1="ad" group2="1308">绝干香槟</a> </p> </li>
-                                    <li> <h5><a href="//list.yesmywine.com/z2-c5/" target="_blank" group1="ad" group2="1308">加强葡萄酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e15/" target="_blank" group1="ad" group2="1308">半干型雪莉酒</a> <a href="//list.yesmywine.com/z2-e16/" target="_blank" group1="ad" group2="1308">干型雪莉酒</a> <br> <a href="//list.yesmywine.com/z2-e17/" target="_blank" group1="ad" group2="1308">甜型雪莉酒</a> <a href="//list.yesmywine.com/z2-e18/" target="_blank" group1="ad" group2="1308">波特酒</a> <a href="//list.yesmywine.com/z2-e19/" target="_blank" group1="ad" group2="1308">加强甜白</a> <br> </p> </li>
+                                    <li> <h5><a href="">红葡萄酒</a></h5> <p class="lh22"> <a href="">干红</a> <a href="">半干红</a> <a href="">半甜红</a> <a href="">甜红</a> </p> </li>
+                                    <li> <h5><a href="">白葡萄酒</a></h5> <p class="lh22 h44"> <a href="">干白</a> <a href="">半干白</a> <a href="">半甜白</a> <a href="">甜白</a> <a href="">贵腐酒</a> </p> </li>
+                                    <li> <h5><a href="">桃红葡萄酒</a></h5> <p class="lh22 col2"> <a href="">干型桃红</a> <a href="">半干型桃红</a> <a href="">半甜桃红</a> <a href="">甜型桃红</a> </p> </li>
+                                    <li> <h5><a href="">起泡酒</a></h5> <p class="lh22 col2"> <a href="">干起泡酒</a> <a href="">半干起泡酒</a> <br> <a href="">甜起泡酒</a> <a href="">绝干型起泡酒</a> <br> <a href="">半甜型起泡酒</a> </p> </li>
+                                    <li> <h5><a href="">香槟</a></h5> <p class="lh22 col2"> <a href="">干香槟</a> <a href="/">半干香槟</a> <br> <a href="">绝干香槟</a> </p> </li>
+                                    <li> <h5><a href="">加强葡萄酒</a></h5> <p class="lh22 col2"> <a href="">干型雪莉酒</a> <br> <a href="">甜型雪莉酒</a> <a href="">波特酒</a> <a href="">加强甜白</a> <br> </p> </li>
                                 </ul>
                                 <ul class="relcates">
-                                    <li> <h5>热门产地</h5> <p class="lh22"> <a href="//list.yesmywine.com/z2-a1/" target="_blank" group1="ad" group2="1308">法国</a> <a href="//list.yesmywine.com/z2-a2/" target="_blank" group1="ad" group2="1308">意大利</a> <a href="//list.yesmywine.com/z2-a3/" target="_blank" group1="ad" group2="1308">澳大利亚</a> <br> <a href="//list.yesmywine.com/z2-a4/" target="_blank" group1="ad" group2="1308">德国</a> <a href="//list.yesmywine.com/z2-a5/" target="_blank" group1="ad" group2="1308">美国</a> <a href="//list.yesmywine.com/z2-a6/" target="_blank" group1="ad" group2="1308">西班牙</a> <br> <a href="//list.yesmywine.com/z2-a8/" target="_blank" group1="ad" group2="1308">新西兰</a> <a href="//list.yesmywine.com/z2-a9/" target="_blank" group1="ad" group2="1308">阿根廷</a> <a href="//list.yesmywine.com/z2-ae/" target="_blank" group1="ad" group2="1308">匈牙利</a> <br> <a href="//list.yesmywine.com/z2-a7/" target="_blank" group1="ad" group2="1308">智利</a> <a href="//list.yesmywine.com/z2-ac/" target="_blank" group1="ad" group2="1308">葡萄牙</a> <a href="//list.yesmywine.com/z2-ad/" target="_blank" group1="ad" group2="1308">加拿大</a> <br> <a href="//list.yesmywine.com/z2-af/" target="_blank" group1="ad" group2="1308">希腊</a> <a href="//list.yesmywine.com/z2-aa/" target="_blank" group1="ad" group2="1308">南非</a> <a href="//list.yesmywine.com/z2-a12/" target="_blank" group1="ad" group2="1308">中国</a> </p> </li>
-                                    <li> <h5>独家品牌</h5> <p class="col2 lh20 h120"> <a href="http://www.yesmywine.com/topic/castle/00162.html" target="_blank" group1="ad" group2="1308">季风酒庄</a> <a href="http://www.yesmywine.com/topic/castle/00041.html" target="_blank" group1="ad" group2="1308">斯皮尔酒庄</a> <br> <a href="http://www.yesmywine.com/topic/castle/00201.html" target="_blank" group1="ad" group2="1308">圣勒庄园</a> <a href="http://www.yesmywine.com/topic/castle/00021.html" target="_blank" group1="ad" group2="1308">贝马格雷</a> <br> <a href="http://www.yesmywine.com/topic/castle/00142.html" target="_blank" group1="ad" group2="1308">黄金天使</a> <a href="http://www.yesmywine.com/topic/castle/00261.html" target="_blank" group1="ad" group2="1308">教堂山酒庄</a> <br> <a href="http://www.yesmywine.com/topic/castle/00282.html" target="_blank" group1="ad" group2="1308">维纳酒庄</a> <a href="http://www.yesmywine.com/topic/castle/00061.html" target="_blank" group1="ad" group2="1308">贝尔莱酒庄</a> <br> <a href="http://www.yesmywine.com/topic/castle/00242.html" target="_blank" group1="ad" group2="1308">帕索斯蒂芬</a> <a href="http://www.yesmywine.com/topic/castle/00341.html" target="_blank" group1="ad" group2="1308">贝托纳酒庄</a> <br> <a href="http://www.yesmywine.com/topic/castle/00361.html" target="_blank" group1="ad" group2="1308">夏迪酒庄</a> <a href="http://www.yesmywine.com/topic/castle/00381.html" target="_blank" group1="ad" group2="1308">维斯塔酒庄</a> <br> </p> </li>
-                                    <li> <h5>列级名庄</h5> <p class="col2 lh22"> <a href="http://www.yesmywine.com/cms/cmsV1/grandcru/gccshop" target="_blank" group1="ad" group2="1308">名庄特卖</a> <a href="//list.yesmywine.com/z65-a2/" target="_blank" group1="ad" group2="1308">香港免税</a> <br> <a href="//list.yesmywine.com/z65-l2/" target="_blank" group1="ad" group2="1308">勃艮第名庄</a> <a href="//list.yesmywine.com/z65-l8/" target="_blank" group1="ad" group2="1308">中级庄</a> <br> <a href="http://www.yesmywine.com/topic/castle/00241.html" target="_blank" group1="ad" group2="1308">拉菲酒庄</a> <a href="http://www.yesmywine.com/topic/castle/00001.html" target="_blank" group1="ad" group2="1308">宝嘉龙酒庄</a> <br> <a href="http://www.yesmywine.com/topic/castle/00121.html" target="_blank" group1="ad" group2="1308">宝得根酒庄</a> <a href="http://www.yesmywine.com/topic/castle/00187.html" target="_blank" group1="ad" group2="1308">爱士图尔庄园</a> <br> <a href="http://www.yesmywine.com/topic/castle/00221.html" target="_blank" group1="ad" group2="1308">木桐酒庄</a> <a href="http://www.yesmywine.com/topic/castle/00381.html" target="_blank" group1="ad" group2="1308">美国优质酒庄</a> <br> </p> </li>
+                                    <li> <h5>热门产地</h5> <p class="lh22"> <a href="">法国</a> <a href="">意大利</a> <a href="">澳大利亚</a> <br> <a href="">德国</a> <a href="">美国</a> <a href="">西班牙</a> <br> <a href="">新西兰</a> <a href="">阿根廷</a> <a href="">匈牙利</a> <br> <a href="">智利</a> <a href="">葡萄牙</a> <a href="">加拿大</a> <br> <a href="">南非</a> <a href="">中国</a> </p> </li>
+                                    <li> <h5>独家品牌</h5> <p class="col2 lh20 h120"> <a href="">季风酒庄</a> <a href="">斯皮尔酒庄</a> <br> <a href="">圣勒庄园</a> <a href="">贝马格雷</a> <br> <a href="">黄金天使</a> <a href="">教堂山酒庄</a> <br> <a href="">维纳酒庄</a> <a href="">贝尔莱酒庄</a> <br> <a href="">贝托纳酒庄</a> <br> <a href="">夏迪酒庄</a> <a href="">维斯塔酒庄</a> <br> </p> </li>
+                                    <li> <h5>列级名庄</h5> <p class="col2 lh22"> <a href="">名庄特卖</a> <a href="">香港免税</a> <br> <a href="">勃艮第名庄</a> <a href="">中级庄</a> <br> <a href="">拉菲酒庄</a> <a href="">宝嘉龙酒庄</a> <br> <a href="">宝得根酒庄</a> <a href="">爱士图尔庄园</a> <br> <a href="">木桐酒庄</a> <a href="">美国优质酒庄</a> <br> </p> </li>
                                 </ul>
                             </dd>
                         </dl>

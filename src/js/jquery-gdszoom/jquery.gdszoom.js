@@ -11,25 +11,23 @@
 
         return this.each(function(){
             var $self = $(this);
-            var $smallImg = $self.find('img');
+
             
             // 初始化
             init();
 
             function init(){
                 // 获取大图路径
-                var bigUrl = $smallImg.attr('src').replace(/220x360/ig,'380x620');
 
                 // 添加默认样式
                 $self.addClass('gdszoom');
 
                 // 生成html结构
                 var $lens = $('<span/>').addClass('lens').hide().appendTo($self);
-                var $bigLens = $('<div/>').addClass('gdsbzoom').append('<img src="'+bigUrl+'"/>').hide().appendTo($self);
 
 
                 // 设置样式
-                var bigLeft,bigTop;
+                // var bigLeft,bigTop;
 
 
                 // 大图显示位置
@@ -45,26 +43,31 @@
                 //     top:bigTop
                 // });
 
-                // 大图图片
-                var $bigImg = $bigLens.find('img');
+
 
                 // 计算小图和大图的比例
                 var ratio;
-
+                var bigLens;
+                var bigImg;
+                var $smallImg;
+                var bigUrl;
 
                 // 鼠标移入，显示大图和镜头
                 $self.on('mouseenter',function(){
                     $lens.show();
+                    $smallImg = $self.find('img');
+                    bigUrl = $smallImg.attr('src').replace(/220x360/ig,'380x620');
+                    $bigLens = $('<div/>').addClass('gdsbzoom').append('<img src="'+bigUrl+'"/>').hide().appendTo($self);
                     $bigLens.show();
+                    // 大图图片
+                    $bigImg = $bigLens.find('img')
                     ratio = $smallImg.outerWidth()/$bigImg.outerWidth();
-                    console.log(ratio)
-
                 })
 
                 // 鼠标移出，移出大图和镜头
                 .on('mouseleave',function(){
                     $lens.hide();
-                    $bigLens.hide();
+                   $bigLens.remove();
                 })
 
                 // 鼠标移动效果
@@ -85,17 +88,18 @@
                         _top = $smallImg.outerHeight()-$lens.outerHeight();
                     }
 
-                    $lens.css({
-                        top:_top,
-                        left:_left
-                    });
 
-
-                    // 大图显示
-                    $bigImg.css({
-                        top:-_top/ratio,
-                        //left:-_left/ratio
-                    })
+                    if(_top>($self.offset().top)/100&&_top<($self.offset().top/2)){
+                        $lens.css({
+                            top:_top,
+                            left:_left
+                        });
+                        // 大图显示
+                        $bigImg.css({
+                            top:-_top/ratio,
+                            //left:-_left/ratio
+                        })
+                    }
                 })  
             }
         });

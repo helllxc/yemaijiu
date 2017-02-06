@@ -371,9 +371,9 @@ body { background: #fbfaf9; color: #333; font: 12px/1.5 tahoma, arial, \5b8b\4f5
 
 .content .promotion .promotion_middle .distribution .dis_area ul li ins b { padding-right: 2px; color: #c00; }
 
-.content .promotion .promotion_middle .distribution .dis_area ul .wineNum .prev { float: left; overflow: hidden; margin-top: 5px; margin-right: 5px; width: 16px; height: 16px; background: url("../img/goods/icon (1).png") no-repeat 0 -232px; }
+.content .promotion .promotion_middle .distribution .dis_area ul .wineNum .prev { float: left; overflow: hidden; margin-top: 5px; margin-right: 5px; width: 16px; height: 16px; background: url("../img/goods/icon (1).png") no-repeat 0 -232px; cursor: pointer; }
 
-.content .promotion .promotion_middle .distribution .dis_area ul .wineNum .next { float: left; overflow: hidden; margin-top: 5px; margin-right: 15px; margin-left: 5px; width: 16px; height: 16px; background: url("../img/goods/icon (1).png") no-repeat -16px -232px; }
+.content .promotion .promotion_middle .distribution .dis_area ul .wineNum .next { float: left; overflow: hidden; margin-top: 5px; margin-right: 15px; margin-left: 5px; width: 16px; height: 16px; background: url("../img/goods/icon (1).png") no-repeat -16px -232px; cursor: pointer; }
 
 .content .promotion .promotion_middle .distribution .dis_area ul .wineNum input { float: left; margin-top: 3px; padding: 0 3px; width: 35px; height: 20px; border: 1px solid #e6e1db; text-align: center; line-height: 20px; }
 
