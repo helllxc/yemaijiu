@@ -42,6 +42,24 @@
             $('.ym-nBar-cart-num em').html($sum)
         }
 
+        // .....................头部导航栏操作.....................
+        //对categorys hover 效果(dl出现,箭头向上)
+        $('.categorys').hover(function(){
+            $(this).find('.categroup').show();
+            $(this).find('h3 .arrow').css('background-position','-160px -184px')
+
+        },function(){
+            $(this).find('.categroup').hide();
+            $(this).find('h3 .arrow').css('background-position','-160px -175px')
+        })
+        //点击侧栏出现导航栏
+        $('.categroup>dl').hover(function(){
+            $(this).find('dd').animate({opacity:0.9,left:200},500).animate({}).show();
+        },function(){
+            $(this).find('dd').stop().animate({opacity:0,left:150},500).hide();
+        });
+
+        // .....................生成html页面...............
         //生成商品图
         //生成大图
         var $bigimgList = ["http://img18.yesmyimg.com/n/420/145/5145420/4463015_220x360.png","http://img19.yesmyimg.com/n/420/145/5145420/9647907_220x360.JPG","http://img18.yesmyimg.com/n/420/145/5145420/2325597_220x360.JPG","http://img09.yesmyimg.com/n/420/145/5145420/5873254_220x360.png"];
@@ -138,6 +156,7 @@
 
 
 
+        // ...................商品购物操作.......................
         //选择数量事件
         $('.wineNum .prev').on("click",function(){
             var $value = $(this).next('input').attr('value');

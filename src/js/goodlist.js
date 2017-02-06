@@ -30,21 +30,35 @@
                 carList = JSON.parse(arr[1]);
             }
         }
-//            ...........................若存在cookie则改变右侧购物车的信息..........
+//            ...........................若存在cookie则改变顶部和右侧购物车的信息..........
         if(carList == undefined||carList.length==0){
             carList = [];
         }else{
-            console.log(carList)
+            //顶部购物车信息更新
+            $('<span class="count"></span>').appendTo('.center_right .shopcart');
+            $('<div class="shopcart-list"></div>').appendTo(('.center_right .shopcart'));
+
+            //右侧购物车信息更新
             $('.shopcart-list .empty').remove();
-            $('<h2></h2>').html('最近加入').appendTo($('.shopcart-list'));
+            console.log($('.ym-nBar-cart-txt'))
+            $('<h2></h2>').html('最近加入').appendTo($('.ym-nBar-tab-cart .shopcart-list'));
             $('<ul/>').appendTo($('.shopcart-list'));
             var $sum = 0;
             $.each(carList,function(idx,ele){
-                $('<li data-guid="'+ele.guid+'""></li>').html('<a href="javacript;"><img src="'+ele.imgUrl+'"><span class="name">'+ele.name+'</span><span class="en">'+ele.ename+'</span><span class="price"><strong>'+ele.price+'</strong> × <em>'+ele.qty+'</em></span></a>').appendTo($('.shopcart-list ul'))
+                $('<li data-guid="'+ele.guid+'""></li>').html('<a href="javacript;"><img src="'+ele.imgUrl+'"><span class="name">'+ele.name+'</span><span class="en">'+ele.ename+'</span><span class="price"><strong>'+ele.price+'</strong> × <em>'+ele.qty+'</em></span></a><a class="btn-remove"></a>').appendTo($('.shopcart-list ul'))
                 $sum = $sum + (ele.qty-0);
             })
-            $('.ym-nBar-cart-num em').html($sum)
+            $('.ym-nBar-cart-num em').html($sum);
+            $('.shopcart .count').html($sum);
         }
+
+        $('.shopcart  .btn-shopcart').hover(function(){
+            $(this).closest('div').find('.shopcart-list').show();
+        },function(){
+            $(this).closest('div').find('.shopcart-list').hide();
+        })
+
+        // ....................生成HTML页面...............
 
         //通过jason生成左侧导航栏
         $.getJSON("jason/classify.json",function(data){
@@ -136,6 +150,23 @@
             })
 
         })
+
+        //对categorys hover 效果(dl出现,箭头向上)
+        $('.categorys').hover(function(){
+            $(this).find('.categroup').show();
+            $(this).find('h3 .arrow').css('background-position','-160px -184px')
+
+        },function(){
+            $(this).find('.categroup').hide();
+            $(this).find('h3 .arrow').css('background-position','-160px -175px')
+        })
+        //点击侧栏出现导航栏
+        $('.categroup>dl').hover(function(){
+            $(this).find('dd').animate({opacity:0.9,left:200},500).animate({}).show();
+        },function(){
+            $(this).find('dd').stop().animate({opacity:0,left:150},500).hide();
+        });
+
         //默认page值为第一页
         $.post('php/goodslist.php',{page:1},function(response){
             $.each(JSON.parse(response),function(idx,item){
@@ -147,6 +178,7 @@
             addCookies();
         })
 //                ...............................cookie保存..........................
+        //点击商品页加入购物车按钮触发cookie改变
         function addCookies(){
             var $index = 0;
             $('.main .goodlist ul li .btn').on('click',function(){
@@ -205,11 +237,19 @@
 
                 //购物车提示信息清空
                 if( $('.shopcart-list .empty')[0]!==undefined){
+                    //移除空购物车信息
                     $('.shopcart-list .empty').remove();
-                    $('<h2></h2>').html('最近加入').appendTo($('.shopcart-list'));
-                    $('<ul/>').html('<li data-guid="'+$li.attr('data-guid')+'"><a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a></li>').appendTo($('.shopcart-list'));
+
+                    //在顶部购物车添加span 和 shopcart-list
+                    $('<span class="count"></span>').html($index+($num-0)).appendTo('.center_right .shopcart');
+                    $('<div class="shopcart-list"></div>').appendTo(('.center_right .shopcart'))
+
+                    //右侧购物车添加元素
+                    $('<h2></h2>').html('最近加入').appendTo($('.ym-nBar-tab-cart .shopcart-list'));
+                    $('<ul/>').html('<li data-guid="'+$li.attr('data-guid')+'"><a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a><a class="btn-remove"></a><a class="btn-remove"></a></li>').appendTo($('.shopcart-list'));
                 }else{
                     var bol;
+                    //添加到两个购物车里
                     $('.shopcart-list ul li').each(function(idx,item){
                         if($(item).attr('data-guid')==$li.attr('data-guid')){
                             var index = $(item).find('.price em').html();
@@ -219,9 +259,19 @@
                         }
                     })
                     if(!bol){
-                        $('<li data-guid="'+$li.attr('data-guid')+'""></li>').html('<a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a>').appendTo($('.shopcart-list ul'))
+                        $('<li data-guid="'+$li.attr('data-guid')+'""></li>').html('<a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a><a class="btn-remove"></a>').appendTo($('.shopcart-list ul'))
                     }
                 }
+                //顶部购物车总数和右侧购物车总数相等
+                $('.shopcart .count').html( $('.ym-nBar-cart-num em').html());
+
+               // .....................输入框旁的购物车操作...............
+                //hover效果(出现/消失)
+                $('.shopcart  .btn-shopcart').hover(function(){
+                    $(this).closest('div').find('.shopcart-list').show();
+                },function(){
+                    $(this).closest('div').find('.shopcart-list').hide();
+                })
             })
         }
 

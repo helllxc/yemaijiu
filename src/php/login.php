@@ -8,7 +8,7 @@
     	$result = query($sql);
     	//当前 email 不存在，执行插入操作
     	if(count($result) < 1){
-    		echo "{state: false, message: '登录失败！！！'}";
+    		echo "{state: false, message: '账号或密码错误'}";
     	} else {
     		echo "{state: true, message: '登录成功！！！'}";
     		session_start();

@@ -140,7 +140,7 @@ body{
 
 		}
 		.categorys{
-			position: absolute;top: 0;left: 0;width: 200px;z-index:10;
+			position: absolute;top: 0;left: 0;width: 200px;z-index:100;
 			h3{
 				position: relative;padding: 8px 10px;height: 19px;background-color: #624b40;line-height: 19px;
 				a{
@@ -193,7 +193,7 @@ body{
 				}
 			}
 			dd{
-				position: absolute;top: -1px;left: 150px;opacity: 1;overflow: hidden;width: 520px;box-shadow: 0 6px 12px rgba(0,0,0,0.3);background-color: #fff;display:block;
+				position: absolute;top: -1px;left: 150px;opacity: 1;overflow: hidden;width: 520px;box-shadow: 0 6px 12px rgba(0,0,0,0.3);background-color: #fff;display:none;
 				ul{
 					float: left;padding: 0 10px;width: 240px;height: 100%;
 					li{

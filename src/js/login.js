@@ -18,8 +18,6 @@
                 }
             })
         });
-
-
         //电话号码输入框失去焦点时判定输入内容是否符合电话号码格式，不正确则创建span标签显示'请输入正确的E-mail或手机号'
         $('.email').on('blur',function(){
             var $val = $(this).val();
@@ -37,7 +35,6 @@
                 $(this).next('span').remove();
             }
         })
-
         //密码框失去焦点时若输入值为空时，跳出error_hint
         $('.password').on('blur',function(){
             if($(this).val()==''){
@@ -52,7 +49,6 @@
         })
         //点击"登录"判断是否输入框为空,若不为空且无报错信息，则发送ajax请求;
         $('.btn').click(function(){
-            console.log($('.input').eq(0).val())
             if( $('.email').val()==''){
                 $('<span class="error_hint"></span>').html('请输入正确的E-mail或手机号').appendTo($('.email').closest('dd'));
             }else if($('.password').val()==''){
@@ -74,7 +70,6 @@
                     }
                 })
             }
-
         })
     })
 })(jQuery)

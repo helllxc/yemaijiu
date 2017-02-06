@@ -92,7 +92,7 @@
                     if($obj.state){
                         window.location.href = 'login.html';
                     }else{
-                        $('#phone').next('div').find('span').html($obj.message+'<a>登录</a>');
+                        $('#phone').next('div').find('span').html($obj.message+'<a href="login.html">登录</a>');
                         $('#phone').next('div').show();
                         $('.phone').on("focus",function(){
                             $('#phone').next('div').find('span').css("display","none");

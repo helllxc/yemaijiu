@@ -7,11 +7,10 @@
         if($obj.state){
             $('.userinfo').remove();
             $('<ul class="userinfo left"></ul>').html('<li style="height:16px;overflow:hidden;">您好，<a href="javascript:;" >'+$obj.clientName+'<img align="absmiddle" width="16" height="16" src="http://img11.yesmyimg.com/newWeb/images/global/member/s/MEMBER_LEVEL_NORMAL.png"></a></li><li class="bldr"><a href="javascript:;" class="txt-logout" >退出</a></li>').appendTo($('.header_top .wrap'));
-
         }
     })
     $(function(){
-
+        // ..............点击退出刷新..............
         $('.txt-logout').click(function(){
             $.post('php/logout.php',function(data){
                 window.location.reload();
