@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商品详情页</title>
-    <link rel="stylesheet" href="css/goods.css">
-    <link rel="stylesheet" href="js/jquery-gdszoom/jquery.gdszoom.css">
-    <script src="js/jquery-3.1.1.js"></script>
-    <script src="js/jquery-gdszoom/jquery.gdszoom.js"></script>
-    <script src="js/goods.js"></script>
+    <title>商品列表页</title>
+    <link rel="stylesheet" href="../css/goodslist.css">
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/goodlist.js"></script>
 </head>
 <body>
 <div class="header">
     <div class="header_top clearfix">
-        <div class="wrap">
+        <div class="swap">
             <ul class="userinfo left">
                 <li><em>9965372</em>位会员的选择</li>
                 <li><a href="login.html">登录</a></li>
@@ -39,7 +38,7 @@
         </div>
     </div>
     <div class="header_center">
-        <div class="wrap">
+        <div class="swap">
             <div class="logo clearfix">
                 <div class="main_logo left">
                     <a href=""></a>
@@ -68,9 +67,9 @@
         </div>
     </div>
     <div class="header_buttom">
-        <div class="wrap swap">
+        <div class="swap">
             <ul class="navlinks">
-                <li><a href="homepage.html">首 页</a></li>
+                <li><a href="../homepage.html">首 页</a></li>
                 <li><a href="">超值抢购</a></li>
                 <li><a href="">精品闪购</a></li>
                 <li><a href="">名庄特卖</a></li>
@@ -91,27 +90,27 @@
                             <a href="//list.yesmywine.com/z2/" class="topcate" target="_blank" group1="ad" group2="1308" data-dts="IL1.0">葡萄酒</a>
                         </h4>
                         <p>
-                            <a href="//list.yesmywine.com/z2-a1/" target="_blank" group1="ad" group2="1308" data-dts="IL1.1">法国</a>
-                            <a href="//list.yesmywine.com/z2-a6/" target="_blank" group1="ad" group2="1308" data-dts="IL1.2">西班牙</a>
-                            <a href="//list.yesmywine.com/z2-a2/" target="_blank" group1="ad" group2="1308" data-dts="IL1.3">意大利</a>
-                            <a href="//list.yesmywine.com/z2-a7/" target="_blank" group1="ad" group2="1308" data-dts="IL1.4">智利</a>
-                            <a href="//list.yesmywine.com/z2-e1/" target="_blank" group1="ad" group2="1308" data-dts="IL1.5">干红</a>
-                            <a href="//list.yesmywine.com/z2-c3/" target="_blank" group1="ad" group2="1308" data-dts="IL1.6">桃红</a>
-                            <a href="//list.yesmywine.com/z2-e9/" target="_blank" group1="ad" group2="1308" data-dts="IL1.7">甜白</a>
-                            <a href="//list.yesmywine.com/z2-c4/" target="_blank" group1="ad" group2="1308" data-dts="IL1.8">起泡</a>
-                            <a href="//list.yesmywine.com/z2-c6" target="_blank" group1="ad" group2="1308" data-dts="IL1.8">香槟</a>
-                            <a href="//list.yesmywine.com/z2-c5" target="_blank" group1="ad" group2="1308" data-dts="IL1.1">加强葡萄酒</a>
-                            <a href="http://www.yesmywine.com/cms/cmsV1/grandcru/gccshop" target="_blank" group1="ad" group2="1308" data-dts="IL1.2">列级名庄</a>
+                            <a href="">法国</a>
+                            <a href="">西班牙</a>
+                            <a href="">意大利</a>
+                            <a href="">智利</a>
+                            <a href="">干红</a>
+                            <a href="">桃红</a>
+                            <a href="">甜白</a>
+                            <a href="">起泡</a>
+                            <a href="">香槟</a>
+                            <a href="">加强葡萄酒</a>
+                            <a href="">列级名庄</a>
                         </p>
                         </dt>
                         <dd class="h400" data-dts="ILP1">
                             <ul class="subcates">
-                                <li> <h5><a href="//list.yesmywine.com/z2-c1/" target="_blank" group1="ad" group2="1308">红葡萄酒</a></h5> <p class="lh22"> <a href="//list.yesmywine.com/z2-e1/" target="_blank" group1="ad" group2="1308">干红</a> <a href="//list.yesmywine.com/z2-e2/" target="_blank" group1="ad" group2="1308">半干红</a> <a href="//list.yesmywine.com/z2-e3/" target="_blank" group1="ad" group2="1308">半甜红</a> <a href="//list.yesmywine.com/z2-e4/" target="_blank" group1="ad" group2="1308">甜红</a> </p> </li>
-                                <li> <h5><a href="//list.yesmywine.com/z2-c2/" target="_blank" group1="ad" group2="1308">白葡萄酒</a></h5> <p class="lh22 h44"> <a href="//list.yesmywine.com/z2-e6/" target="_blank" group1="ad" group2="1308">干白</a> <a href="//list.yesmywine.com/z2-e7/" target="_blank" group1="ad" group2="1308">半干白</a> <a href="//list.yesmywine.com/z2-e8/" target="_blank" group1="ad" group2="1308">半甜白</a> <a href="//list.yesmywine.com/z2-e9/" target="_blank" group1="ad" group2="1308">甜白</a> <a href="//list.yesmywine.com/z2-ea/" target="_blank" group1="ad" group2="1308">贵腐酒</a> </p> </li>
-                                <li> <h5><a href="//list.yesmywine.com/z2-c3/" target="_blank" group1="ad" group2="1308">桃红葡萄酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-ec/" target="_blank" group1="ad" group2="1308">干型桃红</a> <a href="//list.yesmywine.com/z2-ed/" target="_blank" group1="ad" group2="1308">半干型桃红</a> <a href="//list.yesmywine.com/z2-ee/" target="_blank" group1="ad" group2="1308">半甜桃红</a> <a href="//list.yesmywine.com/z2-ef/" target="_blank" group1="ad" group2="1308">甜型桃红</a> </p> </li>
-                                <li> <h5><a href="//list.yesmywine.com/z2-c4/" target="_blank" group1="ad" group2="1308">起泡酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e10/" target="_blank" group1="ad" group2="1308">干起泡酒</a> <a href="//list.yesmywine.com/z2-e11/" target="_blank" group1="ad" group2="1308">半干起泡酒</a> <br> <a href="//list.yesmywine.com/z2-e12/" target="_blank" group1="ad" group2="1308">甜起泡酒</a> <a href="//list.yesmywine.com/z2-e13/" target="_blank" group1="ad" group2="1308">绝干型起泡酒</a> <br> <a href="//list.yesmywine.com/z2-e14/" target="_blank" group1="ad" group2="1308">半甜型起泡酒</a> </p> </li>
-                                <li> <h5><a href="//list.yesmywine.com/z2-c6/" target="_blank" group1="ad" group2="1308">香槟</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e1b/" target="_blank" group1="ad" group2="1308">干香槟</a> <a href="//list.yesmywine.com/z2-e1c/" target="_blank" group1="ad" group2="1308">半干香槟</a> <br> <a href="//list.yesmywine.com/z2-e1d/" target="_blank" group1="ad" group2="1308">绝干香槟</a> </p> </li>
-                                <li> <h5><a href="//list.yesmywine.com/z2-c5/" target="_blank" group1="ad" group2="1308">加强葡萄酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e15/" target="_blank" group1="ad" group2="1308">半干型雪莉酒</a> <a href="//list.yesmywine.com/z2-e16/" target="_blank" group1="ad" group2="1308">干型雪莉酒</a> <br> <a href="//list.yesmywine.com/z2-e17/" target="_blank" group1="ad" group2="1308">甜型雪莉酒</a> <a href="//list.yesmywine.com/z2-e18/" target="_blank" group1="ad" group2="1308">波特酒</a> <a href="//list.yesmywine.com/z2-e19/" target="_blank" group1="ad" group2="1308">加强甜白</a> <br> </p> </li>
+                                <li> <h5><a href="" >红葡萄酒</a></h5> <p class="lh22"> <a href="">干红</a> <a href="//list.yesmywine.com/z2-e2/" target="_blank" group1="ad" group2="1308">半干红</a> <a href="//list.yesmywine.com/z2-e3/" target="_blank" group1="ad" group2="1308">半甜红</a> <a href="//list.yesmywine.com/z2-e4/" target="_blank" group1="ad" group2="1308">甜红</a> </p> </li>
+                                <li> <h5><a href="" >白葡萄酒</a></h5> <p class="lh22 h44"> <a href="//list.yesmywine.com/z2-e6/" target="_blank" group1="ad" group2="1308">干白</a> <a href="//list.yesmywine.com/z2-e7/" target="_blank" group1="ad" group2="1308">半干白</a> <a href="//list.yesmywine.com/z2-e8/" target="_blank" group1="ad" group2="1308">半甜白</a> <a href="//list.yesmywine.com/z2-e9/" target="_blank" group1="ad" group2="1308">甜白</a> <a href="//list.yesmywine.com/z2-ea/" target="_blank" group1="ad" group2="1308">贵腐酒</a> </p> </li>
+                                <li> <h5><a href="" >桃红葡萄酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-ec/" target="_blank" group1="ad" group2="1308">干型桃红</a> <a href="//list.yesmywine.com/z2-ed/" target="_blank" group1="ad" group2="1308">半干型桃红</a> <a href="//list.yesmywine.com/z2-ee/" target="_blank" group1="ad" group2="1308">半甜桃红</a> <a href="//list.yesmywine.com/z2-ef/" target="_blank" group1="ad" group2="1308">甜型桃红</a> </p> </li>
+                                <li> <h5><a href="" >起泡酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e10/" target="_blank" group1="ad" group2="1308">干起泡酒</a> <a href="//list.yesmywine.com/z2-e11/" target="_blank" group1="ad" group2="1308">半干起泡酒</a> <br> <a href="//list.yesmywine.com/z2-e12/" target="_blank" group1="ad" group2="1308">甜起泡酒</a> <a href="//list.yesmywine.com/z2-e13/" target="_blank" group1="ad" group2="1308">绝干型起泡酒</a> <br> <a href="//list.yesmywine.com/z2-e14/" target="_blank" group1="ad" group2="1308">半甜型起泡酒</a> </p> </li>
+                                <li> <h5><a href="" >香槟</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e1b/" target="_blank" group1="ad" group2="1308">干香槟</a> <a href="//list.yesmywine.com/z2-e1c/" target="_blank" group1="ad" group2="1308">半干香槟</a> <br> <a href="//list.yesmywine.com/z2-e1d/" target="_blank" group1="ad" group2="1308">绝干香槟</a> </p> </li>
+                                <li> <h5><a href="" >加强葡萄酒</a></h5> <p class="lh22 col2"> <a href="//list.yesmywine.com/z2-e15/" target="_blank" group1="ad" group2="1308">半干型雪莉酒</a> <a href="//list.yesmywine.com/z2-e16/" target="_blank" group1="ad" group2="1308">干型雪莉酒</a> <br> <a href="//list.yesmywine.com/z2-e17/" target="_blank" group1="ad" group2="1308">甜型雪莉酒</a> <a href="//list.yesmywine.com/z2-e18/" target="_blank" group1="ad" group2="1308">波特酒</a> <a href="//list.yesmywine.com/z2-e19/" target="_blank" group1="ad" group2="1308">加强甜白</a> <br> </p> </li>
                             </ul>
                             <ul class="relcates">
                                 <li> <h5>热门产地</h5> <p class="lh22"> <a href="//list.yesmywine.com/z2-a1/" target="_blank" group1="ad" group2="1308">法国</a> <a href="//list.yesmywine.com/z2-a2/" target="_blank" group1="ad" group2="1308">意大利</a> <a href="//list.yesmywine.com/z2-a3/" target="_blank" group1="ad" group2="1308">澳大利亚</a> <br> <a href="//list.yesmywine.com/z2-a4/" target="_blank" group1="ad" group2="1308">德国</a> <a href="//list.yesmywine.com/z2-a5/" target="_blank" group1="ad" group2="1308">美国</a> <a href="//list.yesmywine.com/z2-a6/" target="_blank" group1="ad" group2="1308">西班牙</a> <br> <a href="//list.yesmywine.com/z2-a8/" target="_blank" group1="ad" group2="1308">新西兰</a> <a href="//list.yesmywine.com/z2-a9/" target="_blank" group1="ad" group2="1308">阿根廷</a> <a href="//list.yesmywine.com/z2-ae/" target="_blank" group1="ad" group2="1308">匈牙利</a> <br> <a href="//list.yesmywine.com/z2-a7/" target="_blank" group1="ad" group2="1308">智利</a> <a href="//list.yesmywine.com/z2-ac/" target="_blank" group1="ad" group2="1308">葡萄牙</a> <a href="//list.yesmywine.com/z2-ad/" target="_blank" group1="ad" group2="1308">加拿大</a> <br> <a href="//list.yesmywine.com/z2-af/" target="_blank" group1="ad" group2="1308">希腊</a> <a href="//list.yesmywine.com/z2-aa/" target="_blank" group1="ad" group2="1308">南非</a> <a href="//list.yesmywine.com/z2-a12/" target="_blank" group1="ad" group2="1308">中国</a> </p> </li>
@@ -575,173 +574,28 @@
         </div>
     </div>
 </div>
-<div class="content wrap">
-    <div class="crumb">
-        <a href="#">选酒中心</a> ＞
-        <a href="#">红葡萄酒</a> ＞
-        <a href="#">干红</a> ＞
-        <strong>拉昂城堡干红葡萄酒</strong>
+<div class="content swap">
+    <div class="breadcrumb">
+        <a href="">首页</a>
+        <span>></span>
+        <a href="">选酒中心</a>
+        <span>></span>
+        <a href="">葡萄酒</a>
     </div>
-    <div class="promotion clearfix">
-        <div class="promotion_pic">
-            <div class="big"></div>
-        </div>
-        <div class="promotion_middle">
-            <div class="middle_top">
-                <ul class="name clearfix">
-                    <li title="拉昂城堡干红葡萄酒">
-                        <h1>
-                        拉昂城堡干红葡萄酒</h1>
-                    </li>
-                    <li>
-                        <span class="en">La Bastide Laurent</span>
-                    </li>
-                </ul>
-                <ul class="info clearfix">
-                    <li class="info_top">
-                        <dl class="comment-score clearfix">
-                            <dt>商品评分：</dt>
-                            <dd>
-									<span class="rate">
-										<i></i>
-									</span>
-                            </dd>
-                        </dl>
-                        <div class="data">
-                            <span>评论数:<a href="#">5327</a></span> <span>搭配菜肴:<a href="#"></a></span>
-                            <span>近期售出数 578716</span>
-                        </div>
-                    </li>
-                    <li class="pro-icon">
-                        <b title="全球直采" class="direct-icon"></b>
-                    </li>
-                </ul>
-            </div>
-            <div class="promotion_sales">
-                <dl class="cx clearfix">
-                    <dt>促销信息</dt>
-                    <dd></dd>
-                </dl>
-            </div>
-            <ul class="promotion_price">
-                <li class="price">
-                    <span>
-							您的专享价:
-                        <b >¥<em>59.0</em>
-                        </b>
-                    </span>
-                </li>
-                <li>
-                    <div class="discount">
-                        <p>
-                            促销折扣<em>4.4</em><i>折</i>
-                        </p>
-                        <p>
-                            节省<b class="myPrice">¥77.0</b>
-                        </p>
-                    </div>
-                </li>
-            </ul>
-            <div class="distribution">
-               <div class="dis_area">
-                   <ul>
-                       <li></li>
-                       <li><span>配送城市</span><span class="city_btn"><span>广东<i></i></span></span><ins id="delivery-tip" class="have" ><b>广东</b>有货 上海分仓发货</ins></li>
-                       <li class="wineNum clearfix">
-                           <span>选择数量</span>
-                           <a class="prev"></a>
-                           <input type="text" maxlength="5" size="4" value="1">
-                           <a class="next"></a>
-                       </li>
-                       <li class="add">
-                           <a href="#"></a>
-                       </li>
-                   </ul>
-               </div>
-            </div>
-            <div class="promotionBottom">说明：此商品暂不可用折扣券，请谅解</div>
-        </div>
+    <div class="content_left">
+
     </div>
-    <div class="comb">
-        <h3>组合购买更优惠</h3>
-        <div class="comblist">
-            <ul></ul>
+    <div class="main">
+        <div class="goodsSelector"></div>
+        <div class="goods"></div>
+        <div class="page">
+            <!--<a href="" class="prev">首页</a>-->
+            <!--<a href="" class="prev">上一页</a>-->
+            <a class="on">1</a>
+            <a>2</a>
+            <!--<a href="" class="next">下一页</a>-->
+            <!--<a href="" class="next">尾页</a>-->
         </div>
-    </div>
-    <div class="mainContent clearfix mb20 mt20">
-        <h3>
-            <a href="" class="hover">商品详情</a>
-            <a href="">用户评价</a>
-            <a href="">商品咨询</a>
-            <input type="button">
-        </h3>
-       <div class="tab">
-           <div class="detail">
-               <ul></ul>
-           </div>
-           <div class="procontent">
-                <p><img src="../img/goods/3.jpg" alt=""></p>
-               <p><img src="../img/goods/3.jpg" alt=""></p>
-           </div>
-           <div class="comment">
-                <h3 class="clearfix"><a href="">商品评价返现规则</a><strong>用户评价</strong></h3>
-               <div class="comment_head">
-                   <div class="comment_top">
-                       <ul class="clearfix">
-                           <li class="score">
-                               <p>
-                                   <label class="circle">
-                                       <em>96<i>%</i></em>好评度
-                                   </label>
-                               </p>
-                               <p>
-                                   <span class="rate-score"><i></i></span>
-                               </p>
-                           </li>
-                           <li class="grade">
-                               <p>
-                                   <span class="right">有<a href="#">5327</a>人评论</span>
-                                   <span>已售出<em>578726</em>瓶</span>
-                               </p>
-                               <dl class="percent clearfix">
-                                   <dt>很好</dt>
-                                   <dd class="volumn">
-                                       <span class="best"><i></i></span>
-                                   </dd>
-                                   <dd>82%</dd>
-                                   <dt>较好</dt>
-                                   <dd class="volumn">
-                                       <span class="better"><i></i></span>
-                                   </dd>
-                                   <dd class="">14%</dd>
-                                   <dt>一般</dt>
-                                   <dd class="volumn">
-                                       <span class="normal"><i></i></span>
-                                   </dd>
-                                   <dd class="">4%</dd>
-                               </dl>
-                           </li>
-                           <li class="action">
-                               <p><input type="button" value="我要评论"></p>
-                           </li>
-                       </ul>
-                   </div>
-                   <div class="comment_tab">
-                       <ul class="clearfix">
-                           <li class="on">全部</li>
-                           <li>很好 <em>(4338)</em></li>
-                           <li>较好 <em>(786)</em></li>
-                           <li>一般 <em>(182)</em></li>
-                           <li data-withpic="1">有图片的评论 <em>(0)</em></li>
-                       </ul>
-                       <p><a href="#">最近酒评</a></p>
-                   </div>
-               </div>
-               <div class="comment_list">
-                   <ul></ul>
-               </div>
-           </div>
-       </div>
     </div>
 </div>
 <div class="bar">
@@ -789,52 +643,52 @@
     </div>
 </div>
 <div class="footer">
-    <div class="footer_content clearfix wrap">
-        <div class="footer_left">
-            <h2>也买酒承诺</h2>
-            <a class="zp" href="#"> <h3>正品保障</h3> </a>
-            <a class="th" href="#"> <h3>30天退货</h3> <span>30天无理由退换货</span> </a>
-            <a class="hw" href="#"> <h3>恒温恒湿</h3> <span>六大仓恒温恒湿</span> </a>
-            <a class="free" href="#"> <h3>免运费</h3> <span>满150元 免运费</span> </a>
-            <a class="mf" href="#"> <h3>慢就返</h3> <span>3大城市没有按时送达，也买酒就返</span> </a>
-        </div>
-        <div class="footer_center">
-            <h2>也买酒服务</h2>
-            <ul class="foot-ul">
-                <li> <h3>购物指南</h3> <p> <a href="#">帐户注册</a> <a href="#">购物流程</a> <a href="">积分制度</a> <a href="">礼品卡</a> <a href="">会员权益</a> <a href="">常见问题</a> </p> </li>
-                <li> <h3>支付帮助</h3> <p> <a href="#">货到付款</a> <a href="#">在线支付</a> <a href="">银行转帐</a> <a href="">发票制度</a> </p> </li>
-                <li> <h3>专业特色</h3> <p> <a href="#">存酒库</a> <a href="#">酒类交易中心</a> <a href="">全国门店分布</a> <a href="">香港免税</a> <a href="">期酒交易</a> </p> </li>
-                <li> <h3>物流配送</h3> <p> <a href="#">150元免运费</a> <a href="#">配送范围</a> <a href="">慢就返</a> </p> </li>
-                <li> <h3>关于我们</h3> <p> <a href="#">关于也买酒</a> <a href="#">联系我们</a> <a href="">诚招英才</a> <a href="">媒体聚焦</a> <a href="">隐私声明</a> <span>4008208060</span> </p> </li>
-                <li> <h3>招商合作</h3> <p> <a href="#">经销商招募</a> <a href="#">连锁店招募</a> <a href="">也买联盟</a> <a href="">企业采购</a> </p> </li>
-            </ul>
-        </div>
-        <div class="footer_right">
-            <h2>关注也买酒</h2>
-            <div class="mobile clearfix">
-                <h3>也买酒APP</h3>
-                <a class="app" href="#">app store</a>
-                <a class="android" href="#" >android</a>
-            </div>
-            <dl class="code clearfix">
-                <dt>
-                    也买二维码
-                </dt>
-                <dd>
-                    <h3>也买酒官方微信</h3>
-                    <p>微信扫描二维码，随时随地与小也亲密接触，精彩活动，劲爆优惠触手可得！</p>
-                </dd>
-            </dl>
-            <ul class="sns clearfix">
-                <li> <a class="sina" href="#">新浪微博</a>
-                    <div class="sns-right">
-                        <p>新浪微博</p>
-                        <a class="add-btn" href="#">立即关注</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+   <div class="footer_content clearfix swap">
+       <div class="footer_left">
+           <h2>也买酒承诺</h2>
+           <a class="zp" href="#"> <h3>正品保障</h3> </a>
+           <a class="th" href="#"> <h3>30天退货</h3> <span>30天无理由退换货</span> </a>
+           <a class="hw" href="#"> <h3>恒温恒湿</h3> <span>六大仓恒温恒湿</span> </a>
+           <a class="free" href="#"> <h3>免运费</h3> <span>满150元 免运费</span> </a>
+           <a class="mf" href="#"> <h3>慢就返</h3> <span>3大城市没有按时送达，也买酒就返</span> </a>
+       </div>
+       <div class="footer_center">
+           <h2>也买酒服务</h2>
+           <ul class="foot-ul">
+               <li> <h3>购物指南</h3> <p> <a href="#">帐户注册</a> <a href="#">购物流程</a> <a href="">积分制度</a> <a href="">礼品卡</a> <a href="">会员权益</a> <a href="">常见问题</a> </p> </li>
+               <li> <h3>支付帮助</h3> <p> <a href="#">货到付款</a> <a href="#">在线支付</a> <a href="">银行转帐</a> <a href="">发票制度</a> </p> </li>
+               <li> <h3>专业特色</h3> <p> <a href="#">存酒库</a> <a href="#">酒类交易中心</a> <a href="">全国门店分布</a> <a href="">香港免税</a> <a href="">期酒交易</a> </p> </li>
+               <li> <h3>物流配送</h3> <p> <a href="#">150元免运费</a> <a href="#">配送范围</a> <a href="">慢就返</a> </p> </li>
+               <li> <h3>关于我们</h3> <p> <a href="#">关于也买酒</a> <a href="#">联系我们</a> <a href="">诚招英才</a> <a href="">媒体聚焦</a> <a href="">隐私声明</a> <span>4008208060</span> </p> </li>
+               <li> <h3>招商合作</h3> <p> <a href="#">经销商招募</a> <a href="#">连锁店招募</a> <a href="">也买联盟</a> <a href="">企业采购</a> </p> </li>
+           </ul>
+       </div>
+       <div class="footer_right">
+           <h2>关注也买酒</h2>
+           <div class="mobile clearfix">
+               <h3>也买酒APP</h3>
+               <a class="app" href="#">app store</a>
+               <a class="android" href="#" >android</a>
+           </div>
+           <dl class="code clearfix">
+               <dt>
+                   也买二维码
+               </dt>
+               <dd>
+                   <h3>也买酒官方微信</h3>
+                   <p>微信扫描二维码，随时随地与小也亲密接触，精彩活动，劲爆优惠触手可得！</p>
+               </dd>
+           </dl>
+           <ul class="sns clearfix">
+             <li> <a class="sina" href="#">新浪微博</a>
+               <div class="sns-right">
+                   <p>新浪微博</p>
+                   <a class="add-btn" href="#">立即关注</a>
+               </div>
+             </li>
+           </ul>
+       </div>
+   </div>
 </div>
 </body>
 </html>

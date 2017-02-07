@@ -45,6 +45,45 @@
                 $('li:first .error_hint').hide();
             }
         })
+
+            // .......................实现随机验证码的形成与判断..........................
+        var str = "0123456789abcdefghijklmnopqrstuvwxyz";
+        //随机生成四位验证码信息
+        function randomNum() {
+            var code = '';
+            for(i=0;i<4;i++){
+                var index =parseInt(Math.random()*str.length);
+                code += str[index];
+            }
+            $('.code').html(code.toUpperCase());
+        }
+        randomNum();
+        // ....................点击重新形成验证码.................
+        $('.code').click(function(){
+            randomNum();
+        })
+        //聚焦出现提示信息
+        $('#idenity').on("focus",function(){
+            if($('#idenity').html()==''){
+                console.log($(this).closest('li').find('.error_hint'))
+                $(this).closest('li').find('.error_hint').show();
+            }
+        }).on("keyup",function(){
+            if($('#idenity').val().toUpperCase()==$('.code').html()){
+                $(this).closest('li').find('.error_hint').hide();
+            }else if($('#idenity').val()==''){
+                $(this).closest('li').find('.error_hint').html('请输入验证码');
+            }else{
+                $(this).closest('li').find('.error_hint').html('请输入正确的验证码');
+            }
+        })
+
+
+
+
+
+
+
         //输入密码框失去焦点时触发error_hint提示
         $('#password').on('blur',function () {
             var $val = $(this).val();
@@ -63,7 +102,6 @@
             var $value = $(this).val();
             var reg = /^[0-9a-zA-Z]{6,16}$/;
             if($value==''){
-                console.log(1)
                 $(this).next('div').find('span').html('请输入密码')
             }else if(!reg.test($value)){
                 $(this).next('div').find('span').html('密码请设为6-16位字母或数字');
@@ -84,7 +122,7 @@
             if($('.error_hint').is(":visible")){
                 return false;
             }else{
-                $.post('php/register.php',{
+                $.post('../php/register.php',{
                     phone:$('#phone').val(),
                     password:$('#password').val()
                 },function(response){

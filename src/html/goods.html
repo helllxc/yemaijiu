@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商品列表页</title>
-    <link rel="stylesheet" href="css/goodslist.css">
-    <script src="js/jquery-3.1.1.js"></script>
-    <script src="js/jquery.cookie.js"></script>
-    <script src="js/goodlist.js"></script>
+    <title>商品详情页</title>
+    <link rel="stylesheet" href="../css/goods.css">
+    <link rel="stylesheet" href="../js/jquery-gdszoom/jquery.gdszoom.css">
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="../js/jquery-gdszoom/jquery.gdszoom.js"></script>
+    <script src="../js/goods.js"></script>
 </head>
 <body>
 <div class="header">
     <div class="header_top clearfix">
-        <div class="swap">
+        <div class="wrap">
             <ul class="userinfo left">
                 <li><em>9965372</em>位会员的选择</li>
                 <li><a href="login.html">登录</a></li>
@@ -38,7 +39,7 @@
         </div>
     </div>
     <div class="header_center">
-        <div class="swap">
+        <div class="wrap">
             <div class="logo clearfix">
                 <div class="main_logo left">
                     <a href=""></a>
@@ -67,9 +68,9 @@
         </div>
     </div>
     <div class="header_buttom">
-        <div class="swap">
+        <div class="wrap swap">
             <ul class="navlinks">
-                <li><a href="homepage.html">首 页</a></li>
+                <li><a href="../homepage.html">首 页</a></li>
                 <li><a href="">超值抢购</a></li>
                 <li><a href="">精品闪购</a></li>
                 <li><a href="">名庄特卖</a></li>
@@ -574,28 +575,173 @@
         </div>
     </div>
 </div>
-<div class="content swap">
-    <div class="breadcrumb">
-        <a href="">首页</a>
-        <span>></span>
-        <a href="">选酒中心</a>
-        <span>></span>
-        <a href="">葡萄酒</a>
+<div class="content wrap">
+    <div class="crumb">
+        <a href="#">选酒中心</a> ＞
+        <a href="#">红葡萄酒</a> ＞
+        <a href="#">干红</a> ＞
+        <strong>拉昂城堡干红葡萄酒</strong>
     </div>
-    <div class="content_left">
-
-    </div>
-    <div class="main">
-        <div class="goodsSelector"></div>
-        <div class="goods"></div>
-        <div class="page">
-            <!--<a href="" class="prev">首页</a>-->
-            <!--<a href="" class="prev">上一页</a>-->
-            <a class="on">1</a>
-            <a>2</a>
-            <!--<a href="" class="next">下一页</a>-->
-            <!--<a href="" class="next">尾页</a>-->
+    <div class="promotion clearfix">
+        <div class="promotion_pic">
+            <div class="big"></div>
         </div>
+        <div class="promotion_middle">
+            <div class="middle_top">
+                <ul class="name clearfix">
+                    <li title="拉昂城堡干红葡萄酒">
+                        <h1>
+                        拉昂城堡干红葡萄酒</h1>
+                    </li>
+                    <li>
+                        <span class="en">La Bastide Laurent</span>
+                    </li>
+                </ul>
+                <ul class="info clearfix">
+                    <li class="info_top">
+                        <dl class="comment-score clearfix">
+                            <dt>商品评分：</dt>
+                            <dd>
+									<span class="rate">
+										<i></i>
+									</span>
+                            </dd>
+                        </dl>
+                        <div class="data">
+                            <span>评论数:<a href="#">5327</a></span> <span>搭配菜肴:<a href="#"></a></span>
+                            <span>近期售出数 578716</span>
+                        </div>
+                    </li>
+                    <li class="pro-icon">
+                        <b title="全球直采" class="direct-icon"></b>
+                    </li>
+                </ul>
+            </div>
+            <div class="promotion_sales">
+                <dl class="cx clearfix">
+                    <dt>促销信息</dt>
+                    <dd></dd>
+                </dl>
+            </div>
+            <ul class="promotion_price">
+                <li class="price">
+                    <span>
+							您的专享价:
+                        <b >¥<em>59.0</em>
+                        </b>
+                    </span>
+                </li>
+                <li>
+                    <div class="discount">
+                        <p>
+                            促销折扣<em>4.4</em><i>折</i>
+                        </p>
+                        <p>
+                            节省<b class="myPrice">¥77.0</b>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div class="distribution">
+               <div class="dis_area">
+                   <ul>
+                       <li></li>
+                       <li><span>配送城市</span><span class="city_btn"><span>广东<i></i></span></span><ins id="delivery-tip" class="have" ><b>广东</b>有货 上海分仓发货</ins></li>
+                       <li class="wineNum clearfix">
+                           <span>选择数量</span>
+                           <a class="prev"></a>
+                           <input type="text" maxlength="5" size="4" value="1">
+                           <a class="next"></a>
+                       </li>
+                       <li class="add">
+                           <a href="#"></a>
+                       </li>
+                   </ul>
+               </div>
+            </div>
+            <div class="promotionBottom">说明：此商品暂不可用折扣券，请谅解</div>
+        </div>
+    </div>
+    <div class="comb">
+        <h3>组合购买更优惠</h3>
+        <div class="comblist">
+            <ul></ul>
+        </div>
+    </div>
+    <div class="mainContent clearfix mb20 mt20">
+        <h3>
+            <a href="" class="hover">商品详情</a>
+            <a href="">用户评价</a>
+            <a href="">商品咨询</a>
+            <input type="button">
+        </h3>
+       <div class="tab">
+           <div class="detail">
+               <ul></ul>
+           </div>
+           <div class="procontent">
+                <p><img src="../img/goods/3.jpg" alt=""></p>
+               <p><img src="../img/goods/3.jpg" alt=""></p>
+           </div>
+           <div class="comment">
+                <h3 class="clearfix"><a href="">商品评价返现规则</a><strong>用户评价</strong></h3>
+               <div class="comment_head">
+                   <div class="comment_top">
+                       <ul class="clearfix">
+                           <li class="score">
+                               <p>
+                                   <label class="circle">
+                                       <em>96<i>%</i></em>好评度
+                                   </label>
+                               </p>
+                               <p>
+                                   <span class="rate-score"><i></i></span>
+                               </p>
+                           </li>
+                           <li class="grade">
+                               <p>
+                                   <span class="right">有<a href="#">5327</a>人评论</span>
+                                   <span>已售出<em>578726</em>瓶</span>
+                               </p>
+                               <dl class="percent clearfix">
+                                   <dt>很好</dt>
+                                   <dd class="volumn">
+                                       <span class="best"><i></i></span>
+                                   </dd>
+                                   <dd>82%</dd>
+                                   <dt>较好</dt>
+                                   <dd class="volumn">
+                                       <span class="better"><i></i></span>
+                                   </dd>
+                                   <dd class="">14%</dd>
+                                   <dt>一般</dt>
+                                   <dd class="volumn">
+                                       <span class="normal"><i></i></span>
+                                   </dd>
+                                   <dd class="">4%</dd>
+                               </dl>
+                           </li>
+                           <li class="action">
+                               <p><input type="button" value="我要评论"></p>
+                           </li>
+                       </ul>
+                   </div>
+                   <div class="comment_tab">
+                       <ul class="clearfix">
+                           <li class="on">全部</li>
+                           <li>很好 <em>(4338)</em></li>
+                           <li>较好 <em>(786)</em></li>
+                           <li>一般 <em>(182)</em></li>
+                           <li data-withpic="1">有图片的评论 <em>(0)</em></li>
+                       </ul>
+                       <p><a href="#">最近酒评</a></p>
+                   </div>
+               </div>
+               <div class="comment_list">
+                   <ul></ul>
+               </div>
+           </div>
+       </div>
     </div>
 </div>
 <div class="bar">
@@ -643,52 +789,52 @@
     </div>
 </div>
 <div class="footer">
-   <div class="footer_content clearfix swap">
-       <div class="footer_left">
-           <h2>也买酒承诺</h2>
-           <a class="zp" href="#"> <h3>正品保障</h3> </a>
-           <a class="th" href="#"> <h3>30天退货</h3> <span>30天无理由退换货</span> </a>
-           <a class="hw" href="#"> <h3>恒温恒湿</h3> <span>六大仓恒温恒湿</span> </a>
-           <a class="free" href="#"> <h3>免运费</h3> <span>满150元 免运费</span> </a>
-           <a class="mf" href="#"> <h3>慢就返</h3> <span>3大城市没有按时送达，也买酒就返</span> </a>
-       </div>
-       <div class="footer_center">
-           <h2>也买酒服务</h2>
-           <ul class="foot-ul">
-               <li> <h3>购物指南</h3> <p> <a href="#">帐户注册</a> <a href="#">购物流程</a> <a href="">积分制度</a> <a href="">礼品卡</a> <a href="">会员权益</a> <a href="">常见问题</a> </p> </li>
-               <li> <h3>支付帮助</h3> <p> <a href="#">货到付款</a> <a href="#">在线支付</a> <a href="">银行转帐</a> <a href="">发票制度</a> </p> </li>
-               <li> <h3>专业特色</h3> <p> <a href="#">存酒库</a> <a href="#">酒类交易中心</a> <a href="">全国门店分布</a> <a href="">香港免税</a> <a href="">期酒交易</a> </p> </li>
-               <li> <h3>物流配送</h3> <p> <a href="#">150元免运费</a> <a href="#">配送范围</a> <a href="">慢就返</a> </p> </li>
-               <li> <h3>关于我们</h3> <p> <a href="#">关于也买酒</a> <a href="#">联系我们</a> <a href="">诚招英才</a> <a href="">媒体聚焦</a> <a href="">隐私声明</a> <span>4008208060</span> </p> </li>
-               <li> <h3>招商合作</h3> <p> <a href="#">经销商招募</a> <a href="#">连锁店招募</a> <a href="">也买联盟</a> <a href="">企业采购</a> </p> </li>
-           </ul>
-       </div>
-       <div class="footer_right">
-           <h2>关注也买酒</h2>
-           <div class="mobile clearfix">
-               <h3>也买酒APP</h3>
-               <a class="app" href="#">app store</a>
-               <a class="android" href="#" >android</a>
-           </div>
-           <dl class="code clearfix">
-               <dt>
-                   也买二维码
-               </dt>
-               <dd>
-                   <h3>也买酒官方微信</h3>
-                   <p>微信扫描二维码，随时随地与小也亲密接触，精彩活动，劲爆优惠触手可得！</p>
-               </dd>
-           </dl>
-           <ul class="sns clearfix">
-             <li> <a class="sina" href="#">新浪微博</a>
-               <div class="sns-right">
-                   <p>新浪微博</p>
-                   <a class="add-btn" href="#">立即关注</a>
-               </div>
-             </li>
-           </ul>
-       </div>
-   </div>
+    <div class="footer_content clearfix wrap">
+        <div class="footer_left">
+            <h2>也买酒承诺</h2>
+            <a class="zp" href="#"> <h3>正品保障</h3> </a>
+            <a class="th" href="#"> <h3>30天退货</h3> <span>30天无理由退换货</span> </a>
+            <a class="hw" href="#"> <h3>恒温恒湿</h3> <span>六大仓恒温恒湿</span> </a>
+            <a class="free" href="#"> <h3>免运费</h3> <span>满150元 免运费</span> </a>
+            <a class="mf" href="#"> <h3>慢就返</h3> <span>3大城市没有按时送达，也买酒就返</span> </a>
+        </div>
+        <div class="footer_center">
+            <h2>也买酒服务</h2>
+            <ul class="foot-ul">
+                <li> <h3>购物指南</h3> <p> <a href="#">帐户注册</a> <a href="#">购物流程</a> <a href="">积分制度</a> <a href="">礼品卡</a> <a href="">会员权益</a> <a href="">常见问题</a> </p> </li>
+                <li> <h3>支付帮助</h3> <p> <a href="#">货到付款</a> <a href="#">在线支付</a> <a href="">银行转帐</a> <a href="">发票制度</a> </p> </li>
+                <li> <h3>专业特色</h3> <p> <a href="#">存酒库</a> <a href="#">酒类交易中心</a> <a href="">全国门店分布</a> <a href="">香港免税</a> <a href="">期酒交易</a> </p> </li>
+                <li> <h3>物流配送</h3> <p> <a href="#">150元免运费</a> <a href="#">配送范围</a> <a href="">慢就返</a> </p> </li>
+                <li> <h3>关于我们</h3> <p> <a href="#">关于也买酒</a> <a href="#">联系我们</a> <a href="">诚招英才</a> <a href="">媒体聚焦</a> <a href="">隐私声明</a> <span>4008208060</span> </p> </li>
+                <li> <h3>招商合作</h3> <p> <a href="#">经销商招募</a> <a href="#">连锁店招募</a> <a href="">也买联盟</a> <a href="">企业采购</a> </p> </li>
+            </ul>
+        </div>
+        <div class="footer_right">
+            <h2>关注也买酒</h2>
+            <div class="mobile clearfix">
+                <h3>也买酒APP</h3>
+                <a class="app" href="#">app store</a>
+                <a class="android" href="#" >android</a>
+            </div>
+            <dl class="code clearfix">
+                <dt>
+                    也买二维码
+                </dt>
+                <dd>
+                    <h3>也买酒官方微信</h3>
+                    <p>微信扫描二维码，随时随地与小也亲密接触，精彩活动，劲爆优惠触手可得！</p>
+                </dd>
+            </dl>
+            <ul class="sns clearfix">
+                <li> <a class="sina" href="#">新浪微博</a>
+                    <div class="sns-right">
+                        <p>新浪微博</p>
+                        <a class="add-btn" href="#">立即关注</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 </body>
 </html>

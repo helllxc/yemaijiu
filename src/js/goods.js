@@ -2,7 +2,7 @@
  * Created by ASUS on 2017/2/6.
  */
 ;(function ($) {
-    $.post('php/confirm.php',function(response){
+    $.post('../php/confirm.php',function(response){
         var $obj = eval('('+response+')');
         if($obj.state){
             $('.userinfo').remove();
@@ -13,7 +13,7 @@
 
         //................点击退出手动刷新页面..................................
         $('.txt-logout').click(function(){
-            $.post('php/logout.php',function(data){
+            $.post('../php/logout.php',function(data){
                 window.location.reload();
             })
         })
@@ -114,7 +114,7 @@
 
 //            ....................上部中部..................
 
-        $.getJSON("jason/promotion.json",function(data){
+        $.getJSON("../jason/promotion.json",function(data){
             $.each(data,function(idx,item){
                 //生成商品促销信息
                 $.each(item.promotion,function(i,_item){

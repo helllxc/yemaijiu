@@ -5,7 +5,7 @@
 
     //        ...............验证是否有保存用户名.....................
 
-    $.post('php/confirm.php',function(response){
+    $.post('../php/confirm.php',function(response){
         var $obj = eval('('+response+')');
         if($obj.state){
             $('.userinfo').remove();
@@ -16,7 +16,7 @@
 
         //................点击退出手动刷新页面..................................
         $('.txt-logout').click(function(){
-            $.post('php/logout.php',function(data){
+            $.post('../php/logout.php',function(data){
                 window.location.reload();
             })
         })
@@ -61,7 +61,7 @@
         // ....................生成HTML页面...............
 
         //通过jason生成左侧导航栏
-        $.getJSON("jason/classify.json",function(data){
+        $.getJSON("../jason/classify.json",function(data){
             $.each(data,function (idx,item) {
                 $('<div class="classify"></div>').appendTo($('.content_left'));
 
@@ -168,7 +168,7 @@
         });
 
         //默认page值为第一页
-        $.post('php/goodslist.php',{page:1},function(response){
+        $.post('../php/goodslist.php',{page:1},function(response){
             $.each(JSON.parse(response),function(idx,item){
                 //默认点击所有图片链接到详情页
                 $('<li data-guid="'+item.indexid+'"></li>').html('<dl><dt><a class="pic" href="goods.html" target="_blank"><img src="'+item.src+'"></a></dt><dd class="base"><a href="" class="name"><span class="cn">'+item.name+'</span><span class="en">'+item.ename+'</span><span class="promo">'+item.information+'</span></a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p></dd>' +
@@ -283,7 +283,7 @@
             $self.addClass('on');
             //点击分页
             //点击数据库请求数据;
-            $.post('php/goodslist.php',{page:$self.html()},function(response){
+            $.post('../php/goodslist.php',{page:$self.html()},function(response){
                 $('.goodlist ul').empty();
                 $.each(JSON.parse(response),function(idx,item){
                     $('<li data-guid="'+item.indexid+'"></li>').html('<dl><dt><a class="pic" href=""><img src="'+item.src+'"></a></dt><dd class="base"><a href="" class="name"><span class="cn">'+item.name+'</span><span class="en">'+item.ename+'</span><span class="promo">'+item.information+'</span></a><p class="price"><span>￥<strong>'+item.price+'</strong></span></p></dd>' +

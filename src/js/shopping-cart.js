@@ -2,7 +2,7 @@
  * Created by ASUS on 2017/2/6.
  */
 ;(function ($) {
-    $.post('php/confirm.php',function(response){
+    $.post('../php/confirm.php',function(response){
         var $obj = eval('('+response+')');
         if($obj.state){
             $('.userinfo').remove();
@@ -12,7 +12,7 @@
     $(function(){
         // ..............点击退出刷新..............
         $('.txt-logout').click(function(){
-            $.post('php/logout.php',function(data){
+            $.post('../php/logout.php',function(data){
                 window.location.reload();
             })
         })
@@ -70,7 +70,6 @@
         })
 
         function delCookies(){
-            console.log(carList)
             $.each(carList,function(idx,item){
                 if(item){
                     if((item.guid)==$self.closest('tr').attr('data-guid')){

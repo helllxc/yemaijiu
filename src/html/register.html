@@ -3,10 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>注册页面</title>
-	<link rel="stylesheet" href="css/register.css">
-	<script src = 'js/jquery-3.1.1.js'></script>
-	<script src="js/register.js"></script>
-	//验证码都不做处理,直接判定手机号码与密码
+	<link rel="stylesheet" href="../css/register.css">
+	<script src = '../js/jquery-3.1.1.js'></script>
+	<script src="../js/register.js"></script>
 </head>
 <body>
 	<div class="logo">
@@ -36,7 +35,8 @@
 						<li>
 							<label for="idenity">验证码:</label>
 							<input type = 'text' id="idenity" class="idenity">
-							<!--<div class="error_hint"><span>请输入验证码</span></div>-->
+							<span class="code"></span>
+							<div class="error_hint"><span>请输入验证码</span></div>
 						</li>
 						<li>
 							<label for="message">短信验证:</label>

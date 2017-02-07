@@ -57,14 +57,14 @@
             if($('.error_hint').is(":visible")){
                 return false;
             }else{
-                $.post('php/login.php',{
+                $.post('../php/login.php',{
                     phone:$('input').eq(0).val(),
                     password:$('input').eq(1).val(),
                 },function(data){
                     console.log(data)
                     var $obj = eval('(' + data + ')');
                     if($obj.state){
-                        window.location.href = 'homepage.html';
+                        window.location.href = '../homepage.html';
                     } else {
                         alert($obj.message);
                     }
