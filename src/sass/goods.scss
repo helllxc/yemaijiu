@@ -107,6 +107,33 @@ body{
 					.btn-shopcart{
 						display: block;padding-left: 13px;width: 110px;height: 35px;background:url(../img/hmepage/bg_header5.png) no-repeat 0 -160px;color: #fff;text-align: center;font-size: 14px;line-height: 35px;
 					}
+					.count{position: absolute;top: -13px;left: 14px;display: inline;width: 22px;height: 21px;color: #fff;text-align: center;line-height: 16px;background:url("../img/goods/bg_header3.png") no-repeat -123px -160px}
+					.shopcart-list {
+						position: absolute;top: 34px;right: 0;z-index: 1300;display: none;width: 320px;border: solid 1px #c0aa9d;background-color: #fff;
+						ul{
+							position: relative;overflow: auto;padding: 0;width: 100%;
+							li{
+								position: relative;padding: 20px 40px 20px 80px;height: 68px;border-bottom: dotted 1px #c0aa9d;line-height: 20px;
+								a{
+									color: #5b473d;
+									img{
+										position: absolute;top: 5px;left: 10px;width: 60px;height: 98px;
+									}
+									span{display: block}
+									.name{color: #5b473d;height: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+									.en{color: #85726c;height: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+									.price{
+										color: #85726c;padding-top: 10px;
+										strong{color: #c53f4c;font-family: Arial}
+										em{font-style: normal};
+									}
+								}
+								.btn-remove{
+									background: url(http://img12.yesmyimg.com/20140808/newWeb/css/v4/images/bg_header4.png) 0 -64px no-repeat;display: block;height: 16px;width: 16px;overflow: hidden;position: absolute;top: 7px;right: 11px;
+								}
+							}
+						}
+					}
 				}
 			}
 		}

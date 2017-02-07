@@ -68,6 +68,7 @@
                 console.log($(this).closest('li').find('.error_hint'))
                 $(this).closest('li').find('.error_hint').show();
             }
+            //监听输入状态，当输入值得大写等于验证码时错误提示消失
         }).on("keyup",function(){
             if($('#idenity').val().toUpperCase()==$('.code').html()){
                 $(this).closest('li').find('.error_hint').hide();
@@ -77,9 +78,6 @@
                 $(this).closest('li').find('.error_hint').html('请输入正确的验证码');
             }
         })
-
-
-
 
 
 
@@ -112,6 +110,8 @@
                 $(this).next('div').hide();
             }
         })
+
+            // ......................注册点击事件..................
 
         $('.register_btn').click(function () {
             $('input:lt(5)').each(function(idx,item){

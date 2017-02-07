@@ -56,6 +56,7 @@
                 $self.on('mouseenter',function(){
                     $lens.show();
                     $smallImg = $self.find('img');
+                    //获取大图路径
                     bigUrl = $smallImg.attr('src').replace(/220x360/ig,'380x620');
                     $bigLens = $('<div/>').addClass('gdsbzoom').append('<img src="'+bigUrl+'"/>').hide().appendTo($self);
                     $bigLens.show();
@@ -88,7 +89,7 @@
                         _top = $smallImg.outerHeight()-$lens.outerHeight();
                     }
 
-
+                    console.log(_top>($self.offset().top)/100,($self.offset().top/2))
                     if(_top>($self.offset().top)/100&&_top<($self.offset().top/2)){
                         $lens.css({
                             top:_top,

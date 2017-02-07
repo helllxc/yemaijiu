@@ -61,6 +61,8 @@ table, tbody, tfoot, thead, tr, th, td { border-collapse: collapse; border-spaci
 
 .content .register form .input-area li .idenity { background: #fff url("../img/login/hint_randcode.gif") no-repeat 8px 15px; }
 
+.content .register form .input-area li .code { margin-top: 3px; height: 40px; line-height: 40px; display: inline-block; width: 100px; text-align: center; border: 1px solid #f45f03; background: #f45f03; color: #fff; font-size: 14px; font-weight: bold; margin-left: -5px; }
+
 .content .register form .input-area li .password { background: #fff url("../img/login/hint_password.gif") no-repeat 8px 15px; }
 
 .content .register form .input-area li .confirm { background: #fff url("../img/login/hint_password2.gif") no-repeat 8px 15px; }

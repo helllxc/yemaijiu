@@ -27,20 +27,37 @@
                 carList = JSON.parse(arr[1]);
             }
         }
-//            ...........................若存在cookie则改变右侧购物车的信息..........
+//            ...........................若存在cookie则改变右侧和顶部购物车的信息..........
         if(carList == undefined||carList.length==0){
             carList = [];
         }else{
+            //顶部购物车信息更新
+            $('<span class="count"></span>').appendTo('.center_right .shopcart');
+            $('<div class="shopcart-list"></div>').appendTo(('.center_right .shopcart'));
+
+            //右侧购物车信息更新
             $('.shopcart-list .empty').remove();
-            $('<h2></h2>').html('最近加入').appendTo($('.shopcart-list'));
+            console.log($('.ym-nBar-cart-txt'))
+            $('<h2></h2>').html('最近加入').appendTo($('.ym-nBar-tab-cart .shopcart-list'));
             $('<ul/>').appendTo($('.shopcart-list'));
+
+            // ..................生成HTML结构.....................
             var $sum = 0;
             $.each(carList,function(idx,ele){
-                $('<li data-guid="'+ele.guid+'""></li>').html('<a href="javacript;"><img src="'+ele.imgUrl+'"><span class="name">'+ele.name+'</span><span class="en">'+ele.ename+'</span><span class="price"><strong>'+ele.price+'</strong> × <em>'+ele.qty+'</em></span></a>').appendTo($('.shopcart-list ul'))
+                $('<li data-guid="'+ele.guid+'""></li>').html('<a href="javacript;"><img src="'+ele.imgUrl+'"><span class="name">'+ele.name+'</span><span class="en">'+ele.ename+'</span><span class="price"><strong>'+ele.price+'</strong> × <em>'+ele.qty+'</em></span></a><a class="btn-remove"></a>').appendTo($('.shopcart-list ul'))
                 $sum = $sum + (ele.qty-0);
             })
-            $('.ym-nBar-cart-num em').html($sum)
+            //获取并改变总商品数
+            $('.ym-nBar-cart-num em').html($sum);
+            $('.shopcart .count').html($sum);
         }
+
+        //顶部购物车hover效果
+        $('.shopcart  .btn-shopcart').hover(function(){
+            $(this).closest('div').find('.shopcart-list').show();
+        },function(){
+            $(this).closest('div').find('.shopcart-list').hide();
+        })
 
         // .....................头部导航栏操作.....................
         //对categorys hover 效果(dl出现,箭头向上)
@@ -161,11 +178,13 @@
         $('.wineNum .prev').on("click",function(){
             var $value = $(this).next('input').attr('value');
             if($value!=1){
+                //商品数--
                 $(this).next('input').attr('value',$value-1);
             }
         })
         $('.wineNum .next').on("click",function(){
             var $value = $(this).prev('input').attr('value');
+            //商品数++
             $(this).prev('input').attr('value',($value-0)+1);
         })
 
@@ -177,6 +196,7 @@
             var $number = $('.wineNum  input').attr('value')-0;
             $('.ym-nBar-cart-num em').html($number+($num-0))
 
+            //获取并添加cookie信息
             var $li = $(this).closest('li')
             var $img =  $li.find('img').clone();
             //获取小图路径
@@ -223,13 +243,21 @@
             //购物车提示信息清空
             if( $('.shopcart-list .empty')[0]!==undefined){
                 $('.shopcart-list .empty').remove();
+
+                //在顶部购物车添加span 和 shopcart-list
+                $('<span class="count"></span>').html($index+($num-0)).appendTo('.center_right .shopcart');
+                $('<div class="shopcart-list"></div>').appendTo(('.center_right .shopcart'))
+                //在右侧购物车添加节点
                 $('<h2></h2>').html('最近加入').appendTo($('.shopcart-list'));
                 $('<ul/>').html('<li data-guid="1"><a href="javacript;"><img src="'+$src+'"><span class="name">拉昂城堡干红葡萄酒</span><span class="en">La Bastide Laurent</span><span class="price"><strong>'+$('.promotion_price .price em').html()+'</strong> × <em>'+$('.wineNum  input').attr('value')+'</em></span></a></li>').appendTo($('.shopcart-list'));
             }else{
+                //获取价格
                 var index =$('.shopcart-list .price em').html();
                 //修改产品个数
                 $('.shopcart-list .price em').html((index-0)+($('.wineNum  input').attr('value')-0))
             }
+            //顶部购物车总数和右侧购物车总数相等
+            $('.shopcart .count').html( $('.ym-nBar-cart-num em').html());
         });
         //点击右侧购物车弹出信息
         $('.ym-nBar-tab-cart').hover(function(){
