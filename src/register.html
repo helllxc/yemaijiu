@@ -3,8 +3,64 @@
 <head>
 	<meta charset="UTF-8">
 	<title>注册页面</title>
-	<link rel="stylesheet" href="../css/register.css">
-	<script src="../js/require.js" data-main="../js/register.js"></script>
+	<link rel="stylesheet" href="css/register.css">
+	<script src = 'js/jquery-3.1.1.js'></script>
+	<script>
+        $(function(){
+            //最后一个checkbox默认勾上
+            $(':checkbox')[1].checked = true;
+            //遍历获取class属性
+			var arr = []
+            $('input:lt(5)').each(function(idx,item){
+                arr.push($(item).attr("class"))
+			})
+            //当input获得焦点和失去焦点时，class改变;
+			$('input:lt(5)').on('focus',function(){
+				$('input:lt(5)').each(function(idx,item){
+				    if($(item).val()==''){
+                        $(item).attr("class",arr[idx]);
+					}else{
+                        $(item).attr("class",'testing');
+					}
+				})
+				$(this).attr("class","active");
+                if($(this).closest('li').index()==0) {
+                    $(this).next().show();
+                }
+			}).on('blur',function(idx,item){
+			    if($(this).val()=='') {
+                    var $idx = $(this).index();
+                    $(this).attr("class",arr[$idx]);
+                	}else{
+			        	$(this).attr('class','texzting')
+					}
+				})
+
+			//监听输入的值改变提示
+			$('#phone').on('keyup',function () {
+				var $val = $(this).val();
+				var reg = /^1[34578]\d{9}$/;
+				if($val==''){
+                    $('#phone .error_hint span').html('请输入手机号')
+				}else if(!reg.test($val)){
+                    $('#phone .error_hint span').html('请输入正确的手机号码')
+                    $('#phone .error_hint').show()
+				}else{
+                    $('#phone .error_hint').hide();
+				}
+            })
+			$('#password').on('blur',function () {
+				var $val = $(this).val();
+				var reg = /[0-9a-zA-Z]{6,16}/;
+				if(!reg.test($val)){
+                    $(this).next('div').show();
+				}else{
+                    $(this).next('div').hide();
+				}
+            })
+		})
+	</script>
+
 </head>
 <body>
 	<div class="logo">
@@ -32,28 +88,26 @@
 							<div class="error_hint"><span>请输入手机号</span></div>
 						</li>
 						<li>
-							<label for="idenity">验证码:</label>
+							<label for="phone">验证码:</label>
 							<input type = 'text' id="idenity" class="idenity">
-							<span class="code"></span>
-							<div class="error_hint"><span>请输入验证码</span></div>
 						</li>
 						<li>
-							<label for="message">短信验证:</label>
+							<label for="phone">短信验证:</label>
 							<input type = 'text' id="message" class = 'idenity'>
 							<span class="text">获取短信验证码</span>
 						</li>
 						<li>
-							<label for="password">密码:</label>
+							<label for="phone">密码:</label>
 							<input type = 'password' id="password" name="password"  class = 'password'>
 							<div class="error_hint">
-								<span>请输入密码</span>
+								<span>密码请设为6-16位字母或数字</span>
 							</div>
 						</li>
 						<li>
-							<label for="confirm">密码确认:</label>
+							<label for="phone">密码确认:</label>
 							<input type = 'password' id="confirm" name="confirm"  class = 'confirm'>
 							<div class="error_hint">
-								<span>请输入密码</span>
+								<span>密码请设为6-16位字母或数字</span>
 							</div>
 						</li>
 						<li >
@@ -66,14 +120,11 @@
 							<label for="" class = 'accept'>
 								<input type = 'checkbox' name="confirm"  class = 'vip'>
 								<span>我已满18周岁并接受</span><a href="">《也买酒服务条款》</a>
-								<div class="error_hint">
-									<span>请接受Yesmywine服务条款</span>
-								</div>
 							</label>
 
 						</li>
 						<li >
-							<button type="button" class = 'register_btn'>注册完成</button>
+							<a href="#" class = 'register_btn'>注册完成</a>
 						</li>
 					</ul>
 				</form>

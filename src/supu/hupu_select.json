@@ -1,0 +1,11 @@
+[{
+  "style":[
+    {"topic":"商品品牌","content":["大王GOO.N","好奇Huggies","妈咪宝贝Mamypoko","尤妮佳moony","帮宝适Pampers","花王Merries","露安适Lelch","泰迪熊Teddy Bear","爱婴乐","爱婴舒坦BioFities","班博BAMBO","酷比奇"]},
+    {"topic":"包装方式","content":["袋装","箱装"]},
+    {"topic":"产地","content":["中国","日本","丹麦","台湾","德国","美国"]},
+    {"topic":"经营模式","content":["速普自营","速普保税区"]},
+    {"topic":"适用体重","content":["6-11kg","5-10kg","7-11kg","10-15kg","5-9kg"]}
+  ],
+  "main":[{"topic":"排序：","content":["销量 ↓","价格 ↓","好评 ↓"]}
+  ]
+}]

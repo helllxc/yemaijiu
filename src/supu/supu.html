@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>supu商品页</title>
+    <link rel="stylesheet" href="supu.css">
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+
+            var carList;
+            var cookies = document.cookie.split('; ');
+            for(var i=0;i<cookies.length;i++){
+                var arr = cookies[i].split('=');
+                if(arr[0] === 'carlist'){
+                    carList = JSON.parse(arr[1]);
+                }
+            }
+//            ...........................若存在cookie则改变顶部和右侧购物车的信息..........
+            if(carList == undefined||carList.length==0){
+                carList = [];
+            }else{
+                //右侧购物车信息更新
+                var $sum = 0;
+                $.each(carList,function(idx,ele){
+                    $sum = $sum + (ele.qty-0);
+                })
+                $('.ym-nBar-cart-num em').html($sum);
+            }
+            // ................利用json生成HTML结构.............
+            $.getJSON("hupu_select.json",function(data){
+                $.each(data,function (idx,ele) {
+                    $.each(ele.style,function(i,item){
+                        $('<div class="choose_libox fl"></div>').html('<div class="label left">'+item.topic+'</div><div class="choosen_tagbox"></divclas>').appendTo($('.choosen_ulbox'));
+                        $.each(item.content,function(index,_item){
+                            $('<a/>').html(_item).appendTo($('.choosen_tagbox').eq(i));
+                        })
+                    })
+                    $.each(ele.main,function(i,item){
+                        $('<div class="choose_box_bottom fl clearfix"></div>').html('<div class="choose_title">'+item.topic+'</div><div class="choose_item"></div>').appendTo($('.main_right'));
+                        $.each(item.content,function(index,_item){
+                            $('<a/>').html(_item).appendTo($('.choose_item'))
+                        })
+                    })
+                })
+            })
+            // ..................利用ajax请求第一页数据............
+            $('<div class="goodslist"></div>').html('<ul></ul>').appendTo($('.main_right'));
+            $.post('supu.php',{page:1},function(response){
+                $.each(JSON.parse(response),function(idx,item){
+                    $('<li data-guid="'+item.id+'"></li>').html('<div class="ac-list left"><div class="pic"><a href=""><img src="'+item.src+'" alt=""><div></div></a></div><div class="name"><a href="">'+item.name+'</a></div><div class="price"><div class="new-price left">￥<span>'+item.new_price+'</span></div><div class="old-price left">'+item.old_price+'</div></div><div class="addbox"><div class="sumbox"><input type="text" value="1"><a href="" class="add">+</a><a href="" class="reduce">-</a></div><a href="" class="addcart"><span>加入购物车</span></a><a href="" class="collect"></a></div></div>').appendTo($('.goodslist ul'))
+                })
+                $('.add').click(function(){
+                    var $value = $(this).prev('input').attr('value');
+                    $(this).prev('input').attr('value',($value-0)+1);
+                })
+                $('.reduce').click(function () {
+                    var $value = $(this).next('input').attr('value');
+                    if($value!=1){
+                        $(this).next('input').attr('value',$value-1);
+                    }
+                })
+            })
+
+            function addCookies(){
+                var $index = 0;
+                $('.addcart').on('click',function(){
+                    $index++;
+                    var $num = $('.ym-nBar-cart-num em').html();
+                    if($index==1){
+                        $('.ym-nBar-cart-num em').html($index+($num-0))
+                    }else{
+                        var $number = $('.ym-nBar-cart-num em').html();
+                        $('.ym-nBar-cart-num em').html($number-0+1)
+                    }
+
+                    var $li = $(this).closest('li')
+
+                    // 先创建一个对象保存当前商品信息
+                    var goodsObj = {};
+                    goodsObj.guid = currentGUID;
+                    goodsObj.qty = $li.find('input').html()-0;
+                    goodsObj.price = $li.find('.newprice span').html();
+
+                    // 如果cookie为空，则直接添加
+                    if(carList.length===0){
+                        // 添加到carList
+                        carList.push(goodsObj);
+                    }else{
+                        // 先判断cookie中有无相同的guid商品
+                        for(var i=0;i<carList.length;i++){
+                            // 如果商品已经存在cookie中，则数量+1
+                            if(carList[i].guid === currentGUID){
+                                carList[i].qty++;
+                                break;
+                            }
+                        }
+
+                        // 如果原cookie中没有当前商品
+                        if(i===carList.length){
+                            // 添加到carList
+                            carList.push(goodsObj);
+                        }
+
+                    }
+                    // 存入cookie
+                    // 把对象/数组转换诚json字符串：JSON.stringify()
+                    document.cookie = 'carlist=' + JSON.stringify(carList);
+
+                    // ........................点击加入购物车，该商品图片飞入购物车............................
+                    var $img =  $(this).closest('li').find('img').clone();
+                    $img.css({'position':'absolute',"top":"20px","z-index":"100"}).appendTo($(this).closest('li').find('.pic'));
+                    $img.animate({"width":"60","height":"98","top":$('.ym-nBar-tab-cart').offset().top-$img.offset().top,"left":$('.ym-nBar-tab-cart').offset().left-$img.offset().left},1000);
+
+//                    ...............点击加入购物车，右侧的购物车信息更新.....................
+                    //延迟执行变化
+                    setTimeout(function(){
+                        $index++;
+                        $img.remove();
+                        var $num = $('.ym-nBar-cart-num em').html();
+                        if($index==1){
+                            $('.ym-nBar-cart-num em').html($index+($num-0))
+                        }else{
+                            var $number = $('.ym-nBar-cart-num em').html();
+                            $('.ym-nBar-cart-num em').html($number-0+1)
+                        }
+
+                        //购物车提示信息清空
+                        if( $('.shopcart-list .empty')[0]!==undefined){
+                            //移除空购物车信息
+                            $('.shopcart-list .empty').remove();
+
+                            //在顶部购物车添加span 和 shopcart-list
+                            $('<span class="count"></span>').html($index+($num-0)).appendTo('.center_right .shopcart');
+                            $('<div class="shopcart-list"></div>').appendTo(('.center_right .shopcart'))
+
+                            //右侧购物车添加元素
+                            $('<h2></h2>').html('最近加入').appendTo($('.ym-nBar-tab-cart .shopcart-list'));
+                            $('<ul/>').html('<li data-guid="'+$li.attr('data-guid')+'"><a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a><a class="btn-remove"></a></li>').appendTo($('.shopcart-list'));
+                        }else{
+                            var bol;
+                            //添加到两个购物车里
+                            $('.shopcart-list ul li').each(function(idx,item){
+                                if($(item).attr('data-guid')==$li.attr('data-guid')){
+                                    var index = $(item).find('.price em').html();
+                                    //修改产品个数
+                                    $(item).find('.price em').html((index-0)+1)
+                                    bol = true
+                                }
+                            })
+                            if(!bol){
+                                $('<li data-guid="'+$li.attr('data-guid')+'""></li>').html('<a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a><a class="btn-remove"></a>').appendTo($('.shopcart-list ul'))
+                            }
+                        }
+                        //顶部购物车总数和右侧购物车总数相等
+                        $('.shopcart .count').html( $('.ym-nBar-cart-num em').html());
+                    },1000)
+
+
+//                    ...............点击加入购物车，右侧的购物车信息更新.....................
+
+                    //购物车提示信息清空
+                    if( $('.shopcart-list .empty')[0]!==undefined){
+                        //移除空购物车信息
+                        $('.shopcart-list .empty').remove();
+
+                        //在顶部购物车添加span 和 shopcart-list
+                        $('<span class="count"></span>').html($index+($num-0)).appendTo('.center_right .shopcart');
+                        $('<div class="shopcart-list"></div>').appendTo(('.center_right .shopcart'))
+
+                        //右侧购物车添加元素
+                        $('<h2></h2>').html('最近加入').appendTo($('.ym-nBar-tab-cart .shopcart-list'));
+                        $('<ul/>').html('<li data-guid="'+$li.attr('data-guid')+'"><a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a><a class="btn-remove"></a><a class="btn-remove"></a></li>').appendTo($('.shopcart-list'));
+                    }else{
+                        var bol;
+                        //添加到两个购物车里
+                        $('.shopcart-list ul li').each(function(idx,item){
+                            if($(item).attr('data-guid')==$li.attr('data-guid')){
+                                var index = $(item).find('.price em').html();
+                                //修改产品个数
+                                $(item).find('.price em').html((index-0)+1)
+                                bol = true
+                            }
+                        })
+                        if(!bol){
+                            $('<li data-guid="'+$li.attr('data-guid')+'""></li>').html('<a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a><a class="btn-remove"></a>').appendTo($('.shopcart-list ul'))
+                        }
+                    }
+
+
+
+                })
+            }
+
+            //点击分页
+            $('.pagination-pages').on("click",'span',function(){
+              $('.goodslist ul').empty();
+              $.post('supu.php',{page:$(this).html()},function(response){
+                  $.each(JSON.parse(response),function(idx,item){
+                      $('<li/>').html('<div class="ac-list left"><div class="pic"><a href=""><img src="'+item.src+'" alt=""><div></div></a></div><div class="name"><a href="">'+item.name+'</a></div><div class="price"><div class="new-price left"><span>'+item.new_price+'</span></div><div class="old-price left">'+item.old_price+'</div></div><div class="addbox"><div class="sumbox"><input type="text" value="1"><a href="" class="add">+</a><a href="" class="reduce">-</a></div><a href="" class="addcart"><span>加入购物车</span></a><a href="" class="collect"></a></div></div>').appendTo($('.goodslist ul'))
+                  })
+              })
+          })
+
+        })
+    </script>
+</head>
+<body>
+<div class="swap clearfix">
+    <div class="breadcrumbs">
+        <a href="/">首页</a> &gt;
+        <a href="#">尿裤湿巾</a> &gt;
+        <a href="javascript:" id="t_list"></a>
+    </div>
+    <div class="main_left clearfix">
+        <div class="category">
+            <div class="name">
+                    <span>
+                        <div>婴儿尿裤</div>
+                    </span>
+            </div>
+            <div class="size">
+                <ul>
+                    <li><a href="">中号（M）</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main_right clearfix">
+        <div class="choose">
+            <div class="have"></div>
+            <div class="choosen_ulbox"></div>
+        </div>
+        <div class=" fr"></div>
+    </div>
+    <!--<div class="nav_right" style="height: 328px;">-->
+        <!--<ul>-->
+            <!--<li><a href="" target="_blank"><i class="lnr lnr-user"></i><span style="left: 60px;">&nbsp;&nbsp;我的速普&nbsp;&nbsp;</span></a></li>-->
+            <!--<li><a href="" target="_blank"><i class="lnr lnr-heart"></i><span>&nbsp;&nbsp;我的收藏&nbsp;&nbsp;</span></a></li>-->
+            <!--<li><a href="" target="_blank"><i class="lnr lnr-smile"></i><span>&nbsp;&nbsp;在线客服&nbsp;&nbsp;</span></a></li>-->
+            <!--<li id="end"><a href="" target="_blank"><i class="lnr lnr-cart"></i><span>&nbsp;&nbsp;购物车&nbsp;&nbsp;</span></a><div class="cart_count">0</div></li>-->
+            <!--&lt;!&ndash;<li><a href="javascript:void(0)" onclick="javascript:window.open('http://crm2.qq.com/page/portalpage/wpa.php?uin=4006180055&f=1&ty=1&aty=0&a=&from=6','','height=400,width=600,top=200,left=300,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no')"><i class="lnr lnr-smile"></i><span>&nbsp;&nbsp;在线客服&nbsp;&nbsp;</span></a></li>&ndash;&gt;-->
+            <!--<li class="scroll_top"><i class="lnr lnr-chevron-up-circle"></i><span>&nbsp;&nbsp;返回顶部&nbsp;&nbsp;</span></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <div class="pagination-pages right"><span class="page-first">首页</span><a href="" class="current disabled">1</a><span  class="page-wrap">2</span><span class="page-next">下一页</span></div>
+</div>
+<div class="bar">
+    <div class="tabs">
+        <div class="ym-nBar-tab ym-nBar-tab-user">
+            <div class="ym-nBar-user-header">
+                <img src="http://imgblog.yesmyimg.com/microblog/images/headerDefault.jpg" alt="" class="responsive">
+            </div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-cart">
+            <a href="shopping-cart.html" target="_blank">
+                <div class="ym-nBar-cart-logo"></div>
+                <div class="ym-nBar-cart-txt">购物车</div>
+                <div class="ym-nBar-cart-num"><em>0</em></div>
+            </a>
+            <div class="ym-nBar-pop">
+                <div class="ym-nBar-pop-icon">◆</div>
+                <div class="shopcart-list"><div class="empty">您的购物车里没有任何商品，赶快去挑选商品吧！</div></div>
+            </div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-asset" style="top: 368.2px;">
+            <a href="#">
+                <div class="ym-nBar-asset-logo"></div>
+            </a>
+            <div class="ym-nBar-pop ym-nBar-pop-tip">
+                我的资产
+                <div class="ym-nBar-pop-icon">◆</div>
+            </div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-charge" style="top: 403.2px;">
+            <a href="#">
+                <div class="ym-nBar-charge-logo"></div>
+            </a>
+            <div class="ym-nBar-pop ym-nBar-pop-tip">
+                账户充值
+                <div class="ym-nBar-pop-icon">◆</div>
+            </div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-chat" style="top: 438.2px;">
+            <div class="ym-nBar-chat-logo"></div>
+        </div>
+        <div class="ym-nBar-tab ym-nBar-tab-valid" style="top: 473.2px;">
+            <div class="ym-nBar-valid-logo"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
