@@ -20,11 +20,10 @@ gulp.task('buildSass',function(){
 
 });
 
-
 // 监听sass文件
 gulp.task('jtSass',function(){
 	// 监听文件，当文件有修改时，执行buildSass任务
-	gulp.watch('src/sass/*.scss',['buildSass']);
+	gulp.watch('src/sass/*.scss',['buildSass'])
 })
 
 //创建任务（执行任务）

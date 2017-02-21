@@ -2,7 +2,7 @@
  * Created by ASUS on 2017/2/6.
  */
 define(['js/config.js'],function(){
-    requirejs(['jquery','homepage','countdown','shuffling','carousel'],function($,hp,cd,s,ca){
+    requirejs(['jquery','homepage','countdown','shuffling','carousel'],function($){
         $.post('php/confirm.php',function(response){
             var $obj = eval('('+response+')');
             if($obj.state){

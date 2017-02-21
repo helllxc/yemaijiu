@@ -6,14 +6,10 @@
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="assets/jquery-Shuffling/ShufflingfFigure.css">
     <link rel="stylesheet" href="assets/jquery-Carousel/jquery-Carousel.css">
-    <!--<script src = 'supu/jquery-3.1.1.js'></script>-->
-    <!--<script src="js/jquery-Shuffling/ShufflingFigure.js"></script>-->
-    <!--<script src="js/jquery-Carousel/jquery-Carousel.js"></script>-->
-    <!--<script src ="js/jquery-Countdown/jquey-Countdown.js"></script>-->
-    <!--<script src="js/homepage.js"></script>-->
     <script src="js/require.js" data-main="js/homepage.js"></script>
+    <script src="assets/angular.js"></script>
 </head>
-<body>
+<body ng-app="myApp">
     <div class="header">
         <div class="header_top clearfix">
             <div class="swap">
@@ -646,25 +642,25 @@
                             </ul>
                         </div>
                        <div class="bd">
-                        <div id="notices" class="notice-lists">
+                        <div id="notices" class="notice-lists" ng-controller="switchCtrl">
                             <h3 class="clearfix" >
-                                <span class="first on"><a href="/news/listnews_3_1.html" target="_blank" title="促销活动">促销活动</a></span>
-                                <span class=""><a href="/news/listnews_1_1.html" target="_blank" title="最新公告">最新公告</a></span>
-                                <span class=""><a href="/news/listnews_2_1.html" target="_blank" title="媒体聚焦">媒体聚焦</a></span>
+                                <span ng-class="span1?'first on':'first'" ng-click="show(1)"><a href="javascript:;" title="促销活动">促销活动</a></span>
+                                <span ng-class="span2?'on':''" ng-click="show(2)"><a href="javascript:;"  title="最新公告">最新公告</a></span>
+                                <span ng-class="span3?'on':''" ng-click="show(3)"><a href="javascript:;"  title="媒体聚焦">媒体聚焦</a></span>
                             </h3>
-                            <ul class="clearfix on" data-dts="IA.8.1">
+                            <ul ng-class="page1?'clearfix on':'clearfix'">
                                 <li>• <a href="/news/shownews_14778.html" target="_blank" title="【双11】电影折扣券已发放">【双11】电影折扣券已发放</a></li>
                                 <li>• <a href="/news/shownews_14479.html" target="_blank" title="也买酒线下新店开业满200减100">也买酒线下新店开业满200减100</a></li>
                                 <li>• <a href="/news/shownews_14319.html" target="_blank" title="尖叫系列，汇聚全球鼎级佳酿，奢华大牌应有尽有！">尖叫系列，汇聚全球鼎级佳酿，奢华大牌应有尽有！</a></li>
                                 <li>• <a href="/news/shownews_14300.html" target="_blank" title="2016醉美薄若莱，现货到港，全球同步销售">2016醉美薄若莱，现货到港，全球同步销售</a></li>
                                 </ul>
-                            <ul class="clearfix" data-dts="IA.8.2">
+                            <ul ng-class="page2?'clearfix on':'clearfix'">
                                 <li>• <a href="/news/shownews_14939.html" target="_blank" title="2017也买酒春节配送安排通知">2017也买酒春节配送安排通知</a></li>
                                 <li>• <a href="/news/shownews_14938.html" target="_blank" title="二手交易市场服务费调整通知">二手交易市场服务费调整通知</a></li>
                                 <li>• <a href="/news/shownews_14918.html" target="_blank" title="400客服热线工作时间调整通知">400客服热线工作时间调整通知</a></li>
                                 <li>• <a href="/news/shownews_14899.html" target="_blank" title="2017元旦配送安排">2017元旦配送安排</a></li>
                                 </ul>
-                            <ul class="clearfix" data-dts="IA.8.3">
+                            <ul ng-class="page3?'clearfix on':'clearfix'">
                                 <li>• <a href="/news/shownews_13919.html" target="_blank" title="James Suckling TOP 5 Picks 七大产地 最佳TOP5期酒推荐">James Suckling TOP 5 Picks 七大产地 最佳TOP5期酒推荐</a></li>
                                 <li>• <a href="/news/shownews_13879.html" target="_blank" title="2014年是属于波尔多左岸的一年  2015-4-02">2014年是属于波尔多左岸的一年  2015-4-02</a></li>
                                 <li>• <a href="/news/shownews_13858.html" target="_blank" title="右岸不容小觑，600款2014年葡萄酒分数首发 2015-3-27">右岸不容小觑，600款2014年葡萄酒分数首发 2015-3-27</a></li>
@@ -1675,4 +1671,38 @@
     </div>
     <div class="footer swap left"></div>
 </body>
+    <script>
+        angular.module('myApp',[]).controller('switchCtrl',['$scope',function($scope){
+            $scope.page1 = true;
+            $scope.page2 = false;
+            $scope.page3 = false;
+            $scope.span1 = true;
+            $scope.span2 = false;
+            $scope.span3 = false;
+            $scope.show = function (index) {
+                if(index==1){
+                    $scope.page1 = true;
+                    $scope.page2 = false;
+                    $scope.page3 = false;
+                    $scope.span1 = true;
+                    $scope.span2 = false;
+                    $scope.span3 = false;
+                }else if(index==2){
+                    $scope.page1 = false;
+                    $scope.page2 = true;
+                    $scope.page3 = false;
+                    $scope.span1 = false;
+                    $scope.span2 = true;
+                    $scope.span3 = false;
+                }else{
+                    $scope.page1 = false;
+                    $scope.page2 = false;
+                    $scope.page3 = true;
+                    $scope.span1 = false;
+                    $scope.span2 = false;
+                    $scope.span3 = true;
+                }
+            }
+        }])
+    </script>
 </html>

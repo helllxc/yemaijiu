@@ -19,7 +19,7 @@ define(['../js/config.js'],function () {
                 }
             })
 
-            //................点击退出手动刷新页面..................................
+            //................点击退出自动刷新页面..................................
             $('.txt-logout').click(function(){
                 $.post('../php/logout.php',function(data){
                     window.location.reload();

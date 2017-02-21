@@ -39,7 +39,6 @@ define(['../js/config.js'],function () {
 
                 //右侧购物车信息更新
                 $('.shopcart-list .empty').remove();
-                console.log($('.ym-nBar-cart-txt'))
                 $('<h2></h2>').html('最近加入').appendTo($('.ym-nBar-tab-cart .shopcart-list'));
                 $('<ul/>').appendTo($('.shopcart-list'));
                 var $sum = 0;
@@ -264,14 +263,13 @@ define(['../js/config.js'],function () {
                                 }
                             })
                             if(!bol){
-                                $('<li data-guid="'+$li.attr('data-guid')+'""></li>').html('<a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a><a class="btn-remove"></a>').appendTo($('.shopcart-list ul'))
+                                $('<li data-guid="'+$li.attr('data-guid')+'""></li>').html('<a href="javacript;"><img src="'+$src+'"><span class="name">'+$li.find('.cn').html()+'</span><span class="en">'+$li.find('.en').html()+'</span><span class="price"><strong>'+$li.find('.price strong').html()+'</strong> × <em>1</em></span></a><a class="btn-remove"></a>').appendTo($('.shopcart-list ul'));
                             }
                         }
                         //顶部购物车总数和右侧购物车总数相等
                         $('.shopcart .count').html( $('.ym-nBar-cart-num em').html());
                     },1000)
-                    console.log(carList)
-                    delgoods();
+
 
                     // .....................输入框旁的购物车操作...............
                     //hover效果(出现/消失)
@@ -282,12 +280,12 @@ define(['../js/config.js'],function () {
                     })
                 })
             }
+
             //点击右侧购物车的购物信息删除按钮，实现商品cookie的删除
             function delgoods(){
                 $('.btn-remove').on('click',function () {
                     $self = $(this);
-                    delCookies();
-
+                    delCookies()
                     //改变商品总量
                     console.log(($self.closest('li').find('.price em').html()))
                     $('.ym-nBar-cart-num em').html( $('.ym-nBar-cart-num em').html()-0-($self.closest('li').find('.price em').html()-0));
