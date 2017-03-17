@@ -1,7 +1,7 @@
 /**
  * Created by ASUS on 2017/2/6.
  */
-define(['js/config.js'],function(){
+requirejs(['js/config.js'],function(){
     requirejs(['jquery','homepage','countdown','shuffling','carousel'],function($){
         $.post('php/confirm.php',function(response){
             var $obj = eval('('+response+')');
@@ -27,7 +27,7 @@ define(['js/config.js'],function(){
 
             //生成轮播图，实现淡入淡出效果
 
-            $('.p_area ul').shuffling({imglist:["img/hmepage/20170106110542512.jpg","img/hmepage/3.jpg","img/hmepage/20170106190551736.jpg","img/hmepage/3.jpg","img/hmepage/1920.jpg","img/hmepage/20170104140301650.jpg","../img/hmepage/1.jpg","img/hmepage/20161220091848149.jpg","img/hmepage/20170116161443903.jpg"],width:1920,height:500,time:4000});
+            $('.p_area ul').shuffling({imglist:["http://img1.yesmyimg.com/2017/2/1/20170301160902433.jpg","img/hmepage/3.jpg","img/hmepage/20170106190551736.jpg","img/hmepage/3.jpg","img/hmepage/1920.jpg","img/hmepage/20170104140301650.jpg","../img/hmepage/1.jpg","img/hmepage/20161220091848149.jpg","img/hmepage/20170116161443903.jpg"],width:1920,height:500,time:4000});
 
             //生成brand轮播图
             var imglist = ['img/hmepage/brand1.jpg','img/hmepage/brand2.jpg','img/hmepage/brand3.jpg','img/hmepage/brand4.jpg','img/hmepage/brand5.jpg','img/hmepage/brand6.jpg']
@@ -155,7 +155,7 @@ define(['js/config.js'],function(){
                 })
             })
 
-            $.getJSON("jason/drink.json",function(data){
+            $.getJSON("jason/drink03.json",function(data){
                 $.each(data,function(idex,item){
                     $(".jk1").html('<div class="jk_header"><h2></h2><ul></ul></div><div class="jk_brand swap clearfix"><div class="jk_logo"><div class="brand"><ul></ul></div></div><div class="jk_main"><ul class="clearfix"></ul></div><div class="jk_logor"></div></div>');
                     $.each(item.wine,function(idx,_item){
